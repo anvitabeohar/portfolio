@@ -3,147 +3,213 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Custodians of Memory — Anvita Beohar</title>
-  <meta name="description" content="An immersive VR experience reimagining iconic paintings as explorable 3D worlds." />
+  <title>Custodians of Memory · Anvita Beohar</title>
+  <meta name="description" content="Case study: leading a 5-person team to build a VR experience that lets players step inside three iconic paintings." />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="../assets/icons/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/style.css" />
+  <script>document.documentElement.classList.add("js")</script>
 </head>
-<body>
+<body data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="nav">
-    <a class="nav__logo" href="../index.html" aria-label="Home"><img src="../assets/icons/logo.png" alt="अ." /></a>
-    <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    <nav class="nav__links">
-      <a href="../index.html">Home</a>
-      <a href="../projects.html" aria-current="page">Projects</a>
-      <a href="../contact.html">Contact</a>
-      <a href="../faq.html">FAQs</a>
-      <a href="../stack.html">Stack</a>
-      <a href="../resume.html">Resume</a>
+    <a class="nav__logo" href="../index.html"><img src="../assets/icons/logo-mark.png" alt="Anvita Beohar, home" width="38" height="24" /></a>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <a href="../projects.html" aria-current="page">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (PDF, opens in a new tab)</span></a>
+      <a class="btn btn--primary btn--sm" href="../contact.html">Let's talk</a>
     </nav>
   </header>
+  <div class="xp" aria-hidden="true"><div class="xp__fill"></div></div>
+  <main id="main">
+    <header class="cs-hero container">
+      <p class="eyebrow">LVL 01 · XR case study</p>
+      <h1 class="display">Custodians of Memory</h1>
+      <p class="lead">An immersive VR experience that lets players step inside three iconic paintings.</p>
+      <dl class="cs-meta">
+        <div><dt>Role</dt><dd>Project lead &amp; gameplay developer</dd></div>
+        <div><dt>Team</dt><dd>5, interdisciplinary</dd></div>
+        <div><dt>Platform</dt><dd>Unity (VR)</dd></div>
+        <div><dt>Year</dt><dd>2025</dd></div>
+      </dl>
+    </header>
 
-  <main class="case">
-    <article class="box case__main">
-      <header class="case__head">
-        <h1>Custodians of Memory</h1>
-        <p class="case__role">Project Manager and Gameplay Developer</p>
-        <span class="tag tag--blue">XR</span><span class="tag tag--blue">Game Design</span><span class="tag tag--blue">UI/UX</span>
-      </header>
-
+    <div class="container">
       <!-- Add more <img> tags here to turn this into a slideshow -->
-      <div class="carousel">
-        <img src="../assets/images/projects/vr.webp" alt="Visitor trying on the VR headset at the showcase" />
+      <div class="carousel vt-custodians">
+        <img src="../assets/images/projects/vr.webp" alt="A visitor putting on a VR headset at the Custodians of Memory showcase" />
         <button class="prev" aria-label="Previous image">‹</button>
         <button class="next" aria-label="Next image">›</button>
       </div>
 
       <!-- TODO: set the Preview link (e.g. a video or build) and remove "hidden" -->
-      <div class="case__preview" hidden><a class="btn-pixel" href="#" target="_blank" rel="noopener">Preview</a></div>
+      <div class="case__preview" hidden><a class="btn btn--secondary" href="#" target="_blank" rel="noopener">Watch the preview</a></div>
 
-      <div class="prose">
-        <h2>Custodians of Memory</h2>
-        <h3>An immersive VR experience reimagining iconic paintings as explorable 3D worlds</h3>
-        <p><b>Role:</b> Project Manager &amp; Gameplay Developer <b>Team:</b> 5 members, interdisciplinary <b>Platform:</b> Unity (VR)</p>
+      <section class="tldr reveal" aria-labelledby="tldr-title">
+        <p id="tldr-title" class="eyebrow tldr__label">TL;DR · 30-second read</p>
+        <div><h3>Problem</h3><p>Museum visitors view art from behind glass, with little sense of the story, technique or culture behind it.</p></div>
+        <div><h3>What I did</h3><p>Led a 5-person team, built the locomotion, interaction and transition systems in Unity, and owned integration of the shared project.</p></div>
+        <div><h3>Impact</h3><p>A working VR prototype across three paintings from India, Mexico and China. Showcase visitors called it “magical” and “immersive.”</p></div>
+      </section>
 
-        <h2>Project Overview</h2>
-        <p><b>The problem</b> Museum-goers typically engage with art passively viewing paintings behind glass, at a distance, with limited context about the story, technique, or culture behind the work. This creates a barrier between the artwork and the audience, especially for younger or less traditionally "museum-going" visitors.</p>
-        <p><b>The goal</b> Design and build a VR experience that lets players step <i>inside</i> iconic paintings, transforming static 2D artworks into interactive, explorable 3D environments - giving audiences an active, embodied way to discover the stories, techniques, and cultural contexts behind the art.</p>
-        <p><b>Paintings featured</b></p>
-        <ul>
-          <li><i>Damayanti</i> - Raja Ravi Varma (India)</li>
-          <li><i>Virginia's Fish</i> - Leonora Carrington (Mexico)</li>
-          <li><i>The Night Revels of Han Xizai</i> - Gu Hongzhong (China)</li>
-        </ul>
-        <p><b>My responsibilities</b></p>
-        <ul>
-          <li>Gameplay systems development (locomotion, interaction, transitions, optimization)</li>
-          <li>Project management across a 5-person team</li>
-          <li>Integration "gatekeeper" for the shared Unity project</li>
-          <li>Branding and showcase logistics</li>
-        </ul>
+      <div class="cs-body">
+        <nav class="toc" aria-label="On this page">
+          <p class="eyebrow">On this page</p>
+          <ol><li><a href="#context">Context</a></li><li><a href="#role">My role</a></li><li><a href="#challenge">The challenge</a></li><li><a href="#decisions">Key decisions</a></li><li><a href="#built">What we built</a></li><li><a href="#impact">Impact</a></li><li><a href="#reflection">Reflection</a></li></ol>
+        </nav>
 
-        <h2>The Challenge</h2>
-        <p>Moving beyond passive viewing meant solving three distinct problems at once:</p>
-        <ol>
-          <li><b>Translation</b>: converting flat, historical 2D paintings into spatially coherent, explorable 3D environments without losing artistic authenticity.</li>
-          <li><b>Interaction design</b>: building intuitive systems (locomotion, object grabbing, cues) that felt natural in VR for first-time users.</li>
-          <li><b>Team coordination</b> — managing a 5-person team with different skills, schedules, and tools under a tight deadline, including a Unity project structure that made parallel collaboration difficult.</li>
-        </ol>
+        <article class="prose">
+          <section id="context">
+            <h2>Context</h2>
+            <p>Museum-goers usually engage with art passively: behind glass, at a distance, with limited context about the story, technique or culture behind the work. That creates a barrier between the artwork and its audience, especially for younger and less traditionally “museum-going” visitors.</p>
+            <p><b>The goal:</b> let players step <i>inside</i> iconic paintings, turning static 2D artworks into explorable 3D environments where they discover the stories, techniques and cultural contexts behind the art.</p>
+            <p>We scored candidate paintings on visual richness, narrative depth and feasibility as a 3D environment, and chose three culturally distinct pieces:</p>
+            <ul>
+              <li><i>Damayanti</i> by Raja Ravi Varma (India)</li>
+              <li><i>Virginia's Fish</i> by Leonora Carrington (Mexico)</li>
+              <li><i>The Night Revels of Han Xizai</i> by Gu Hongzhong (China)</li>
+            </ul>
+          </section>
 
-        <h2>Design &amp; Development Process</h2>
-        <h3>1. Research &amp; Selection</h3>
-        <p>Evaluated candidate paintings against three criteria: visual richness, narrative depth, and feasibility as a 3D environment. This grounded the final selection of three culturally distinct, visually strong pieces from India, Mexico, and China.</p>
-        <h3>2. Design &amp; Implementation</h3>
-        <ul>
-          <li><b>Locomotion framework</b> - built an anchor-based teleportation system alongside continuous movement, giving players a comfortable, flexible way to navigate each scene.</li>
-          <li><b>Core interactions</b> - object grabbing, scene transitions, and haptic feedback cues designed to feel intuitive without instructions.</li>
-          <li><b>Discovery-first cues</b> - subtle interaction prompts introduced to guide players without breaking the sense of exploration.</li>
-          <li><b>Scene transitions</b> - particle-based loading screens for smooth movement between paintings.</li>
-          <li><b>Audio design</b> - tailored soundscapes built for each painting's specific cultural context.</li>
-          <li><b>Performance optimization</b> - baked lighting and unlit textures used to keep heavy assets performant without compromising visual authenticity.</li>
-        </ul>
-        <h3>3. Collaboration &amp; Workflow</h3>
-        <p>GitHub proved unworkable for large Unity binaries early on. In response, the team pivoted to a <b>sequential integration model</b> using Google Drive and WeTransfer, with me acting as the sole integrator into the master Unity project. This was paired with weekly supervisor meetings and internal check-ins to keep a 5-person team with varying schedules aligned.</p>
+          <section id="role">
+            <h2>My role</h2>
+            <ul>
+              <li><b>Gameplay systems:</b> locomotion, interaction, transitions and optimisation.</li>
+              <li><b>Project management</b> across a 5-person interdisciplinary team.</li>
+              <li><b>Integration “gatekeeper”</b> for the shared Unity project.</li>
+              <li><b>Branding and showcase logistics.</b></li>
+            </ul>
+          </section>
 
-        <h2>Outcome</h2>
-        <ul>
-          <li>A functioning VR prototype letting players explore three culturally significant paintings in immersive 3D.</li>
-          <li>Showcase visitors described the experience as <b>"magical"</b> and <b>"immersive,"</b> and expressed interest in seeing more artworks brought into VR.</li>
-          <li>Positive feedback on the concept's potential for museum and educational use.</li>
-          <li>Constructive feedback shaped concrete next-iteration plans: freer teleportation and AI-driven character interactions.</li>
-        </ul>
+          <section id="challenge">
+            <h2>The challenge</h2>
+            <p>Moving beyond passive viewing meant solving three problems at once:</p>
+            <ul>
+              <li><b>Translation:</b> turning flat, historical 2D paintings into spatially coherent 3D environments without losing artistic authenticity.</li>
+              <li><b>Interaction design:</b> building locomotion, object grabbing and cues that feel natural to first-time VR users.</li>
+              <li><b>Team coordination:</b> keeping a 5-person team with different skills, schedules and tools on track under a tight deadline, in a Unity project that made parallel work difficult.</li>
+            </ul>
+          </section>
 
-        <h2>Impact &amp; Learnings</h2>
-        <p><b>Technical</b> Deepened fluency in Unity VR workflows, C# scripting for scene transitions, asset/performance optimization, and haptic interaction design.</p>
-        <p><b>Managerial</b> Learned to coordinate an interdisciplinary team through workflow breakdowns, manage branding and showcase logistics end-to-end, and balance a leadership role with hands-on development.</p>
-        <p><b>Creative</b> Developed a sharper sense for preserving artistic authenticity while layering in interactivity treating the original artwork as source material to be respected, not just a backdrop.</p>
+          <section id="decisions">
+            <h2>Key decisions</h2>
+            <div class="decision reveal">
+              <h3>1. Two ways to move, so first-timers stay comfortable</h3>
+              <dl>
+                <dt>Decision</dt><dd>An anchor-based teleport system alongside continuous movement.</dd>
+                <dt>Why</dt><dd>First-time VR players need a comfortable default; confident players want freedom. Offering both let each player navigate every scene their way.</dd>
+                <dt>Next time</dt><dd>Showcase feedback asked for freer teleportation, which is planned for the next iteration.</dd>
+              </dl>
+            </div>
+            <div class="decision reveal">
+              <h3>2. Discovery over tutorials</h3>
+              <dl>
+                <dt>Decision</dt><dd>Subtle interaction prompts and haptic cues instead of an instruction screen.</dd>
+                <dt>Why</dt><dd>Instructions break the sense of exploration the experience depends on. Grabbing, scene transitions and haptic feedback were designed to feel intuitive without them.</dd>
+              </dl>
+            </div>
+            <div class="decision reveal">
+              <h3>3. One integrator when Git couldn't keep up</h3>
+              <dl>
+                <dt>Decision</dt><dd>A sequential integration model: teammates shared work through Google Drive and WeTransfer, and I merged everything into the master Unity project.</dd>
+                <dt>Why</dt><dd>GitHub proved unworkable for large Unity binaries. A single integrator, weekly supervisor meetings and internal check-ins kept a 5-person team with different schedules aligned.</dd>
+              </dl>
+            </div>
+          </section>
 
-        <h2>Next Steps</h2>
-        <ul>
-          <li>Expand to additional artworks and cultures beyond the initial three.</li>
-          <li>Implement conversational AI for characters living inside each painting.</li>
-          <li>Explore partnerships with museums and cultural institutions to develop the project into a deployable educational exhibit.</li>
-        </ul>
+          <section id="built">
+            <h2>What we built</h2>
+            <ul>
+              <li><b>Scene transitions:</b> particle-based loading screens for smooth movement between paintings.</li>
+              <li><b>Audio design:</b> soundscapes tailored to each painting's cultural context.</li>
+              <li><b>Performance:</b> baked lighting and unlit textures kept heavy assets performant without compromising visual authenticity.</li>
+            </ul>
+          </section>
+
+          <section id="impact">
+            <h2>Impact</h2>
+            <p class="quote">“Magical.” “Immersive.” <span class="muted" style="font-size:16px;font-weight:400">Showcase visitors</span></p>
+            <ul>
+              <li>A working VR prototype that lets players explore three culturally significant paintings in 3D.</li>
+              <li>Visitors asked to see more artworks brought into VR.</li>
+              <li>Positive feedback on the concept's potential for museums and education.</li>
+              <li>Feedback shaped concrete next steps: freer teleportation and AI-driven character interactions.</li>
+            </ul>
+          </section>
+
+          <section id="reflection">
+            <h2>Reflection</h2>
+            <p><b>Technical.</b> Deepened my fluency in Unity VR workflows, C# scripting for scene transitions, asset and performance optimisation, and haptic interaction design.</p>
+            <p><b>Leadership.</b> Learned to coordinate an interdisciplinary team through workflow breakdowns, run branding and showcase logistics end to end, and balance leading with hands-on development.</p>
+            <p><b>Creative.</b> Developed a sharper sense for preserving artistic authenticity while layering in interactivity, treating the original artwork as source material to respect, not just a backdrop.</p>
+            <h3>Next steps</h3>
+            <ul>
+              <li>Expand to more artworks and cultures beyond the first three.</li>
+              <li>Add conversational AI for characters living inside each painting.</li>
+              <li>Partner with museums and cultural institutions to turn the prototype into a deployable educational exhibit.</li>
+            </ul>
+          </section>
+        </article>
       </div>
-      <nav class="case__next"><a href="../projects.html">Vow ›</a></nav>
-    </article>
 
-    <aside class="case__side">
-      <a class="box box--link side-stack" href="../stack.html">
-        <div class="side-stack__grid">
-          <span><img src="../assets/images/stack/unity.png" alt="Unity" data-logo /></span>
-          <span><img src="../assets/images/stack/twine.png" alt="Twine" data-logo /></span>
-          <span><img src="../assets/images/stack/blender.png" alt="Blender" data-logo /></span>
-          <span><img src="../assets/images/stack/figma.png" alt="Figma" data-logo /></span>
+      <section class="level-complete reveal" aria-labelledby="lc-title">
+        <img class="pixelated" src="../assets/images/home/about-jump.png" alt="" />
+        <p class="eyebrow">Level 01 complete</p>
+        <h2 id="lc-title" class="h2">Thanks for playing.</h2>
+        <p>Next up: Asset Lifecycle Management at IBM. It's under NDA, so I walk through it live.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="mailto:anvitabeohar04@gmail.com?subject=Walkthrough%20request%3A%20IBM%20Asset%20Lifecycle%20Management">Request a walkthrough</a>
+          <a class="btn btn--secondary" href="../projects.html">All work</a>
         </div>
-        <p class="side-label">Stack</p>
-      </a>
-      <a class="box box--link side-next" href="../projects.html">
-        <img src="../assets/images/projects/cultura.webp" alt="Cultura" />
-        <p class="side-label">Cultura</p>
-      </a>
-    </aside>
+      </section>
+    </div>
   </main>
 
   <footer class="footer">
+    <section class="footer__cta" aria-labelledby="cta-title">
+      <p class="eyebrow">Player 2 has entered</p>
+      <h2 id="cta-title" class="h1">Hiring a product designer? Let's talk.</h2>
+      <p>Open to UX and product design roles in Bengaluru or remote.</p>
+      <div class="footer__actions">
+        <a class="btn btn--light" href="https://calendar.app.google/NNZUitaoG9RfVanL6" target="_blank" rel="noopener">Book a call<span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="btn btn--ghost-light" href="mailto:anvitabeohar04@gmail.com">Email me</a>
+        <a class="btn btn--ghost-light" href="https://www.linkedin.com/in/anvitabeohar/" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+    </section>
     <div class="footer__inner">
       <div>
-        <a class="footer__logo" href="../index.html"><img src="../assets/icons/logo-white.png" alt="अ." /></a>
-        <p class="footer__copy">Copyright © <span data-year>2025</span><br />All rights reserved.</p>
+        <a class="footer__logo" href="../index.html"><img src="../assets/icons/logo-mark-white.png" alt="Anvita Beohar, home" width="46" height="26" /></a>
+        <p class="footer__copy">© <span data-year>2026</span> Anvita Beohar. Designed and built by hand.</p>
+        <p class="footer__hint">Press <kbd>?</kbd> for keyboard shortcuts</p>
       </div>
-      <nav class="footer__links">
-      <a href="../index.html">Home</a>
-      <a href="../projects.html">Projects</a>
-      <a href="../contact.html">Contact</a>
-      <a href="../faq.html">FAQ</a>
-      <a href="../stack.html">Stack</a>
-      <a href="../resume.html">Resume</a>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="../projects.html">Work</a>
+        <a href="../about.html">About</a>
+        <a href="../speedrun.html">Speedrun</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens in a new tab)</span></a>
       </nav>
     </div>
   </footer>
+
+  <dialog class="shortcuts" id="shortcuts" aria-labelledby="shortcuts-title">
+    <h2 id="shortcuts-title">Controls</h2>
+    <dl>
+      <dt><kbd class="kbd">W</kbd></dt><dd>Work</dd>
+      <dt><kbd class="kbd">A</kbd></dt><dd>About</dd>
+      <dt><kbd class="kbd">R</kbd></dt><dd>Resume (PDF)</dd>
+      <dt><kbd class="kbd">S</kbd></dt><dd>Speedrun: the 60-second version</dd>
+      <dt><kbd class="kbd">C</kbd></dt><dd>Contact</dd>
+      <dt><kbd class="kbd">H</kbd></dt><dd>Home</dd>
+      <dt><kbd class="kbd">?</kbd></dt><dd>Show these controls</dd>
+    </dl>
+    <form method="dialog"><button class="btn btn--secondary btn--sm">Close</button></form>
+  </dialog>
 
   <script src="../js/main.js"></script>
 </body>

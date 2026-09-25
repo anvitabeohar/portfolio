@@ -7,22 +7,29 @@ as a plain HTML/CSS/JS site for GitHub Pages. No build step.
 
 | File | Page |
 |---|---|
-| `index.html` | Home: pixel-art hero with walking character, "Character unlocked" cards |
-| `projects.html` | Project cards |
-| `projects/custodians-of-memory.html` | Case study |
+| `index.html` | Home: hero, selected work, playground, "Character unlocked" cards |
+| `projects.html` | Work: all case studies and the playground |
+| `projects/custodians-of-memory.html` | Case study (the template for new ones) |
+| `about.html` | Bio, numbers, how I work, experience, education, skills, toolkit, FAQ |
+| `speedrun.html` | The 60-second version for hiring managers |
 | `contact.html` | Contact details and "Book a call" |
-| `faq.html` | FAQ accordion |
-| `stack.html` | Tools grid (hover a tile for its description) |
-| `resume.html` | Experience, education, and draggable falling skill chips |
 
-`css/style.css` holds all styles; `js/main.js` holds the menu, hover tooltips, FAQ, slideshow and skills physics.
+`css/style.css` starts with the design tokens (colours, type scale, spacing, shadows, motion).
+`js/main.js` holds the menu, scroll reveals, hover light, keyboard shortcuts (press `?`), count-ups,
+case-study progress bar and contents, FAQ, slideshow and skills physics.
 `js/vendor/matter.min.js` is [Matter.js](https://brm.io/matter-js/) 0.20.0 (MIT), used for the falling skills.
+
+## Accessibility
+
+- Text colours meet WCAG AA contrast. Bright orange (`--orange`) is for fills only; use `--orange-text` for orange text.
+- Skip link, visible focus rings, labelled navigation, and alt text on content images.
+- Everything respects the "reduce motion" setting.
 
 ## Editing
 
 - **Text:** edit the HTML file for that page.
-- **New project card:** copy an `<article class="pcard">` block in `projects.html`. Change it to `<a class="pcard" href="...">` to link it to a case study.
-- **New case study:** copy `projects/custodians-of-memory.html`. Add more `<img>` tags inside `.carousel` to get a slideshow.
+- **New project card:** case studies use `wcard` blocks, playground items use `pcard` blocks. Copy one in `projects.html` (and `index.html` if it should be on the home page).
+- **New case study:** copy `projects/custodians-of-memory.html` and keep its structure: TL;DR, context, role, key decisions, impact, reflection. Add more `<img>` tags inside `.carousel` to get a slideshow. Then change its card in `index.html` and `projects.html` from `<article>` to `<a href="...">`.
 - **Images:** see `assets/README.md` for what's still missing.
 
 ## Preview locally

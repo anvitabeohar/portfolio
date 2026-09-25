@@ -3,51 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Anvita Beohar</title>
-  <meta name="description" content="Portfolio of Anvita Beohar, UX designer." />
+  <title>Contact · Anvita Beohar</title>
+  <meta name="description" content="Anvita Beohar, UX designer at IBM. Enterprise AI tools, immersive tech, and product design." />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="assets/icons/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <script>document.documentElement.classList.add("js")</script>
 </head>
-<body>
+<body data-root="">
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="nav">
-    <a class="nav__logo" href="index.html" aria-label="Home"><img src="assets/icons/logo.png" alt="अ." /></a>
-    <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    <nav class="nav__links">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html" aria-current="page">Contact</a>
-      <a href="faq.html">FAQs</a>
-      <a href="stack.html">Stack</a>
-      <a href="resume.html">Resume</a>
+    <a class="nav__logo" href="index.html"><img src="assets/icons/logo-mark.png" alt="Anvita Beohar, home" width="38" height="24" /></a>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <a href="projects.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (PDF, opens in a new tab)</span></a>
+      <a class="btn btn--primary btn--sm" href="contact.html" aria-current="page">Let's talk</a>
     </nav>
   </header>
 
-  <main class="container">
-    <div class="contact-grid">
+  <main id="main" class="container">
+    <div class="contact-grid" data-stagger>
       <section class="box c-hello reveal">
         <div>
           <h1>Hi Visitor!</h1>
-          <p>Have a question, a project in mind ? or just want to say Hello.<br />Reach out! I would love to hear from you.</p>
+          <p>Have a question, a project in mind, or just want to say hello?<br />Reach out. I'd love to hear from you.</p>
         </div>
         <img class="pixelated" src="assets/images/home/avatar.png" alt="Pixel-art portrait of Anvita" />
       </section>
-      <section class="box c-info reveal">
+      <section class="box c-info reveal" aria-label="Contact details">
         <img class="c-info__phone pixelated" src="assets/images/home/contact-phone.png" alt="" />
         <div class="c-info__list">
-          <a href="mailto:beohartcd25@gmail.com"><img src="assets/icons/mail.png" alt="" />beohartcd25@gmail.com</a>
-          <a href="tel:+353899414115"><img src="assets/icons/phone.png" alt="" />+353 899414115</a>
-          <a href="https://www.linkedin.com/in/anvitabeohar" target="_blank" rel="noopener"><img src="assets/icons/linkedin.png" alt="" />Linkedin</a>
-          <a class="indent" href="tel:+917447526499">+91 7447526499</a>
+          <a href="mailto:anvitabeohar04@gmail.com"><img src="assets/icons/mail.png" alt="" />anvitabeohar04@gmail.com</a>
+          <a href="tel:+353899414115"><img src="assets/icons/phone.png" alt="" />+353 89 941 4115</a>
+          <a href="https://www.linkedin.com/in/anvitabeohar/" target="_blank" rel="noopener"><img src="assets/icons/linkedin.png" alt="" />LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="indent" href="tel:+917447526499">+91 74475 26499</a>
         </div>
       </section>
-      <a class="box box--link c-call reveal" href="https://calendar.app.google/NNZUitaoG9RfVanL6" target="_blank" rel="noopener">Book a call</a>
-      <a class="box box--link c-stack reveal" href="stack.html" data-tip="Stack"><div class="chips"><span>FIGMA</span><span>UNITY</span><span>ADOBE SUITE</span></div></a>
-      <a class="box box--link c-projects reveal" href="projects.html" data-tip="Projects">
+      <a class="box box--link c-call reveal" href="https://calendar.app.google/NNZUitaoG9RfVanL6" target="_blank" rel="noopener">Book a call<span class="sr-only"> (opens in a new tab)</span></a>
+      <a class="box box--link c-stack reveal" href="about.html#toolkit" data-tip="Toolkit" aria-label="Toolkit"><div class="chips" aria-hidden="true"><span>FIGMA</span><span>UNITY</span><span>ADOBE SUITE</span></div></a>
+      <a class="box box--link c-projects reveal" href="projects.html" data-tip="Work">
         <span>PROJECTS</span>
-        <div class="deck deck--small"><img class="pixelated" src="assets/images/home/card-4.png" alt="" /><img class="pixelated" src="assets/images/home/card-3.png" alt="" /><img class="pixelated" src="assets/images/home/card-2.png" alt="" /><img class="pixelated" src="assets/images/home/card-1.png" alt="" /></div>
+        <div class="deck deck--small" aria-hidden="true"><img class="pixelated" src="assets/images/home/card-4.png" alt="" /><img class="pixelated" src="assets/images/home/card-3.png" alt="" /><img class="pixelated" src="assets/images/home/card-2.png" alt="" /><img class="pixelated" src="assets/images/home/card-1.png" alt="" /></div>
       </a>
     </div>
   </main>
@@ -55,19 +56,33 @@
   <footer class="footer">
     <div class="footer__inner">
       <div>
-        <a class="footer__logo" href="index.html"><img src="assets/icons/logo-white.png" alt="अ." /></a>
-        <p class="footer__copy">Copyright © <span data-year>2025</span><br />All rights reserved.</p>
+        <a class="footer__logo" href="index.html"><img src="assets/icons/logo-mark-white.png" alt="Anvita Beohar, home" width="46" height="26" /></a>
+        <p class="footer__copy">© <span data-year>2026</span> Anvita Beohar. Designed and built by hand.</p>
+        <p class="footer__hint">Press <kbd>?</kbd> for keyboard shortcuts</p>
       </div>
-      <nav class="footer__links">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-      <a href="faq.html">FAQ</a>
-      <a href="stack.html">Stack</a>
-      <a href="resume.html">Resume</a>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="projects.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="speedrun.html">Speedrun</a>
+        <a href="contact.html">Contact</a>
+        <a href="assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens in a new tab)</span></a>
       </nav>
     </div>
   </footer>
+
+  <dialog class="shortcuts" id="shortcuts" aria-labelledby="shortcuts-title">
+    <h2 id="shortcuts-title">Controls</h2>
+    <dl>
+      <dt><kbd class="kbd">W</kbd></dt><dd>Work</dd>
+      <dt><kbd class="kbd">A</kbd></dt><dd>About</dd>
+      <dt><kbd class="kbd">R</kbd></dt><dd>Resume (PDF)</dd>
+      <dt><kbd class="kbd">S</kbd></dt><dd>Speedrun: the 60-second version</dd>
+      <dt><kbd class="kbd">C</kbd></dt><dd>Contact</dd>
+      <dt><kbd class="kbd">H</kbd></dt><dd>Home</dd>
+      <dt><kbd class="kbd">?</kbd></dt><dd>Show these controls</dd>
+    </dl>
+    <form method="dialog"><button class="btn btn--secondary btn--sm">Close</button></form>
+  </dialog>
 
   <script src="js/main.js"></script>
 </body>
