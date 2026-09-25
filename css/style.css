@@ -677,3 +677,24 @@ a.wcard:hover .wcard__go svg { transform: translateX(4px); }
   .data-cover__bars { gap: var(--s2); }
   .data-cover__bars b { font-size: 18px; }
 }
+
+/* =========================================================
+   Side quests: linked playground cards, branch diagram
+   ========================================================= */
+a.pcard { transition: border-color var(--dur-base), transform var(--dur-base) var(--ease-standard); }
+a.pcard:hover { border-color: var(--orange); transform: translateY(-3px); }
+.pcard__go { display: inline-flex; align-items: center; gap: 6px; margin-top: var(--s3); font-size: 15px; font-weight: 600; }
+.pcard__go svg { width: 16px; height: 16px; transition: transform var(--dur-base) var(--ease-standard); }
+a.pcard:hover .pcard__go svg { transform: translateX(4px); }
+.vt-echo { view-transition-name: cover-echo; }
+
+.branch { margin: var(--s5) 0; padding: var(--s5); border-radius: var(--r-lg); background: var(--surface); }
+.branch svg { width: 100%; height: auto; display: block; }
+.branch__edges path { fill: none; stroke: var(--ink); stroke-width: 2; }
+.branch__edges .branch__dash { stroke: var(--orange-text); stroke-dasharray: 6 6; }
+.branch__nodes rect { fill: #fff; stroke: var(--ink); stroke-width: 2.5; }
+.branch__nodes .branch__shared { fill: var(--blue); }
+.branch__nodes .branch__end { fill: var(--card); }
+.branch__nodes text { font-family: var(--font); font-size: 14px; font-weight: 600; fill: var(--ink); text-anchor: middle; }
+.branch__nodes .branch__small { font-size: 11.5px; font-weight: 500; fill: var(--ink-2); }
+.branch figcaption { margin-top: var(--s3); font-size: 14px; color: var(--muted); }

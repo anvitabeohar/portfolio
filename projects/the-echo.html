@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Echo · Anvita Beohar</title>
+  <meta name="description" content="Side quest: The Echo, a Twine psychological thriller about memory and reality manipulation. Written, designed, scored and built solo." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="../assets/icons/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav">
+    <a class="nav__logo" href="../index.html"><img src="../assets/icons/logo-mark.png" alt="Anvita Beohar, home" width="38" height="24" /></a>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <a href="../projects.html" aria-current="page">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (PDF, opens in a new tab)</span></a>
+      <a class="btn btn--primary btn--sm" href="../contact.html">Let's talk</a>
+    </nav>
+  </header>
+  <div class="xp" aria-hidden="true"><div class="xp__fill"></div></div>
+  <main id="main">
+    <header class="cs-hero container">
+      <p class="eyebrow">Side quest · Interactive fiction</p>
+      <h1 class="display">The Echo</h1>
+      <p class="lead">A psychological thriller in Twine, where your own memories start to lie.</p>
+      <dl class="cs-meta">
+        <div><dt>Role</dt><dd>Solo writer, designer &amp; developer</dd></div>
+        <div><dt>Tools</dt><dd>Twine (Harlowe), Reaper</dd></div>
+        <div><dt>Context</dt><dd>MSc module, Trinity College Dublin</dd></div>
+        <div><dt>Year</dt><dd>2025</dd></div>
+      </dl>
+      <div class="hero__cta" style="justify-content:center">
+        <a class="btn btn--primary" href="https://beohara.itch.io/the-echo" target="_blank" rel="noopener">Play on itch.io <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="carousel vt-echo">
+        <img src="../assets/images/projects/the-echo.avif" alt="The Echo title card over glowing sound-wave lines" />
+        <button class="prev" aria-label="Previous image">‹</button>
+        <button class="next" aria-label="Next image">›</button>
+      </div>
+
+      <section class="tldr reveal" aria-labelledby="tldr-title">
+        <p id="tldr-title" class="eyebrow tldr__label">TL;DR · 30-second read</p>
+        <div><h3>The idea</h3><p>What if the Mandela Effect were real? A first-person thriller about memory, paranoia and reality manipulation.</p></div>
+        <div><h3>What I did</h3><p>Wrote, designed and built the game solo in Twine, composed the ambient score in Reaper, and drew the line-art illustrations.</p></div>
+        <div><h3>Result</h3><p>A playable branch-and-bottleneck story with two ambiguous endings, published on itch.io.</p></div>
+      </section>
+
+      <div class="cs-body">
+        <nav class="toc" aria-label="On this page">
+          <p class="eyebrow">On this page</p>
+          <ol><li><a href="#premise">Premise</a></li><li><a href="#why">Why this story</a></li><li><a href="#structure">Narrative structure</a></li><li><a href="#decisions">Key decisions</a></li><li><a href="#craft">Look and sound</a></li><li><a href="#ux">Why it matters for UX</a></li></ol>
+        </nav>
+
+        <article class="prose">
+          <section id="premise">
+            <h2>Premise</h2>
+            <p>Sarah, an introspective sceptic, starts noticing small inconsistencies in her memories. Pulling on that thread uncovers reality-manipulation experiments, and she tells her story to the player as a warning.</p>
+            <p>Two characters shape her path: <b>Dr. Chen</b>, the woman in a video who first draws her in, and <b>Ethan</b>, a friend who tried to warn her and wasn't believed. Looking back on those ignored warnings gives the story its emotional weight.</p>
+          </section>
+
+          <section id="why">
+            <h2>Why this story</h2>
+            <p>I've always been interested in how digital media shapes what people believe. Once you engage with a topic, algorithms keep resurfacing it until you're deep in a rabbit hole. Mandela Effect theories did that to me: I clearly remembered details that others remembered differently. If many people share the same "wrong" memory, is it really just misremembering?</p>
+            <p>That question, fed by online discussions, forums and podcasts, became the foundation of <i>The Echo</i>.</p>
+          </section>
+
+          <section id="structure">
+            <h2>Narrative structure</h2>
+            <p>The story uses a <b>branch-and-bottleneck</b> model. Early choices act like a sorting hat, steering the player towards one of two endings, while key experiences such as "the memory of the lake" are shared by every path.</p>
+            <figure class="branch reveal">
+              <svg viewBox="0 0 640 260" role="img" aria-labelledby="branch-title branch-desc">
+                <title id="branch-title">Branch-and-bottleneck structure of The Echo</title>
+                <desc id="branch-desc">An opening leads to early choices that sort the player onto one of two paths. Both paths pass through a shared scene, the memory of the lake, then continue to one of two endings: living in a government-controlled simulation, or alternate realities merging.</desc>
+                <g class="branch__edges">
+                  <path d="M92 130 C130 130 130 70 170 70"/><path d="M92 130 C130 130 130 190 170 190"/>
+                  <path d="M270 70 C300 70 300 130 330 130"/><path d="M270 190 C300 190 300 130 330 130"/>
+                  <path d="M430 130 C460 130 460 70 490 70"/><path d="M430 130 C460 130 460 190 490 190"/>
+                  <path class="branch__dash" d="M270 70 C360 40 420 40 490 70"/><path class="branch__dash" d="M270 190 C360 220 420 220 490 190"/>
+                </g>
+                <g class="branch__nodes">
+                  <rect x="12" y="110" width="80" height="40" rx="6"/><text x="52" y="135">Opening</text>
+                  <rect x="170" y="50" width="100" height="40" rx="6"/><text x="220" y="75">Path A</text>
+                  <rect x="170" y="170" width="100" height="40" rx="6"/><text x="220" y="195">Path B</text>
+                  <rect class="branch__shared" x="330" y="105" width="100" height="50" rx="6"/><text x="380" y="126">Memory of</text><text x="380" y="144">the lake</text>
+                  <rect class="branch__end" x="490" y="45" width="138" height="50" rx="6"/><text x="559" y="66">Ending A</text><text class="branch__small" x="559" y="84">Living in a simulation</text>
+                  <rect class="branch__end" x="490" y="165" width="138" height="50" rx="6"/><text x="559" y="186">Ending B</text><text class="branch__small" x="559" y="204">Realities merging</text>
+                </g>
+              </svg>
+              <figcaption>Simplified. Early choices sort the player onto a path; everyone meets at the shared lake scene; the original path decides the ending (dashed lines).</figcaption>
+            </figure>
+            <p>The story's shape goes from bad to worse. The endings ask whether Sarah is living in a government-controlled simulation, or whether alternate realities are merging and causing the anomalies.</p>
+          </section>
+
+          <section id="decisions">
+            <h2>Key decisions</h2>
+            <div class="decision reveal">
+              <h3>1. Choices live inside the prose</h3>
+              <dl>
+                <dt>Decision</dt><dd>Links are woven into sentences instead of listed as options underneath, inspired by the interactive story <i>My Father's Long, Long Legs</i>.</dd>
+                <dt>Why</dt><dd>Choosing feels like thinking, not like picking from a menu, which keeps the player inside Sarah's head.</dd>
+              </dl>
+            </div>
+            <div class="decision reveal">
+              <h3>2. No prologue</h3>
+              <dl>
+                <dt>Decision</dt><dd>The game opens mid-story with no introduction.</dd>
+                <dt>Why</dt><dd>Players should feel they've stumbled on something they weren't meant to find.</dd>
+              </dl>
+            </div>
+            <div class="decision reveal">
+              <h3>3. No way to win</h3>
+              <dl>
+                <dt>Decision</dt><dd>Both endings are ambiguous, with no triumphant resolution.</dd>
+                <dt>Why</dt><dd>The themes, uncertain memory and malleable truth, don't allow a clean victory. Ambiguity lets the unease linger after the game ends.</dd>
+              </dl>
+            </div>
+          </section>
+
+          <section id="craft">
+            <h2>Look and sound</h2>
+            <ul>
+              <li><b>Minimal interface:</b> white text on a dark background keeps attention on atmosphere and story.</li>
+              <li><b>Clear choices:</b> links are larger than body text and glow blue on hover, so they're easy to spot.</li>
+              <li><b>Typography as tone:</b> Roboto for the narrative; Orbitron in key passages for a robotic, disconnected feel.</li>
+              <li><b>Digital distortion:</b> glow and RGB-split shadows on selected sentences reflect the story's digital nature.</li>
+              <li><b>Sound:</b> an ambient synth hum I made in Reaper grows more intense as the story progresses.</li>
+              <li><b>Illustration:</b> handmade minimalist line art appears like faint impressions in a dream.</li>
+            </ul>
+          </section>
+
+          <section id="ux">
+            <h2>Why it matters for UX</h2>
+            <ul>
+              <li><b>Signifiers.</b> Size and hover colour made choices obvious without breaking immersion, the same balance any interface needs between clarity and flow.</li>
+              <li><b>Flow mapping.</b> Branch-and-bottleneck is a user-flow problem: many paths, a few shared moments, and states that must stay consistent.</li>
+              <li><b>Feedback over time.</b> The rising hum tells players tension is building without a single word, like progressive feedback in a product.</li>
+            </ul>
+          </section>
+        </article>
+      </div>
+
+      <section class="level-complete reveal" aria-labelledby="lc-title">
+        <img class="pixelated" src="../assets/images/home/about-jump.png" alt="" />
+        <p class="eyebrow">Side quest complete</p>
+        <h2 id="lc-title" class="h2">Now play it yourself.</h2>
+        <p>It takes about as long as a coffee break. Headphones recommended.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="https://beohara.itch.io/the-echo" target="_blank" rel="noopener">Play on itch.io <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="btn btn--secondary" href="../projects.html">All work</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <section class="footer__cta" aria-labelledby="cta-title">
+      <p class="eyebrow">Player 2 has entered</p>
+      <h2 id="cta-title" class="h1">Hiring a product designer? Let's talk.</h2>
+      <p>Open to UX and product design roles in Bengaluru or remote.</p>
+      <div class="footer__actions">
+        <a class="btn btn--light" href="https://calendar.app.google/NNZUitaoG9RfVanL6" target="_blank" rel="noopener">Book a call<span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="btn btn--ghost-light" href="mailto:anvitabeohar04@gmail.com">Email me</a>
+        <a class="btn btn--ghost-light" href="https://www.linkedin.com/in/anvitabeohar/" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+    </section>
+    <div class="footer__inner">
+      <div>
+        <a class="footer__logo" href="../index.html"><img src="../assets/icons/logo-mark-white.png" alt="Anvita Beohar, home" width="46" height="26" /></a>
+        <p class="footer__copy">© <span data-year>2026</span> Anvita Beohar. Designed and built by hand.</p>
+        <p class="footer__hint">Press <kbd>?</kbd> for keyboard shortcuts</p>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="../projects.html">Work</a>
+        <a href="../about.html">About</a>
+        <a href="../speedrun.html">Speedrun</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens in a new tab)</span></a>
+      </nav>
+    </div>
+  </footer>
+
+  <dialog class="shortcuts" id="shortcuts" aria-labelledby="shortcuts-title">
+    <h2 id="shortcuts-title">Controls</h2>
+    <dl>
+      <dt><kbd class="kbd">W</kbd></dt><dd>Work</dd>
+      <dt><kbd class="kbd">A</kbd></dt><dd>About</dd>
+      <dt><kbd class="kbd">R</kbd></dt><dd>Resume (PDF)</dd>
+      <dt><kbd class="kbd">S</kbd></dt><dd>Speedrun: the 60-second version</dd>
+      <dt><kbd class="kbd">C</kbd></dt><dd>Contact</dd>
+      <dt><kbd class="kbd">H</kbd></dt><dd>Home</dd>
+      <dt><kbd class="kbd">?</kbd></dt><dd>Show these controls</dd>
+    </dl>
+    <form method="dialog"><button class="btn btn--secondary btn--sm">Close</button></form>
+  </dialog>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
