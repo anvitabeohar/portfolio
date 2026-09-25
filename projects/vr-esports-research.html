@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Is VR esports Olympic-ready? · Anvita Beohar</title>
+  <meta name="description" content="Case study: a 29-person study testing whether a VR-native game can meet Olympic standards, and six design principles for VR sports." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="../assets/icons/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav">
+    <a class="nav__logo" href="../index.html"><img src="../assets/icons/logo-mark.png" alt="Anvita Beohar, home" width="38" height="24" /></a>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <a href="../projects.html" aria-current="page">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (PDF, opens in a new tab)</span></a>
+      <a class="btn btn--primary btn--sm" href="../contact.html">Let's talk</a>
+    </nav>
+  </header>
+  <div class="xp" aria-hidden="true"><div class="xp__fill"></div></div>
+  <main id="main">
+    <header class="cs-hero container">
+      <p class="eyebrow">LVL 02 · Research case study</p>
+      <h1 class="display">Is VR esports Olympic-ready?</h1>
+      <p class="lead">A 29-person lab study testing whether a VR-native game can meet Olympic standards for physical exertion, skill and safety.</p>
+      <dl class="cs-meta">
+        <div><dt>Role</dt><dd>Sole researcher, MSc thesis</dd></div>
+        <div><dt>Supervisor</dt><dd>Dr. Gareth W. Young</dd></div>
+        <div><dt>Method</dt><dd>Mixed-methods lab study, n = 29</dd></div>
+        <div><dt>Result</dt><dd>Awarded with Distinction, 2025</dd></div>
+      </dl>
+    </header>
+
+    <div class="container">
+      <div class="cs-cover"><div class="data-cover vt-research" role="img" aria-label="Average heart rate rose from 114 to 124 beats per minute across three measured sessions, against a 70 bpm resting baseline">
+            <svg class="data-cover__pulse" viewBox="0 0 600 80" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,50 150,50 170,50 185,18 200,72 215,8 232,62 248,50 400,50 420,50 435,24 450,70 465,14 480,58 495,50 600,50" fill="none" stroke="currentColor" stroke-width="3" vector-effect="non-scaling-stroke"/></svg>
+            <div class="data-cover__bars" aria-hidden="true">
+              <div><span style="--h:.56"></span><b>70</b><small>Resting</small></div>
+              <div><span style="--h:.92"></span><b>114</b><small>Session 2</small></div>
+              <div><span style="--h:.98"></span><b>122</b><small>Session 3</small></div>
+              <div><span style="--h:1"></span><b>124</b><small>Session 4</small></div>
+            </div>
+            <p class="data-cover__label" aria-hidden="true">AVG HEART RATE · BPM · N = 29</p>
+          </div></div>
+
+      <section class="tldr reveal" aria-labelledby="tldr-title">
+        <p id="tldr-title" class="eyebrow tldr__label">TL;DR · 30-second read</p>
+        <div><h3>Problem</h3><p>Olympic VR events mostly copy real sports, like VR Taekwondo, and ignore what VR can uniquely do.</p></div>
+        <div><h3>What I did</h3><p>Designed and ran a 29-person study of Beat Saber 360° on Meta Quest 3, measuring heart rate, perceived effort, learning and VR sickness over four sessions.</p></div>
+        <div><h3>Impact</h3><p>Average heart rate of 114–124 bpm, far above resting (p &lt; .001). The findings became six design principles for VR-native Olympic sports.</p></div>
+      </section>
+
+      <section class="section" style="padding-top: var(--s7)" aria-label="Study in numbers">
+      <div class="stats" data-stagger>
+        <div class="stat reveal"><p class="stat__num"><span aria-hidden="true" data-count="29" data-suffix="">29</span><span class="sr-only">29</span></p><p class="stat__label">participants, above the 27 needed for 80% statistical power</p></div>
+        <div class="stat reveal"><p class="stat__num"><span aria-hidden="true" data-count="124" data-suffix=" bpm">124 bpm</span><span class="sr-only">124 bpm</span></p><p class="stat__label">peak average heart rate, in the hard session</p></div>
+        <div class="stat reveal"><p class="stat__num">65.5%</p><p class="stat__label">reported no adverse effects; the rest had mild, short-lived symptoms</p></div>
+        <div class="stat reveal"><p class="stat__num"><span aria-hidden="true" data-count="6" data-suffix="">6</span><span class="sr-only">6</span></p><p class="stat__label">design principles for Olympic-ready VR sports</p></div>
+      </div>
+      </section>
+
+      <div class="cs-body">
+        <nav class="toc" aria-label="On this page">
+          <p class="eyebrow">On this page</p>
+          <ol><li><a href="#context">Context</a></li><li><a href="#role">My role</a></li><li><a href="#method">Method</a></li><li><a href="#findings">Key findings</a></li><li><a href="#principles">Design principles</a></li><li><a href="#ux">Why it matters for UX</a></li><li><a href="#reflection">Reflection</a></li></ol>
+        </nav>
+
+        <article class="prose">
+          <section id="context">
+            <h2>Context</h2>
+            <p>The International Olympic Committee launched the Olympic Virtual Series in 2021, and the first Olympic Esports Games are now planned for 2027 in Riyadh. But almost every VR event on the programme is a digital copy of an existing sport. VR Taekwondo works, yet it treats VR as a simulator rather than a medium with its own physical, cognitive and spatial possibilities.</p>
+            <p><b>The question:</b> can a game designed <i>for</i> VR meet the bar the Olympics set for athleticism, strategic depth and safety? I used Beat Saber in 360° mode as a test case: it combines rhythm, full-body movement and spatial awareness, is culturally neutral, and is the best-selling VR exergame.</p>
+          </section>
+
+          <section id="role">
+            <h2>My role</h2>
+            <ul>
+              <li><b>Study design:</b> research questions, a power analysis to set the sample size, and a four-session protocol.</li>
+              <li><b>Ethics and recruitment:</b> approval from Trinity's Human Research Ethics Committee, and recruitment through mailing lists, social media and campus flyers.</li>
+              <li><b>Running the study:</b> briefing, headset fitting and biometric tracking for all 29 participants, with no drop-outs.</li>
+              <li><b>Analysis and write-up:</b> t-tests, correlations and regressions, then turning results into design principles.</li>
+            </ul>
+          </section>
+
+          <section id="method">
+            <h2>Method</h2>
+            <p>A power analysis showed at least 27 participants were needed to detect a medium effect. I recruited <b>29 adults aged 20–30</b> (17 women, 12 men); 48% had substantial VR experience. Each person wore a Meta Quest 3 and a Samsung Galaxy Watch 4, and rated their effort on the Borg scale after every song.</p>
+            <ol class="flow" aria-label="Study sessions">
+              <li><span class="eyebrow">01 · Easy</span><b>Familiarisation</b><small>No data collected, so novices learn the controls first</small></li>
+              <li><span class="eyebrow">02 · Normal</span><b>First measured run</b><small>Heart rate and effort recorded</small></li>
+              <li><span class="eyebrow">03 · Normal</span><b>Same song again</b><small>Measures learning and consistency</small></li>
+              <li><span class="eyebrow">04 · Hard</span><b>Upper bound</b><small>Faster, denser patterns</small></li>
+            </ol>
+            <p>Surveys before and after covered prior VR and fitness habits, comfort, immersion, perceived improvement, and whether participants saw the game as a legitimate sport. Each session took 40–45 minutes and all data was anonymised at collection.</p>
+          </section>
+
+          <section id="findings">
+            <h2>Key findings</h2>
+            <div class="decision reveal">
+              <h3>1. It's real exercise</h3>
+              <dl>
+                <dt>Finding</dt><dd>Average heart rate climbed from 114 to 122 to 124 bpm across the three measured sessions, each far above a 70 bpm resting baseline (p &lt; .001, Cohen's d 2.55–3.04).</dd>
+                <dt>So what</dt><dd>That's the range of table tennis and above precision Olympic sports like archery and shooting, so the game clears the bar for "physical prowess."</dd>
+              </dl>
+            </div>
+            <div class="decision reveal">
+              <h3>2. Players stop noticing the effort</h3>
+              <dl>
+                <dt>Finding</dt><dd>Heart rate and perceived effort were moderately linked in the first measured session (ρ = .44, p = .017), but the link disappeared by the hard session (ρ = .10).</dd>
+                <dt>So what</dt><dd>As players settle into rhythm and flow, self-reports stop tracking what their bodies are doing. Competitive VR needs biometric monitoring, not just questionnaires.</dd>
+              </dl>
+            </div>
+            <div class="decision reveal">
+              <h3>3. Effort and thinking trade off</h3>
+              <dl>
+                <dt>Finding</dt><dd>Higher physical effort early on went with lower mental engagement (ρ = −.37, p = .05).</dd>
+                <dt>So what</dt><dd>Mechanics have to balance strategic depth with physical load, or one crowds out the other.</dd>
+              </dl>
+            </div>
+            <div class="decision reveal">
+              <h3>4. Safe for most first-timers</h3>
+              <dl>
+                <dt>Finding</dt><dd>65.5% reported no adverse effects; the rest had mild dizziness or nausea that passed without help. Fatigue didn't differ between novices and experienced players (13.3% vs 7.1%, p = 1.0).</dd>
+                <dt>So what</dt><dd>VR sickness is manageable, but Olympic formats would still need session limits and ergonomic rules.</dd>
+              </dl>
+            </div>
+          </section>
+
+          <section id="principles">
+            <h2>Design principles</h2>
+            <p>I turned the findings and the literature into six principles for building VR-native sports that could meet Olympic criteria for legitimacy, fairness and inclusion.</p>
+            <div class="principles principles--compact" data-stagger>
+          <div class="principle reveal"><span class="eyebrow">01</span><h3>Move beyond physical limits</h3><p>Use VR's 3D spatial freedom for movement the real world can't offer, like 360° play spaces and multidimensional navigation.</p></div>
+          <div class="principle reveal"><span class="eyebrow">02</span><h3>Match Olympic physical benchmarks</h3><p>Reward motor skill, precision and stamina, not button-pressing, so the sport is genuinely athletic.</p></div>
+          <div class="principle reveal"><span class="eyebrow">03</span><h3>Fit diverse bodies, keep it fair</h3><p>Scale motion and difficulty for different physiologies without breaking the universality of competition.</p></div>
+          <div class="principle reveal"><span class="eyebrow">04</span><h3>Govern transparently</h3><p>Independent oversight for anti-cheat, hardware certification and athlete welfare, including session limits for VR sickness.</p></div>
+          <div class="principle reveal"><span class="eyebrow">05</span><h3>No pay-to-win</h3><p>Standardise hardware thresholds, such as headset latency of 20 ms or less and refresh rates of 90 Hz or more.</p></div>
+          <div class="principle reveal"><span class="eyebrow">06</span><h3>Design for spectators</h3><p>Dynamic cameras, heart-rate overlays and clear narratives so viewers can follow what players feel.</p></div>
+            </div>
+          </section>
+
+          <section id="ux">
+            <h2>Why it matters for UX</h2>
+            <ul>
+              <li><b>Measure behaviour, not just opinions.</b> Participants' effort ratings drifted away from their heart rates. In product work, I pair what people say with what they actually do.</li>
+              <li><b>Cognitive load is a budget.</b> Physical effort crowded out mental engagement. Dense enterprise workflows have the same trade-off between task load and thinking.</li>
+              <li><b>Design for first-timers without boring experts.</b> The familiarisation round let novices learn before anything was measured, much like good onboarding.</li>
+            </ul>
+          </section>
+
+          <section id="reflection">
+            <h2>Reflection</h2>
+            <p><b>Limitations.</b> One session per person, healthy young adults rather than elite athletes, and a single headset. The results show potential, not proof of Olympic readiness.</p>
+            <h3>Next steps</h3>
+            <ul>
+              <li>Follow top-ranked players over months to measure long-term skill growth.</li>
+              <li>Test performance parity across headsets, including latency and tracking differences.</li>
+              <li>Measure VR-specific fatigue, such as cognitive load and hand-eye coordination over long sessions.</li>
+            </ul>
+          </section>
+        </article>
+      </div>
+
+      <section class="level-complete reveal" aria-labelledby="lc-title">
+        <img class="pixelated" src="../assets/images/home/about-jump.png" alt="" />
+        <p class="eyebrow">Level 02 complete</p>
+        <h2 id="lc-title" class="h2">Thanks for playing.</h2>
+        <p>Next up: Asset Lifecycle Management at IBM. It's under NDA, so I walk through it live.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="mailto:anvitabeohar04@gmail.com?subject=Walkthrough%20request%3A%20IBM%20Asset%20Lifecycle%20Management">Request a walkthrough</a>
+          <a class="btn btn--secondary" href="../projects.html">All work</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <section class="footer__cta" aria-labelledby="cta-title">
+      <p class="eyebrow">Player 2 has entered</p>
+      <h2 id="cta-title" class="h1">Hiring a product designer? Let's talk.</h2>
+      <p>Open to UX and product design roles in Bengaluru or remote.</p>
+      <div class="footer__actions">
+        <a class="btn btn--light" href="https://calendar.app.google/NNZUitaoG9RfVanL6" target="_blank" rel="noopener">Book a call<span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="btn btn--ghost-light" href="mailto:anvitabeohar04@gmail.com">Email me</a>
+        <a class="btn btn--ghost-light" href="https://www.linkedin.com/in/anvitabeohar/" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+    </section>
+    <div class="footer__inner">
+      <div>
+        <a class="footer__logo" href="../index.html"><img src="../assets/icons/logo-mark-white.png" alt="Anvita Beohar, home" width="46" height="26" /></a>
+        <p class="footer__copy">© <span data-year>2026</span> Anvita Beohar. Designed and built by hand.</p>
+        <p class="footer__hint">Press <kbd>?</kbd> for keyboard shortcuts</p>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="../projects.html">Work</a>
+        <a href="../about.html">About</a>
+        <a href="../speedrun.html">Speedrun</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens in a new tab)</span></a>
+      </nav>
+    </div>
+  </footer>
+
+  <dialog class="shortcuts" id="shortcuts" aria-labelledby="shortcuts-title">
+    <h2 id="shortcuts-title">Controls</h2>
+    <dl>
+      <dt><kbd class="kbd">W</kbd></dt><dd>Work</dd>
+      <dt><kbd class="kbd">A</kbd></dt><dd>About</dd>
+      <dt><kbd class="kbd">R</kbd></dt><dd>Resume (PDF)</dd>
+      <dt><kbd class="kbd">S</kbd></dt><dd>Speedrun: the 60-second version</dd>
+      <dt><kbd class="kbd">C</kbd></dt><dd>Contact</dd>
+      <dt><kbd class="kbd">H</kbd></dt><dd>Home</dd>
+      <dt><kbd class="kbd">?</kbd></dt><dd>Show these controls</dd>
+    </dl>
+    <form method="dialog"><button class="btn btn--secondary btn--sm">Close</button></form>
+  </dialog>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
