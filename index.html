@@ -1,96 +1,246 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Anvita Beohar | Design Portfolio</title>
-  <meta name="description" content="Design portfolio of Anvita Beohar: UI/UX, AR, motion and brand design.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anvita Beohar · UX Designer</title>
+  <meta name="description" content="Anvita Beohar, UX designer at IBM. Enterprise AI tools, immersive tech, and product design." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="assets/icons/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>document.documentElement.classList.add("js")</script>
 </head>
-<body>
+<body data-root="">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav">
+    <a class="nav__logo" href="index.html"><img src="assets/icons/logo-mark.png" alt="Anvita Beohar, home" width="38" height="24" /></a>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <a href="projects.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (PDF, opens in a new tab)</span></a>
+      <a class="btn btn--primary btn--sm" href="contact.html">Let's talk</a>
+    </nav>
+  </header>
 
-<nav class="nav">
-  <div class="wrap">
-    <a class="brand" href="index.html">Anvita <span>Beohar</span></a>
-    <ul>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap" style="grid-template-columns:1fr">
-    <div>
-      <span class="eyebrow">Multidisciplinary Designer</span>
-      <h1>Hi, I'm Anvita<span>.</span></h1>
-      <p class="lead">A multidisciplinary designer from India with a strong foundation in technical design. I'm passionate about innovation and creative problem-solving, and I enjoy exploring and experimenting across diverse design mediums.</p>
-      <div class="btn-row">
-        <a class="btn solid" href="#work">See my work</a>
-        <a class="btn" href="#contact">Get in touch</a>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__panel">
+        <p class="eyebrow">Player 1 · Anvita Beohar</p>
+        <h1 id="hero-title" class="display">I design AI tools that make complex work feel simple.</h1>
+        <ul class="hud" aria-label="Quick facts">
+          <li class="chip chip--dot">UX Designer at IBM</li>
+          <li class="chip">MSc, Distinction · Trinity College Dublin</li>
+          <li class="chip">Relocating to Bengaluru</li>
+        </ul>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#work">View work <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></a>
+          <a class="btn btn--secondary" href="speedrun.html">Speedrun (60s)</a>
+        </div>
       </div>
-    </div>
-  </div>
-</header>
+      <div class="walker" aria-hidden="true">
+        <img class="pixelated" src="assets/images/home/walk1.png" alt="" />
+        <img class="pixelated" src="assets/images/home/walk2.png" alt="" />
+      </div>
+    </section>
 
-<section id="work">
-  <div class="wrap">
-    <span class="eyebrow">Selected work</span>
-    <h2>Case studies</h2>
-    <div class="projects">
-      <a class="project" href="vow.html">
-        <div class="thumb">
-          <img src="assets/vow/mock-home.jpg" alt="">
-          <img src="assets/vow/after-venue.jpg" alt="">
+    <section id="work" class="section container" aria-labelledby="work-title">
+      <div class="section__head">
+        <div>
+          <p class="eyebrow">Level select</p>
+          <h2 id="work-title" class="h2">Selected work</h2>
         </div>
-        <div class="body">
-          <span class="tag">UI/UX Design · Mobile app</span>
-          <h3>Vow: Wedding Planner App</h3>
-          <p>Helping couples and families find, tour and book wedding venues remotely, with virtual tours, live calls and a planning calendar.</p>
+        <a class="link-arrow" href="projects.html">All work <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <div class="work-grid" data-stagger>
+        <a class="wcard reveal wcard--lead has-light" href="projects/custodians-of-memory.html">
+          <div class="wcard__media"><img class="vt-custodians" src="assets/images/projects/vr.webp" alt="A visitor putting on a VR headset at the Custodians of Memory showcase" loading="lazy" data-ph /></div>
+          
+          <div class="wcard__body">
+            <p class="eyebrow">LVL 01 · XR · Unity</p>
+            <h3 class="wcard__title">Custodians of Memory</h3>
+            <p class="wcard__line">Led a 5-person team to build a VR experience that lets players step inside three iconic paintings. Showcase visitors called it “magical.”</p>
+            <div class="wcard__meta"><span>Project lead & gameplay developer · 2025</span><span class="wcard__go">Read case study <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div>
+          </div>
+        </a>
+        <a class="wcard reveal wcard--lead wcard--reverse has-light" href="projects/vr-esports-research.html">
+          <div class="wcard__media"><div class="data-cover vt-research" role="img" aria-label="Average heart rate rose from 114 to 124 beats per minute across three measured sessions, against a 70 bpm resting baseline">
+            <svg class="data-cover__pulse" viewBox="0 0 600 80" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,50 150,50 170,50 185,18 200,72 215,8 232,62 248,50 400,50 420,50 435,24 450,70 465,14 480,58 495,50 600,50" fill="none" stroke="currentColor" stroke-width="3" vector-effect="non-scaling-stroke"/></svg>
+            <div class="data-cover__bars" aria-hidden="true">
+              <div><span style="--h:.56"></span><b>70</b><small>Resting</small></div>
+              <div><span style="--h:.92"></span><b>114</b><small>Session 2</small></div>
+              <div><span style="--h:.98"></span><b>122</b><small>Session 3</small></div>
+              <div><span style="--h:1"></span><b>124</b><small>Session 4</small></div>
+            </div>
+            <p class="data-cover__label" aria-hidden="true">AVG HEART RATE · BPM · N = 29</p>
+          </div></div>
+          
+          <div class="wcard__body">
+            <p class="eyebrow">LVL 02 · Research · VR</p>
+            <h3 class="wcard__title">Is VR esports Olympic-ready?</h3>
+            <p class="wcard__line">A 29-person lab study of a VR-native game. Heart rates averaged up to 124 bpm, and the findings became six design principles for Olympic-ready VR sports.</p>
+            <div class="wcard__meta"><span>MSc thesis, awarded with Distinction · 2025</span><span class="wcard__go">Read case study <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div>
+          </div>
+        </a>
+        <a class="wcard reveal has-light" href="mailto:anvitabeohar04@gmail.com?subject=Walkthrough%20request%3A%20IBM%20Asset%20Lifecycle%20Management">
+          <div class="wcard__media"><div class="nda-cover" aria-hidden="true"><div><strong>ALM</strong><span>IBM · Enterprise SaaS</span></div></div></div>
+          <span class="chip status">Under NDA</span>
+          <div class="wcard__body">
+            <p class="eyebrow">LVL 03 · Enterprise SaaS · AI</p>
+            <h3 class="wcard__title">Asset Lifecycle Management at IBM</h3>
+            <p class="wcard__line">Uncovering adoption barriers in workflow-heavy enterprise software, with AI-accelerated research synthesis and rapid prototyping.</p>
+            <div class="wcard__meta"><span>UX designer · 2026–now</span><span class="wcard__go">Request a walkthrough <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div>
+          </div>
+        </a>
+        <article class="wcard reveal">
+          <div class="wcard__media"><img src="assets/images/projects/ar.avif" alt="AR overlay on a strip of tablets showing dosage, safety advice and drug interactions" loading="lazy" data-ph /></div>
+          <span class="chip status">Case study in progress</span>
+          <div class="wcard__body">
+            <p class="eyebrow">LVL 04 · AR · Health</p>
+            <h3 class="wcard__title">AR medicine scanner</h3>
+            <p class="wcard__line">Scan a medicine strip to see dosage, safety advice and drug interactions at a glance.</p>
+            <div class="wcard__meta"><span>UI/UX · 2025</span></div>
+          </div>
+        </article>
+        <a class="wcard reveal has-light" href="projects/vow.html">
+          <div class="wcard__media"><img class="vt-vow" src="assets/images/projects/vow.avif" alt="The Vow app splash screen on a phone, surrounded by marigolds" loading="lazy" data-ph /></div>
+          <div class="wcard__body">
+            <p class="eyebrow">LVL 05 · Mobile · UI/UX</p>
+            <h3 class="wcard__title">Vow</h3>
+            <p class="wcard__line">A wedding planner app for finding, touring and booking venues remotely, shaped by 5 interviews and 2 rounds of usability testing.</p>
+            <div class="wcard__meta"><span>UI/UX · 2025</span><span class="wcard__go">Read case study <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section container" aria-labelledby="play-title">
+      <div class="section__head">
+        <div>
+          <p class="eyebrow">Side quests</p>
+          <h2 id="play-title" class="h2">Playground</h2>
         </div>
-      </a>
+        <a class="link-arrow" href="projects.html#playground">See all <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <div class="play-grid" data-stagger>
+        <article class="pcard reveal">
+          <div class="pcard__media"><img src="assets/images/projects/cultura.webp" alt="The Cultura website open on a laptop" loading="lazy" data-ph /></div>
+          <div class="pcard__body">
+            <h3>Cultura</h3>
+            <p class="pcard__sub">Cultural art showcase</p>
+            <p class="pcard__date">Mar 2025</p>
+            <div class="pcard__tags"><span class="tag">Front-end development</span><span class="tag">UI/UX</span></div>
+            
+          </div>
+        </article>
+        <a class="pcard reveal" href="projects/the-echo.html">
+          <div class="pcard__media"><img class="vt-echo" src="assets/images/projects/the-echo.avif" alt="The Echo title card over sound-wave lines" loading="lazy" data-ph /></div>
+          <div class="pcard__body">
+            <h3>The Echo</h3>
+            <p class="pcard__sub">Interactive fiction · Playable</p>
+            <p class="pcard__date">Jan 2025</p>
+            <div class="pcard__tags"><span class="tag">Narrative design</span><span class="tag">Twine</span></div>
+            <span class="pcard__go">Read and play <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </div>
+        </a>
+        <article class="pcard reveal">
+          <div class="pcard__media"><img src="assets/images/projects/life-after-love.webp" alt="Life after love game title screen" loading="lazy" data-ph /></div>
+          <div class="pcard__body">
+            <h3>Life after love</h3>
+            <p class="pcard__sub">Game concept</p>
+            <p class="pcard__date">Oct 2025</p>
+            <div class="pcard__tags"><span class="tag">Game design</span><span class="tag">Narrative design</span></div>
+            
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" aria-labelledby="char-title">
+      <h2 id="char-title" class="pixel-title">CHARACTER UNLOCKED</h2>
+      <div class="bento" data-stagger>
+        <a class="box box--link b-about reveal" href="about.html" data-tip="About">
+          <div class="b-about__img">
+            <img class="pixelated" src="assets/images/home/about.png" alt="" />
+            <img class="pixelated" src="assets/images/home/about-jump.png" alt="" />
+          </div>
+          <div class="b-about__text">
+            <h3>Hi! I am Anvita</h3>
+            <p>UX designer building AI-powered products, with a research and immersive-tech foundation. Currently leveling up at <b>IBM</b>. MSc Interactive Digital Media, <b>Trinity College Dublin</b>.</p>
+          </div>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
+        </a>
+        <a class="box box--link b-projects reveal" href="projects.html" data-tip="Work">
+          <h3>PROJECTS</h3>
+          <div class="deck" aria-hidden="true"><img class="pixelated" src="assets/images/home/card-4.png" alt="" /><img class="pixelated" src="assets/images/home/card-3.png" alt="" /><img class="pixelated" src="assets/images/home/card-2.png" alt="" /><img class="pixelated" src="assets/images/home/card-1.png" alt="" /></div>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
+        </a>
+        <a class="box box--link b-contact reveal" href="contact.html" data-tip="Contact">
+          <h3>CONTACT</h3>
+          <img class="pixelated" src="assets/images/home/contact-phone.png" alt="" />
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
+        </a>
+        <a class="box box--link b-faq reveal" href="about.html#faq" data-tip="FAQs">
+          <h3>FAQS</h3>
+          <div class="folder" aria-hidden="true">
+            <img class="pixelated" src="assets/images/home/folder.png" alt="" />
+            <img class="pixelated" src="assets/images/home/folder-hover.png" alt="" />
+          </div>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
+        </a>
+        <a class="box box--link b-stack reveal" href="about.html#toolkit" data-tip="Toolkit">
+          <h3>STACK</h3>
+          <div class="chips" aria-hidden="true"><span>FIGMA</span><span>UNITY</span><span>ADOBE SUITE</span></div>
+          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <section class="footer__cta" aria-labelledby="cta-title">
+      <p class="eyebrow">Player 2 has entered</p>
+      <h2 id="cta-title" class="h1">Hiring a product designer? Let's talk.</h2>
+      <p>Open to UX and product design roles in Bengaluru or remote.</p>
+      <div class="footer__actions">
+        <a class="btn btn--light" href="https://calendar.app.google/NNZUitaoG9RfVanL6" target="_blank" rel="noopener">Book a call<span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="btn btn--ghost-light" href="mailto:anvitabeohar04@gmail.com">Email me</a>
+        <a class="btn btn--ghost-light" href="https://www.linkedin.com/in/anvitabeohar/" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+    </section>
+    <div class="footer__inner">
+      <div>
+        <a class="footer__logo" href="index.html"><img src="assets/icons/logo-mark-white.png" alt="Anvita Beohar, home" width="46" height="26" /></a>
+        <p class="footer__copy">© <span data-year>2026</span> Anvita Beohar. Designed and built by hand.</p>
+        <p class="footer__hint">Press <kbd>?</kbd> for keyboard shortcuts</p>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="projects.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="speedrun.html">Speedrun</a>
+        <a href="contact.html">Contact</a>
+        <a href="assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens in a new tab)</span></a>
+      </nav>
     </div>
-  </div>
-</section>
+  </footer>
 
-<section id="about" style="background:var(--panel)">
-  <div class="wrap">
-    <span class="eyebrow">About me</span>
-    <h2>Designing across mediums</h2>
-    <p class="lead">I'm currently looking for opportunities to grow both personally and professionally.</p>
-    <ul class="skills">
-      <li>Figma</li>
-      <li>Adobe XD</li>
-      <li>Photoshop</li>
-      <li>Illustrator</li>
-      <li>After Effects</li>
-      <li>Procreate</li>
-      <li>Blender</li>
-    </ul>
-    <h3 style="margin-top:32px">Skills</h3>
-    <ul class="skills">
-      <li>Graphic design &amp; branding</li>
-      <li>Front-end development (HTML, CSS, JS)</li>
-      <li>VR development (Unity, Figma)</li>
-      <li>Game development</li>
-      <li>Audio &amp; video editing</li>
-      <li>Teamwork</li>
-    </ul>
-  </div>
-</section>
+  <dialog class="shortcuts" id="shortcuts" aria-labelledby="shortcuts-title">
+    <h2 id="shortcuts-title">Controls</h2>
+    <dl>
+      <dt><kbd class="kbd">W</kbd></dt><dd>Work</dd>
+      <dt><kbd class="kbd">A</kbd></dt><dd>About</dd>
+      <dt><kbd class="kbd">R</kbd></dt><dd>Resume (PDF)</dd>
+      <dt><kbd class="kbd">S</kbd></dt><dd>Speedrun: the 60-second version</dd>
+      <dt><kbd class="kbd">C</kbd></dt><dd>Contact</dd>
+      <dt><kbd class="kbd">H</kbd></dt><dd>Home</dd>
+      <dt><kbd class="kbd">?</kbd></dt><dd>Show these controls</dd>
+    </dl>
+    <form method="dialog"><button class="btn btn--secondary btn--sm">Close</button></form>
+  </dialog>
 
-<footer class="footer" id="contact">
-  <div class="wrap">
-    <div>
-      <h3>Let's work together</h3>
-      <a href="mailto:anvitabeohar04@gmail.com">anvitabeohar04@gmail.com</a>
-    </div>
-  </div>
-</footer>
-
+  <script src="js/main.js"></script>
 </body>
 </html>

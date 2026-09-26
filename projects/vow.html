@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vow · Anvita Beohar</title>
+  <meta name="description" content="Case study: Vow, a wedding planner app that lets couples and families find, tour and book a venue remotely." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="../assets/icons/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav">
+    <a class="nav__logo" href="../index.html"><img src="../assets/icons/logo-mark.png" alt="Anvita Beohar, home" width="38" height="24" /></a>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <a href="../projects.html" aria-current="page">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (PDF, opens in a new tab)</span></a>
+      <a class="btn btn--primary btn--sm" href="../contact.html">Let's talk</a>
+    </nav>
+  </header>
+  <div class="xp" aria-hidden="true"><div class="xp__fill"></div></div>
+  <main id="main">
+    <header class="cs-hero container">
+      <p class="eyebrow">LVL 05 · Mobile UI/UX case study</p>
+      <h1 class="display">Vow</h1>
+      <p class="lead">A wedding planner app that lets couples and their families find, tour and book a venue without visiting it. <i>“Your wedding, your way, simplified.”</i></p>
+      <dl class="cs-meta">
+        <div><dt>Role</dt><dd>Solo UX designer</dd></div>
+        <div><dt>Platform</dt><dd>Mobile app</dd></div>
+        <div><dt>Methods</dt><dd>5 interviews, 2 usability rounds</dd></div>
+        <div><dt>Programme</dt><dd>Google UX Design Certificate</dd></div>
+      </dl>
+    </header>
+
+    <div class="container">
+      <div class="carousel vt-vow">
+        <img src="../assets/images/projects/vow.avif" alt="The Vow app splash screen on a phone, surrounded by marigolds" />
+        <button class="prev" aria-label="Previous image">‹</button>
+        <button class="next" aria-label="Next image">›</button>
+      </div>
+
+      <div class="case__preview"><a class="btn btn--secondary" href="https://drive.google.com/file/d/11hnAbjuKzLN68RFexoQZR6Fq8mY5939l/view?usp=sharing" target="_blank" rel="noopener">View the hi-fi prototype<span class="sr-only"> (opens in a new tab)</span></a></div>
+
+      <section class="tldr reveal" aria-labelledby="tldr-title">
+        <p id="tldr-title" class="eyebrow tldr__label">TL;DR · 30-second read</p>
+        <div><h3>Problem</h3><p>Booking a wedding venue in India means visiting in person. That's hard for couples living abroad and for older relatives who can't travel.</p></div>
+        <div><h3>What I did</h3><p>Interviewed 5 people, built two personas, mapped the journey, and designed and tested a venue-booking app with virtual tours, live calls and a planner.</p></div>
+        <div><h3>Outcome</h3><p>A hi-fi prototype refined through two rounds of usability testing, which led to five design changes including messaging, profiles and price comparison.</p></div>
+      </section>
+
+      <div class="cs-body">
+        <nav class="toc" aria-label="On this page">
+          <p class="eyebrow">On this page</p>
+          <ol><li><a href="#context">Context</a></li><li><a href="#research">Research</a></li><li><a href="#users">Who it's for</a></li><li><a href="#audit">Competitive audit</a></li><li><a href="#structure">Structure</a></li><li><a href="#decisions">Key decisions</a></li><li><a href="#final">Final design</a></li><li><a href="#visuals">Visuals</a></li><li><a href="#reflection">Reflection</a></li></ol>
+        </nav>
+
+        <article class="prose">
+          <section id="context">
+            <h2>Context</h2>
+            <p>Weddings in India are a $130 billion market, considered the country's fourth-largest industry, yet the sector is largely unorganised. Wedding planners exist, but they're expensive, so most families organise everything themselves.</p>
+            <p>The venue is the first big decision, and it still usually means visiting in person. <b>The goal:</b> let people easily view and book the venue they want, with virtual tours and full venue information at their fingertips.</p>
+          </section>
+
+          <section id="research">
+            <h2>Research</h2>
+            <p>I started by interviewing 5 people in my network. I recruited people of different ages and different relationships to the bride or groom, so the findings would generalise better. I kept the questions open so participants could talk freely about organising past weddings, and focused on staying unbiased so I could spot the real pain points.</p>
+            <figure class="cs-fig">
+              <img src="../assets/images/projects/vow/affinity-map.jpg" alt="Sticky notes from the interviews grouped under four headings: Visualisation, Customer service, Availability and Price" loading="lazy" />
+              <figcaption>Interview notes grouped into four themes.</figcaption>
+            </figure>
+            <div class="principles principles--compact">
+              <div class="principle"><span class="eyebrow">01</span><h3>Price</h3><p>Prices are unclear and change with demand.</p></div>
+              <div class="principle"><span class="eyebrow">02</span><h3>Availability</h3><p>It's hard to check whether a venue is free. Some are booked a year ahead, and several events at once spoil the experience.</p></div>
+              <div class="principle"><span class="eyebrow">03</span><h3>Visualisation</h3><p>It's hard to picture the venue on the day, and hard to communicate your own ideas.</p></div>
+              <div class="principle"><span class="eyebrow">04</span><h3>Custom service</h3><p>Venues offer fixed packages, so there's little room to customise.</p></div>
+            </div>
+            <p><a class="link-arrow" href="https://docs.google.com/document/d/11Ex0tpvA5ecfVKki59D7RE5_F_68B6lYsRhUBCFkttU/edit?usp=sharing" target="_blank" rel="noopener">Read the interview document<span class="sr-only"> (opens in a new tab)</span></a></p>
+          </section>
+
+          <section id="users">
+            <h2>Who it's for</h2>
+            <div class="persona">
+              <img src="../assets/images/projects/vow/persona-tanya.png" alt="Illustrated portrait of Tanya" loading="lazy" />
+              <div>
+                <h3>Tanya, 30 · Software engineer in Germany</h3>
+                <p class="persona__quote">“I am a detail-oriented person; organising the wedding remotely has been a challenge.”</p>
+                <p>Tanya is engaged and planning to marry in Bhopal, where her family lives. She has a slight visual impairment and can't visit venues herself, and venues oversell and underdeliver. She needs a way to compare venues clearly by date and price, and to customise them.</p>
+              </div>
+            </div>
+            <div class="persona">
+              <img src="../assets/images/projects/vow/persona-jai.png" alt="Illustrated portrait of Jai" loading="lazy" />
+              <div>
+                <h3>Jai, 58 · Retired government official in Jaipur</h3>
+                <p class="persona__quote">“At this age I don't have the energy to go around searching for venues for my daughter's wedding.”</p>
+                <p>By tradition, Jai is arranging his elder daughter's wedding, but health issues stop him from visiting every venue. Prices keep changing and packages can't be customised. He needs a clear picture of availability and price, and a venue with facilities for traditional rituals.</p>
+              </div>
+            </div>
+
+            <h3>Tanya's journey today</h3>
+            <div class="journey-wrap" tabindex="0" role="region" aria-label="User journey map, scrolls sideways">
+              <table class="journey">
+                <thead>
+                  <tr><th scope="col">Stage</th><th scope="col">Feeling</th><th scope="col">Opportunity</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Search for venues online</th><td>Overwhelmed by options; unsure the information is genuine</td><td>Filter by needs and verify information</td></tr>
+                  <tr><th scope="row">Contact venues for info</th><td>Irritated hunting for contact details; worried venues won't meet her needs</td><td>Contact details, prices, availability and facilities in one app</td></tr>
+                  <tr><th scope="row">Set up a video call</th><td>Frustrated by the time difference and poor connections; scared it will look different in real life</td><td>A way to see the venue without a video call</td></tr>
+                  <tr><th scope="row">Shortlist venues</th><td>Stressed because it's hard to compare</td><td>One place to compare</td></tr>
+                  <tr><th scope="row">Book the venue</th><td>Relieved, and hopeful it goes to plan</td><td>Easier communication while planning</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Storyboards</h3>
+            <p>Scenario: Tanya uses the app to find and book the wedding venue of her dreams, first in the big picture, then close up inside the app.</p>
+            <figure class="cs-fig cs-fig--wide">
+              <img src="../assets/images/projects/vow/storyboard-big-picture.png" alt="Six-panel storyboard: Tanya is frustrated she has no time to visit venues, downloads the app, finds a screen reader option and venue details, schedules a virtual visit, takes a virtual tour with the venue manager, and happily books her dream venue remotely" loading="lazy" />
+              <figcaption>Big picture: how Vow fits into Tanya's life.</figcaption>
+            </figure>
+            <figure class="cs-fig cs-fig--wide">
+              <img src="../assets/images/projects/vow/storyboard-close-up.png" alt="Six-panel storyboard: Tanya opens the app, signs up, uses the screen reader and filters to find venues, reads a detailed venue description, schedules a personal virtual tour, and books her venue after comparing her wishlist" loading="lazy" />
+              <figcaption>Close-up: the steps inside the app.</figcaption>
+            </figure>
+          </section>
+
+          <section id="audit">
+            <h2>Competitive audit</h2>
+            <p>I evaluated five wedding apps and websites popular in India: Resort Rio, GKS Conventions, Weddingz, WedMeGood and 1plus1studio.</p>
+            <p class="quote">Apart from Weddingz, none gave accurate price estimates based on the services you choose.</p>
+            <p><a class="link-arrow" href="https://docs.google.com/spreadsheets/d/1NA7zno9gT7tug-gnVRE1Imnr3l4b4hgNKOJcK4BWg-g/edit?usp=sharing" target="_blank" rel="noopener">View the competitive audit<span class="sr-only"> (opens in a new tab)</span></a></p>
+          </section>
+
+          <section id="structure">
+            <h2>Structure</h2>
+            <p>I mapped the information architecture, then listed the features each page needed, keeping accessibility in mind throughout.</p>
+            <ol class="flow" aria-label="Onboarding">
+              <li><span class="eyebrow">Onboarding</span><b>Welcome</b></li>
+              <li><span class="eyebrow">→</span><b>Sign up / Login</b><small>Google, Facebook or phone</small></li>
+              <li><span class="eyebrow">→</span><b>Questions</b><small>Date, location, role, accessibility needs</small></li>
+              <li><span class="eyebrow">→</span><b>Home</b><small>A personalised feed</small></li>
+            </ol>
+            <ol class="flow" aria-label="Main sections">
+              <li><span class="eyebrow">From home</span><b>Venues</b><small>Photos, AR/VR view, rating, price, capacity</small></li>
+              <li><span class="eyebrow">&nbsp;</span><b>Wishlist</b><small>Side-by-side comparison</small></li>
+              <li><span class="eyebrow">&nbsp;</span><b>Planner</b><small>Countdown and calendar</small></li>
+              <li><span class="eyebrow">&nbsp;</span><b>Profile</b></li>
+            </ol>
+            <ol class="flow" aria-label="Booking">
+              <li><span class="eyebrow">Booking</span><b>Add to cart</b></li>
+              <li><span class="eyebrow">→</span><b>Booking information</b></li>
+              <li><span class="eyebrow">→</span><b>Payment</b></li>
+            </ol>
+            <p>Accessibility was part of the feature list from the start: a screen reader option and font size in onboarding, and audio descriptions on the venue page.</p>
+            <div class="cs-duo">
+              <figure class="cs-fig">
+                <img src="../assets/images/projects/vow/feature-notes.jpg" alt="Handwritten notebook page listing the features for the welcome, homepage, venue and wishlist pages" loading="lazy" />
+                <figcaption>Feature notes for each page.</figcaption>
+              </figure>
+              <figure class="cs-fig">
+                <img src="../assets/images/projects/vow/paper-wireframes.jpg" alt="Hand-drawn paper wireframes of the Vow screens" loading="lazy" />
+                <figcaption>Paper wireframes: about five options per screen.</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section id="decisions">
+            <h2>Key decisions</h2>
+            <div class="decision reveal">
+              <h3>1. Replace the site visit with a tour and a call</h3>
+              <dl>
+                <dt>Decision</dt><dd>A photo carousel for every hall, room and garden, a 360° virtual tour, and a button to schedule a live call with the venue.</dd>
+                <dt>Why</dt><dd>Looks, price and amenities decide a booking, and both personas can't visit. The journey map showed video calls were frustrating across time zones, so the tour works without one.</dd>
+              </dl>
+            </div>
+            <div class="decision reveal">
+              <h3>2. One planner for every appointment</h3>
+              <dl>
+                <dt>Decision</dt><dd>A planner page with a wedding planning roadmap, a countdown, and a calendar that holds bookings alongside your own schedule.</dd>
+                <dt>Why</dt><dd>Wedding planning means many appointments happening at once, and keeping track of them is overwhelming.</dd>
+              </dl>
+            </div>
+            <div class="decision reveal">
+              <h3>3. Message the venue, not just call it</h3>
+              <dl>
+                <dt>Decision</dt><dd>A messaging option next to calling on the venue page.</dd>
+                <dt>Why</dt><dd>Usability testing (round 2) showed some users aren't comfortable phoning a venue and would rather send their questions as text.</dd>
+              </dl>
+            </div>
+            <div class="decision reveal">
+              <h3>4. Profiles for everyone planning</h3>
+              <dl>
+                <dt>Decision</dt><dd>Users create a profile in their account instead of only choosing “Bride” or “Groom”.</dd>
+                <dt>Why</dt><dd>Round 2 testing: parents, siblings and friends plan weddings too, as Jai does.</dd>
+              </dl>
+            </div>
+            <div class="decision reveal">
+              <h3>5. Book by calendar, compare by hall</h3>
+              <dl>
+                <dt>Decision</dt><dd>Calendar-based booking, a burger menu and action bar for navigation, and a dedicated view to compare price changes for each hall in a venue.</dd>
+                <dt>Why</dt><dd>Round 1 testing. It also answers the two biggest pain points, availability and unclear prices.</dd>
+              </dl>
+            </div>
+          </section>
+
+          <section id="final">
+            <h2>Final design</h2>
+            <p>The aim was to make navigation as easy as possible. Here's the venue page before and after usability testing, now with messaging next to the call button:</p>
+            <div class="phones phones--2">
+              <figure><img src="../assets/images/projects/vow/before-venue.jpg" alt="Venue page wireframe before usability testing" loading="lazy" /><figcaption>Before testing</figcaption></figure>
+              <figure><img src="../assets/images/projects/vow/after-venue.jpg" alt="Final venue page with photos, amenities, food and decor options, and Call and Message buttons" loading="lazy" /><figcaption>After testing</figcaption></figure>
+            </div>
+            <div class="phones">
+              <figure><img src="../assets/images/projects/vow/mock-home.jpg" alt="Home screen with wedding trends, a 120 days to go countdown and upcoming schedules" loading="lazy" /><figcaption>Home</figcaption></figure>
+              <figure><img src="../assets/images/projects/vow/mock-venue.jpg" alt="Venue listing with photos, ratings and a filter and sort bar" loading="lazy" /><figcaption>Venues</figcaption></figure>
+              <figure><img src="../assets/images/projects/vow/mock-booking.jpg" alt="Booking options with a date calendar and hall prices" loading="lazy" /><figcaption>Booking</figcaption></figure>
+              <figure><img src="../assets/images/projects/vow/mock-planner.jpg" alt="Planner with countdown and monthly calendar" loading="lazy" /><figcaption>Planner</figcaption></figure>
+            </div>
+            <p><a class="link-arrow" href="https://drive.google.com/file/d/11hnAbjuKzLN68RFexoQZR6Fq8mY5939l/view?usp=sharing" target="_blank" rel="noopener">View the hi-fi prototype<span class="sr-only"> (opens in a new tab)</span></a> · <a class="link-arrow" href="https://drive.google.com/file/d/1HFTLwvmfIhVmUuugKXD6Jvue4l-cl57g/view?usp=sharing" target="_blank" rel="noopener">Lo-fi prototype<span class="sr-only"> (opens in a new tab)</span></a></p>
+          </section>
+
+          <section id="visuals">
+            <h2>Visuals</h2>
+            <p>I wanted the visuals to be inspirational rather than commanding, supporting the content instead of competing with it. The mood board focused on simplicity and normcore aesthetics: mostly black and white, with subtle touches of accent colour.</p>
+            <ul class="palette" aria-label="Colour palette">
+              <li style="--c:#f08400">Orange <code>#F08400</code></li>
+              <li style="--c:#ffd090">Peach <code>#FFD090</code></li>
+              <li style="--c:#6184d8">Blue <code>#6184D8</code></li>
+              <li style="--c:#444444">Charcoal <code>#444444</code></li>
+            </ul>
+            <p>Orange holds deep cultural significance in India and is associated with happiness. Blue stands for loyalty and trust. In the logo, the “o” in the middle represents a wedding ring.</p>
+          </section>
+
+          <section id="reflection">
+            <h2>Reflection</h2>
+            <p>Three things limited this project:</p>
+            <ul>
+              <li><b>Lack of peer review or feedback.</b></li>
+              <li><b>Limited technical knowledge.</b></li>
+              <li><b>Unconscious biases.</b></li>
+            </ul>
+            <h3>Next steps</h3>
+            <ul>
+              <li><b>Build out the remaining features:</b> discover wedding planners, photographers and other vendors.</li>
+              <li><b>Integrate AI:</b> an AI-powered AR view of the decor, so users can see how different elements will look in their venue.</li>
+              <li><b>Customisation:</b> let people personalise the venue, including the customs different religions follow at weddings.</li>
+            </ul>
+          </section>
+        </article>
+      </div>
+
+      <section class="level-complete reveal" aria-labelledby="lc-title">
+        <img class="pixelated" src="../assets/images/home/about-jump.png" alt="" />
+        <p class="eyebrow">Level 05 complete</p>
+        <h2 id="lc-title" class="h2">Thanks for playing.</h2>
+        <p>Back to the start: step inside three paintings in Custodians of Memory.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="custodians-of-memory.html">Next level <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a class="btn btn--secondary" href="../projects.html">All work</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <section class="footer__cta" aria-labelledby="cta-title">
+      <p class="eyebrow">Player 2 has entered</p>
+      <h2 id="cta-title" class="h1">Hiring a product designer? Let's talk.</h2>
+      <p>Open to UX and product design roles in Bengaluru or remote.</p>
+      <div class="footer__actions">
+        <a class="btn btn--light" href="https://calendar.app.google/NNZUitaoG9RfVanL6" target="_blank" rel="noopener">Book a call<span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="btn btn--ghost-light" href="mailto:anvitabeohar04@gmail.com">Email me</a>
+        <a class="btn btn--ghost-light" href="https://www.linkedin.com/in/anvitabeohar/" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+    </section>
+    <div class="footer__inner">
+      <div>
+        <a class="footer__logo" href="../index.html"><img src="../assets/icons/logo-mark-white.png" alt="Anvita Beohar, home" width="46" height="26" /></a>
+        <p class="footer__copy">© <span data-year>2026</span> Anvita Beohar. Designed and built by hand.</p>
+        <p class="footer__hint">Press <kbd>?</kbd> for keyboard shortcuts</p>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="../projects.html">Work</a>
+        <a href="../about.html">About</a>
+        <a href="../speedrun.html">Speedrun</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens in a new tab)</span></a>
+      </nav>
+    </div>
+  </footer>
+
+  <dialog class="shortcuts" id="shortcuts" aria-labelledby="shortcuts-title">
+    <h2 id="shortcuts-title">Controls</h2>
+    <dl>
+      <dt><kbd class="kbd">W</kbd></dt><dd>Work</dd>
+      <dt><kbd class="kbd">A</kbd></dt><dd>About</dd>
+      <dt><kbd class="kbd">R</kbd></dt><dd>Resume (PDF)</dd>
+      <dt><kbd class="kbd">S</kbd></dt><dd>Speedrun: the 60-second version</dd>
+      <dt><kbd class="kbd">C</kbd></dt><dd>Contact</dd>
+      <dt><kbd class="kbd">H</kbd></dt><dd>Home</dd>
+      <dt><kbd class="kbd">?</kbd></dt><dd>Show these controls</dd>
+    </dl>
+    <form method="dialog"><button class="btn btn--secondary btn--sm">Close</button></form>
+  </dialog>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
