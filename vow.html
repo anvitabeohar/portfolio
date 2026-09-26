@@ -55,6 +55,7 @@
   <div class="wrap">
     <span class="eyebrow">Project overview</span>
     <h2>Book the venue of your dreams without being there</h2>
+    <p class="lead">Weddings in India are a $130 billion market, considered the country's fourth-largest industry, yet the sector is largely unorganised. Families who can afford a wedding planner find them expensive, and everyone else is left to arrange things themselves.</p>
     <div class="overview">
       <div class="card">
         <div class="icon" aria-hidden="true">◎</div>
@@ -81,9 +82,10 @@
     <h2><span class="num">01</span>Understanding the user</h2>
     <ul>
       <li>User research</li>
-      <li>Pain points</li>
-      <li>Personas &amp; problem statements</li>
+      <li>Personas</li>
       <li>User journey map</li>
+      <li>Storyboards</li>
+      <li>Competitive audit</li>
     </ul>
   </div>
 </div>
@@ -114,6 +116,10 @@
         <p>Settings are hard to customise. Venues usually offer fixed options and you can only choose from those.</p>
       </div>
     </div>
+    <figure class="figure">
+      <img src="assets/vow/affinity-map.jpg" alt="Sticky notes from the interviews grouped under four headings: Visualisation, Customer service, Availability and Price">
+      <figcaption>Interview notes grouped under the four pain-point themes: visualisation, customer service, availability and price.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -241,11 +247,45 @@
   </div>
 </section>
 
+<section style="background:var(--panel)">
+  <div class="wrap">
+    <span class="eyebrow">Storyboards</span>
+    <h2>Tanya books her venue from abroad</h2>
+    <p class="lead">Scenario: Tanya uses the venue app to find and book the wedding venue of her dreams.</p>
+    <figure class="figure board">
+      <figcaption><strong>Big picture</strong> · how Vow fits into Tanya's life</figcaption>
+      <img src="assets/vow/storyboard-big-picture.png" alt="Six-panel storyboard: Tanya is frustrated she has no time to visit venues, downloads the app, finds a screen reader option and venue details, schedules a virtual visit, takes a virtual tour with the venue manager, and happily books her dream venue remotely">
+    </figure>
+    <figure class="figure board">
+      <figcaption><strong>Close-up</strong> · the steps inside the app</figcaption>
+      <img src="assets/vow/storyboard-close-up.png" alt="Six-panel storyboard: Tanya opens the app, signs up, uses the screen reader and filters to find venues, reads a detailed venue description, schedules a personal virtual tour, and books her venue after comparing her wishlist">
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Competitive audit</span>
+    <h2>How existing platforms handle it</h2>
+    <p class="lead">With a picture of how users felt, I looked at how existing solutions tackle the same problems. I evaluated wedding planning apps and websites that are popular in India:</p>
+    <ul class="skills">
+      <li>Resort Rio</li>
+      <li>GKS Conventions</li>
+      <li>Weddingz</li>
+      <li>WedMeGood</li>
+      <li>1plus1studio</li>
+    </ul>
+    <p class="insight"><strong>Key gap:</strong> apart from Weddingz, most of these platforms don't give accurate price estimates based on the services you choose.</p>
+    <a class="btn" href="https://docs.google.com/spreadsheets/d/1NA7zno9gT7tug-gnVRE1Imnr3l4b4hgNKOJcK4BWg-g/edit?usp=sharing" target="_blank" rel="noopener">View the competitive audit ↗</a>
+  </div>
+</section>
+
 <!-- Chapter: Starting the design -->
 <div class="chapter" id="design">
   <div class="wrap">
     <h2><span class="num">02</span>Starting the design</h2>
     <ul>
+      <li>Information architecture</li>
       <li>Paper wireframes</li>
       <li>Digital wireframes</li>
       <li>Low-fidelity prototype</li>
@@ -256,7 +296,48 @@
 
 <section>
   <div class="wrap">
-    <div class="split" style="margin-top:0">
+    <span class="eyebrow">Information architecture</span>
+    <h2>Mapping the app</h2>
+    <div class="ia" role="img" aria-label="Sitemap: Welcome screen leads to Sign up or Login, then onboarding questions, then the Home screen. Home branches to Venues, Wishlist, Planner and Profile. Venues and Wishlist lead to Add to cart, then Booking information, then Payment.">
+      <div class="ia-row">
+        <span class="node">Welcome screen</span><span class="to">→</span>
+        <span class="node">Sign up / Login</span><span class="to">→</span>
+        <span class="node">Questions</span><span class="to">→</span>
+        <span class="node main">Home screen</span>
+      </div>
+      <div class="ia-branches">
+        <div class="branch">
+          <span class="node">Venues</span>
+          <span class="node">Wishlist</span>
+        </div>
+        <span class="node">Planner</span>
+        <span class="node">Profile</span>
+      </div>
+      <div class="ia-row flow">
+        <span class="node">Add to cart</span><span class="to">→</span>
+        <span class="node">Booking information</span><span class="to">→</span>
+        <span class="node">Payment</span>
+      </div>
+    </div>
+
+    <div class="split">
+      <div>
+        <span class="eyebrow">Features</span>
+        <h2>Deciding what each page does</h2>
+        <p>With the information architecture mapped out, I listed the features each page needed, keeping accessibility in mind throughout.</p>
+        <ul class="callouts">
+          <li><strong>Onboarding:</strong> sign up with Google, Facebook or phone; a tentative wedding date (or skip); location preference; Bride, Groom or other; and accessibility needs such as a screen reader or font size</li>
+          <li><strong>Home:</strong> a personalised feed with filters (location, price range, open or closed, capacity), sorting by budget or popularity, a planning progress chart, schedules and vendor widgets</li>
+          <li><strong>Venue page:</strong> pictures with an AR/VR view, rating, price range, description, capacity and hall types, wishlist, scheduling a call or visit, and audio descriptions for screen readers</li>
+          <li><strong>Wishlist:</strong> compare venues' main features side by side, then schedule a call or book</li>
+        </ul>
+      </div>
+      <div class="shot" style="padding:0;overflow:hidden">
+        <img src="assets/vow/feature-notes.jpg" alt="Handwritten notebook page listing the features for the welcome, homepage, venue and wishlist pages">
+      </div>
+    </div>
+
+    <div class="split">
       <div>
         <span class="eyebrow">Paper wireframes</span>
         <h2>Sketching five ways to solve each screen</h2>
@@ -385,6 +466,27 @@
     <div class="btn-row" style="justify-content:center;margin-top:40px">
       <a class="btn solid" href="https://drive.google.com/file/d/11hnAbjuKzLN68RFexoQZR6Fq8mY5939l/view?usp=sharing" target="_blank" rel="noopener">View hi-fi prototype ↗</a>
     </div>
+
+    <div class="split" style="margin-top:96px">
+      <div>
+        <span class="eyebrow">Visuals</span>
+        <h2>Inspirational, not commanding</h2>
+        <p>For the visual style I chose an inspirational approach rather than a commanding one, so the visuals support the content instead of competing with it. The mood board focused on simplicity and normcore aesthetics: mostly black and white, with subtle touches of accent colour.</p>
+        <div class="palette">
+          <span style="--c:#f08400"><i></i>Orange<br><code>#F08400</code></span>
+          <span style="--c:#ffd090"><i></i>Peach<br><code>#FFD090</code></span>
+          <span style="--c:#6184d8"><i></i>Blue<br><code>#6184D8</code></span>
+          <span style="--c:#444444"><i></i>Charcoal<br><code>#444444</code></span>
+        </div>
+        <p>I chose orange because it holds deep cultural significance in India and is associated with happiness. Blue stands for loyalty and trust.</p>
+      </div>
+      <div class="shot">
+        <figure class="logo-note">
+          <img class="phone" src="assets/vow/splash.jpg" alt="Vow logo on the splash screen">
+          <figcaption>The “o” in the middle of the logo represents a wedding ring.</figcaption>
+        </figure>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -394,6 +496,7 @@
     <h2><span class="num">04</span>Going forward</h2>
     <ul>
       <li>Next steps</li>
+      <li>Reflection</li>
     </ul>
   </div>
 </div>
@@ -408,13 +511,21 @@
         <p>Add a way to discover wedding planners, photographers and other vendors.</p>
       </div>
       <div class="card">
-        <h3>Incorporate AR</h3>
-        <p>Explore an augmented reality (AR) view of the decor, so users can see how different elements will look in their venue.</p>
+        <h3>Integrate AI</h3>
+        <p>Explore an augmented reality (AR) view of the decor, powered by AI, so users can see how different elements will look in their venue.</p>
       </div>
       <div class="card">
         <h3>Customisation</h3>
         <p>Let customers personalise the venue to their preferences, including the customs different religions follow at weddings.</p>
       </div>
+    </div>
+
+    <span class="eyebrow" style="margin-top:96px">Reflection</span>
+    <h2>Limitations of this project</h2>
+    <div class="steps reflect">
+      <div class="card"><h3>Lack of peer review or feedback</h3></div>
+      <div class="card"><h3>Limited technical knowledge</h3></div>
+      <div class="card"><h3>Unconscious biases</h3></div>
     </div>
   </div>
 </section>
