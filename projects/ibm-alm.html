@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why customers stop at one capability · Anvita Beohar</title>
+  <meta name="description" content="Case study: research into why IBM Maximo customers stop at one capability, from SME interviews and a journey map to a maturity model and an AI recommender proof of concept." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="../assets/icons/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav">
+    <a class="nav__logo" href="../index.html"><img src="../assets/icons/logo-mark.png" alt="Anvita Beohar, home" width="38" height="24" /></a>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <a href="../projects.html" aria-current="page">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (PDF, opens in a new tab)</span></a>
+      <a class="btn btn--primary btn--sm" href="../contact.html">Let's talk</a>
+    </nav>
+  </header>
+  <div class="xp" aria-hidden="true"><div class="xp__fill"></div></div>
+  <main id="main">
+    <header class="cs-hero container">
+      <p class="eyebrow">LVL 03 · Enterprise SaaS case study</p>
+      <h1 class="display">Why customers stop at one capability</h1>
+      <p class="lead">Field Service Management at IBM was never a usability problem. It isn't hard to use; its value is hard to see from where the customer is standing.</p>
+      <dl class="cs-meta">
+        <div><dt>Role</dt><dd>UX designer</dd></div>
+        <div><dt>Team</dt><dd>Grew from 4 to 13</dd></div>
+        <div><dt>Methods</dt><dd>SME interviews, journey mapping, workshop, AI prototyping</dd></div>
+        <div><dt>Year</dt><dd>2026</dd></div>
+      </dl>
+    </header>
+
+    <div class="container">
+      <div class="cs-cover"><div class="nda-cover vt-alm" role="img" aria-label="Abstract cover: ALM, IBM enterprise SaaS"><div><strong>ALM</strong><span>IBM · Enterprise SaaS</span></div></div></div>
+
+      <p class="cs-note">This is a process case study. Maximo, Field Service Management and Asset Lifecycle Management are public IBM products, but the product screens stay private, so the diagrams here are abstracted. <a class="link-arrow" href="mailto:anvitabeohar04@gmail.com?subject=Walkthrough%20request%3A%20IBM%20Asset%20Lifecycle%20Management">Ask me for a walkthrough</a></p>
+
+      <section class="tldr reveal" aria-labelledby="tldr-title">
+        <p id="tldr-title" class="eyebrow tldr__label">TL;DR · 30-second read</p>
+        <div><h3>Problem</h3><p>Customers of IBM's Maximo adopt one capability and stop. Field Service Management's value is hard to see from where they stand.</p></div>
+        <div><h3>What I did</h3><p>Wrote the expert interview guide, ran 7 interviews across sales, product and renewals, mapped the customer journey and its adoption barriers, and built a recommender proof of concept.</p></div>
+        <div><h3>Impact</h3><p>My journey map became the basis of a five-stage maturity model and is part of the FSM knowledge base. The recommender is live internally, and the team grew from 4 to 13.</p></div>
+      </section>
+
+      <div class="cs-body">
+        <nav class="toc" aria-label="On this page">
+          <p class="eyebrow">On this page</p>
+          <ol><li><a href="#context">Context</a></li><li><a href="#role">My role</a></li><li><a href="#research">Research</a></li><li><a href="#findings">Findings</a></li><li><a href="#model">From map to model</a></li><li><a href="#workshop">Workshop</a></li><li><a href="#recommender">Recommender</a></li><li><a href="#impact">Where it is now</a></li><li><a href="#reflection">Reflection</a></li></ol>
+        </nav>
+
+        <article class="prose">
+          <section id="context">
+            <h2>Context</h2>
+            <p>IBM's Asset Lifecycle Management (ALM) is built around <b>Maximo</b>, an enterprise asset management product with around 40 years of history. I joined <b>Expansion</b>, a new initiative helping existing and prospective customers see the value of adopting adjacent ALM capabilities. The first focus was <b>Field Service Management (FSM)</b>.</p>
+            <p>The question wasn't “why is this hard to use?” It was “why don't customers who already rely on Maximo take the next step?”</p>
+          </section>
+
+          <section id="role">
+            <h2>My role</h2>
+            <ul>
+              <li><b>Research design:</b> wrote the subject-matter expert (SME) interview guide.</li>
+              <li><b>Interviews and synthesis:</b> ran 7 interviews and turned them into a customer journey map of adoption barriers.</li>
+              <li><b>Prototyping:</b> built a recommender proof of concept with IBM's internal AI tooling.</li>
+            </ul>
+          </section>
+
+          <section id="research">
+            <h2>Research</h2>
+            <p>I wrote the interview guide in two layers:</p>
+            <ul>
+              <li><b>The experts' own view:</b> where SMEs themselves struggle to position FSM.</li>
+              <li><b>The customer's view:</b> the pain points SMEs see in the customers they work with.</li>
+            </ul>
+            <p>I interviewed 7 people across product management, sales and renewals, covering EMEA and North America.</p>
+            <ol class="flow" aria-label="Research process">
+              <li><span class="eyebrow">01</span><b>Interview guide</b><small>Two layers: SMEs and customers</small></li>
+              <li><span class="eyebrow">02</span><b>7 SME interviews</b><small>Product, sales, renewals · EMEA and North America</small></li>
+              <li><span class="eyebrow">03</span><b>Journey map</b><small>Adoption barriers by stage</small></li>
+              <li><span class="eyebrow">04</span><b>Maturity model</b><small>Five stages, built on the map</small></li>
+            </ol>
+          </section>
+
+          <section id="findings">
+            <h2>Findings</h2>
+            <p class="slot">The adoption barriers the interviews uncovered, and what the team believed going in that the interviews disproved.</p>
+            <h3>The journey map</h3>
+            <p>I mapped the customer journey and marked where adoption stalls. The map is now also part of the FSM knowledge base.</p>
+            <p class="slot">Abstracted journey map diagram: the stage names and the barrier at each stage.</p>
+          </section>
+
+          <section id="model">
+            <h2>From map to model</h2>
+            <p>My manager and a lead UX researcher developed my journey map into a <b>five-stage ALM maturity model</b>, from a base level to the most optimised. The model is theirs; the map it was built on is mine.</p>
+            <p class="slot">Five-stage maturity model diagram: the name of each stage.</p>
+          </section>
+
+          <section id="workshop">
+            <h2>Workshop</h2>
+            <p>In June we ran a two-day workshop with 15–16 people, nearly all executives, plus 2 from sales.</p>
+            <p class="slot">Workshop outcome: which parts of the maturity model held up, and what the room pushed back on.</p>
+          </section>
+
+          <section id="recommender">
+            <h2>Recommender proof of concept</h2>
+            <p>I built a recommender proof of concept with IBM's internal AI tooling. Users answer multiple-choice questions and are placed across four areas, including planning and scheduling. Its primary users are sales and product managers, with a path into the product itself.</p>
+            <p class="slot">The other two areas, and what the recommender gives back after placing someone.</p>
+            <p class="slot">When the first draft was built relative to the June workshop.</p>
+          </section>
+
+          <section id="impact">
+            <h2>Where it is now</h2>
+            <ul>
+              <li>The recommender proof of concept is live internally.</li>
+              <li>The journey map is part of the FSM knowledge base.</li>
+              <li>The team grew from 4 to 13 and split into two teams through an internal challenge. I moved to the knowledge base side; the other team carried the recommender forward.</li>
+              <li>ALM's focus has since shifted to Asset Performance Management (APM), with FSM as the second priority.</li>
+            </ul>
+          </section>
+
+          <section id="reflection">
+            <h2>Reflection</h2>
+            <p class="slot">One transferable lesson from this project.</p>
+          </section>
+        </article>
+      </div>
+
+      <section class="level-complete reveal" aria-labelledby="lc-title">
+        <img class="pixelated" src="../assets/images/home/about-jump.png" alt="" />
+        <p class="eyebrow">Level 03 complete</p>
+        <h2 id="lc-title" class="h2">Thanks for playing.</h2>
+        <p>Next up: Vow, a wedding planner app for booking venues remotely.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="vow.html">Next level <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a class="btn btn--secondary" href="../projects.html">All work</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <section class="footer__cta" aria-labelledby="cta-title">
+      <p class="eyebrow">Player 2 has entered</p>
+      <h2 id="cta-title" class="h1">Hiring a product designer? Let's talk.</h2>
+      <p>Open to UX and product design roles in Bengaluru or remote.</p>
+      <div class="footer__actions">
+        <a class="btn btn--light" href="https://calendar.app.google/NNZUitaoG9RfVanL6" target="_blank" rel="noopener">Book a call<span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="btn btn--ghost-light" href="mailto:anvitabeohar04@gmail.com">Email me</a>
+        <a class="btn btn--ghost-light" href="https://www.linkedin.com/in/anvitabeohar/" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+    </section>
+    <div class="footer__inner">
+      <div>
+        <a class="footer__logo" href="../index.html"><img src="../assets/icons/logo-mark-white.png" alt="Anvita Beohar, home" width="46" height="26" /></a>
+        <p class="footer__copy">© <span data-year>2026</span> Anvita Beohar. Designed and built by hand.</p>
+        <p class="footer__hint">Press <kbd>?</kbd> for keyboard shortcuts</p>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="../projects.html">Work</a>
+        <a href="../about.html">About</a>
+        <a href="../speedrun.html">Speedrun</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens in a new tab)</span></a>
+      </nav>
+    </div>
+  </footer>
+
+  <dialog class="shortcuts" id="shortcuts" aria-labelledby="shortcuts-title">
+    <h2 id="shortcuts-title">Controls</h2>
+    <dl>
+      <dt><kbd class="kbd">W</kbd></dt><dd>Work</dd>
+      <dt><kbd class="kbd">A</kbd></dt><dd>About</dd>
+      <dt><kbd class="kbd">R</kbd></dt><dd>Resume (PDF)</dd>
+      <dt><kbd class="kbd">S</kbd></dt><dd>Speedrun: the 60-second version</dd>
+      <dt><kbd class="kbd">C</kbd></dt><dd>Contact</dd>
+      <dt><kbd class="kbd">H</kbd></dt><dd>Home</dd>
+      <dt><kbd class="kbd">?</kbd></dt><dd>Show these controls</dd>
+    </dl>
+    <form method="dialog"><button class="btn btn--secondary btn--sm">Close</button></form>
+  </dialog>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

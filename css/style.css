@@ -742,3 +742,13 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 @media (max-width: 520px) {
   .principles--compact { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   IBM case study: process note, content gaps
+   ========================================================= */
+.vt-alm { view-transition-name: cover-alm; }
+.cs-note { max-width: var(--measure); margin: var(--s5) auto 0; font-size: 15px; color: var(--ink-2); text-align: center; }
+.cs-note .link-arrow { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--orange); }
+/* Unfilled content: visible on purpose so nothing ships by accident. Find them with: grep 'class="slot"' */
+.prose .slot { margin-top: var(--s4); padding: var(--s4) var(--s5); border: 2px dashed var(--orange-text); border-radius: var(--r-md); background: #fff7ec; font-size: 15px; color: var(--ink-2); }
+.prose .slot::before { content: "To fill: "; font-weight: 700; color: var(--orange-text); }
