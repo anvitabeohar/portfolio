@@ -759,3 +759,6 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .vt-ar { view-transition-name: cover-ar; }
 .prose ul + p, .prose ol + p { margin-top: var(--s4); }
 .cs-duo > div { margin-top: var(--s5); }
+
+/* Cultura */
+.vt-cultura { view-transition-name: cover-cultura; }

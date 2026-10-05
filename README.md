@@ -13,6 +13,7 @@ as a plain HTML/CSS/JS site for GitHub Pages. No build step.
 | `projects/vow.html` | Case study: Vow wedding planner app |
 | `projects/ibm-alm.html` | Case study: IBM ALM research (gaps marked `slot:` in comments) |
 | `projects/ar-medicine-scanner.html` | Case study: AR medicine scanner |
+| `projects/cultura.html` | Side quest: Cultura art platform |
 | `projects/love-after-life.html` | Side quest: Love After Life game design document |
 | `about.html` | Bio, numbers, how I work, experience, education, skills, toolkit, FAQ |
 | `speedrun.html` | The 60-second version for hiring managers |
