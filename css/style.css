@@ -768,3 +768,4 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 /* Speedrun: AI section */
 .speed-card__lead { margin-top: var(--s3); color: var(--ink-2); }
 .speed-card__note { margin-top: var(--s5); font-size: 15px; color: var(--muted); }
+.timeline__link { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--orange); font-weight: 600; color: var(--ink); }
