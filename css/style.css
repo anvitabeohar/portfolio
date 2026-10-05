@@ -787,3 +787,4 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .before-after { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); align-items: center; }
 .before-after img { width: 100%; border-radius: var(--r-md); border: 1px solid var(--line); }
 @media (max-width: 520px) { .before-after { grid-template-columns: 1fr; } }
+.cs-fig--portrait { max-width: 340px; margin-left: auto; margin-right: auto; }
