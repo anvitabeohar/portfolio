@@ -107,6 +107,7 @@ b, strong { font-weight: 600; }
 .btn:active { transform: scale(.97); box-shadow: none; }
 .btn--primary { background: var(--ink); color: #fff; }
 .btn--primary:hover { background: #000; }
+.nav__links .btn--primary[aria-current="page"] { background: var(--orange); color: var(--ink); border-color: var(--ink); }
 .btn--secondary { background: #fff; color: var(--ink); border-color: #c7c7cc; }
 .btn--light { background: #fff; color: var(--ink); }
 .btn--ghost-light { background: transparent; color: #fff; border-color: rgba(255, 255, 255, .35); }
@@ -153,7 +154,7 @@ b, strong { font-weight: 600; }
 .nav__links { display: flex; align-items: center; gap: var(--s6); font-size: 16px; font-weight: 500; }
 .nav__links > a:not(.btn) { color: var(--ink-2); padding: 6px 0; transition: color var(--dur-base); }
 .nav__links > a:not(.btn):hover { color: var(--ink); }
-.nav__links > a[aria-current="page"] { color: var(--ink); font-weight: 600; text-decoration: underline 2px var(--orange-text); text-underline-offset: 8px; }
+.nav__links > a[aria-current="page"]:not(.btn) { color: var(--ink); font-weight: 600; text-decoration: underline 2px var(--orange-text); text-underline-offset: 8px; }
 .nav__toggle { display: none; position: relative; background: none; border: 0; cursor: pointer; width: 44px; height: 44px; margin-right: -10px; }
 .nav__toggle span { position: absolute; left: 10px; right: 10px; height: 2px; background: var(--ink); transition: transform var(--dur-base) var(--ease-standard), opacity var(--dur-base); }
 .nav__toggle span:nth-child(1) { top: 14px; }
@@ -421,13 +422,10 @@ a.wcard:hover .wcard__go svg { transform: translateX(4px); }
 /* Toolkit tiles */
 .stack-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--s3); }
 .tool { position: relative; aspect-ratio: 1; border: var(--pixel-border); border-radius: var(--r-sm); background: #fff; overflow: hidden; }
-.tool--dark { background: #222; }
-.tool--black { background: #000; }
 .tool__logo, .tool__info { position: absolute; inset: 0; transition: opacity var(--dur-base) var(--ease-standard); }
 .tool__logo { display: grid; place-items: center; padding: 24%; }
 .tool__logo img { max-width: 100%; max-height: 100%; }
 .tool__name { font-family: var(--pixel); font-weight: 700; font-size: 17px; text-align: center; }
-.tool--dark .tool__name, .tool--black .tool__name { color: #fff; }
 .tool__info { background: var(--card); padding: var(--s3); opacity: 0; font-size: 13px; line-height: 1.4; }
 .tool__info h3 { font-family: var(--pixel); font-weight: 700; font-size: 15px; margin-bottom: 4px; }
 .tool:hover, .tool:focus-visible { border-color: var(--orange); }
