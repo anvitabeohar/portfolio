@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AR medicine scanner · Anvita Beohar</title>
+  <meta name="description" content="Case study: an AR medicine scanner that turns dense packaging into a clear, colour-coded cheat sheet, prototyped in Adobe Aero." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="../assets/icons/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css?v=20261005222528" />
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav">
+    <a class="nav__logo" href="../index.html"><img src="../assets/icons/logo-mark.png" alt="Anvita Beohar, home" width="38" height="24" /></a>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <a href="../projects.html" aria-current="page">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (PDF, opens in a new tab)</span></a>
+      <a class="btn btn--primary btn--sm" href="../contact.html">Let's talk</a>
+    </nav>
+  </header>
+  <div class="xp" aria-hidden="true"><div class="xp__fill"></div></div>
+  <main id="main">
+    <header class="cs-hero container">
+      <p class="eyebrow">LVL 04 · AR case study</p>
+      <h1 class="display">AR medicine scanner</h1>
+      <p class="lead">Point your phone at a medicine strip and the essentials appear beside it: what it's for, how to take it, what to avoid, and what it costs.</p>
+      <dl class="cs-meta">
+        <div><dt>Role</dt><dd>Solo designer</dd></div>
+        <div><dt>Research</dt><dd>Semi-structured interviews</dd></div>
+        <div><dt>Tools</dt><dd>Photoshop, Adobe Aero</dd></div>
+        <div><dt>Platform</dt><dd>iOS (AR)</dd></div>
+      </dl>
+    </header>
+
+    <div class="container">
+      <div class="carousel vt-ar">
+        <img src="../assets/images/projects/ar.avif" alt="AR overlay on a strip of tablets showing dosage, safety advice and drug interactions" />
+        <img src="../assets/images/projects/ar-scanner/panel-design.webp" alt="Information panel for Brufen 200 beside the tablet strip: purpose, dosage, duration, safety advice icons and drug interactions" />
+        <button class="prev" aria-label="Previous image">‹</button>
+        <button class="next" aria-label="Next image">›</button>
+      </div>
+
+      <div class="case__preview"><a class="btn btn--secondary" href="https://drive.google.com/file/d/1xJdm2I3kKE9k0h24R4RpMG4mgBWJsIMa/view" target="_blank" rel="noopener">Watch the AR experience<span class="sr-only"> (video, opens in a new tab)</span></a></div>
+
+      <section class="tldr reveal" aria-labelledby="tldr-title">
+        <p id="tldr-title" class="eyebrow tldr__label">TL;DR · 30-second read</p>
+        <div><h3>Problem</h3><p>Medicine leaflets are dense and full of jargon. People struggle to find the basics, like what it's for, how much to take and what to avoid.</p></div>
+        <div><h3>What I did</h3><p>Interviewed patients, parents and elderly users, turned their needs into a three-tier information hierarchy, and built a working AR prototype in Adobe Aero.</p></div>
+        <div><h3>Result</h3><p>A prototype that recognises Brufen 200 and shows a scannable "cheat sheet" beside the strip, linked to prices, prescriptions and reminders.</p></div>
+      </section>
+
+      <div class="cs-body">
+        <nav class="toc" aria-label="On this page">
+          <p class="eyebrow">On this page</p>
+          <ol><li><a href="#goal">Goal</a></li><li><a href="#research">Research</a></li><li><a href="#insights">Insights</a></li><li><a href="#decisions">Key decisions</a></li><li><a href="#built">What I built</a></li><li><a href="#reflection">Outcome</a></li></ol>
+        </nav>
+
+        <article class="prose">
+          <section id="goal">
+            <h2>Goal</h2>
+            <p>Design a health-app feature that lets people scan medicine packaging and get critical, easy-to-understand information. The aim was to go beyond identifying the medicine, to an experience that builds safety, understanding and confidence.</p>
+          </section>
+
+          <section id="research">
+            <h2>Research</h2>
+            <p>I ran semi-structured interviews with a deliberately varied group: people managing chronic illness, parents giving medicine to children, and elderly people on several medications. Questions included:</p>
+            <ul>
+              <li>“What is the first thing you look for when you pick up a new medicine?”</li>
+              <li>“Describe a time you felt confused or concerned about medication instructions.”</li>
+              <li>“What information do you find most difficult to locate or understand on packaging?”</li>
+              <li>“What would a ‘perfect’ medicine information source provide for you?”</li>
+            </ul>
+            <figure class="cs-fig">
+              <img src="../assets/images/projects/ar-scanner/ideas-sketch.webp" alt="Handwritten list of ideas from the interviews (name, purpose, price, order, dosage, doctor records, components, side effects, how it works, tracking) above sketches of the strip and information panel" loading="lazy" />
+              <figcaption>Ideas from the interviews, and the first sketch of the strip and panel.</figcaption>
+            </figure>
+          </section>
+
+          <section id="insights">
+            <h2>Insights</h2>
+            <div class="principles principles--compact">
+              <div class="principle"><span class="eyebrow">01</span><h3>Clarity, not just data</h3><p>Leaflets overwhelm. People wanted a cheat sheet with purpose, dosage and key warnings first.</p></div>
+              <div class="principle"><span class="eyebrow">02</span><h3>Action-oriented instructions</h3><p>Jargon causes anxiety. “Take with food” beats “administer with meals to reduce gastrointestinal upset”.</p></div>
+              <div class="principle"><span class="eyebrow">03</span><h3>Visual cues</h3><p>People asked for colour-coding, icons and symbols to recognise the type of information at a glance.</p></div>
+              <div class="principle"><span class="eyebrow">04</span><h3>Personal context</h3><p>Information should be about them: interactions with their other medicines, dosage by age or weight, and whether a pill can be crushed or split.</p></div>
+            </div>
+          </section>
+
+          <section id="decisions">
+            <h2>Key decisions</h2>
+            <div class="decision reveal">
+              <h3>1. A three-tier hierarchy to beat information overload</h3>
+              <dl>
+                <dt>Decision</dt><dd>Tier 1 answers the urgent questions at a glance: name, what it's for, dosage and for how long. Tier 2 puts details under plain headings like “How it works” and “Side effects”. Tier 3 holds logistics: prices, substitutes and ordering.</dd>
+                <dt>Why</dt><dd>Insight 1. People wanted the critical facts first and the detail only when they asked for it.</dd>
+              </dl>
+            </div>
+            <div class="decision reveal">
+              <h3>2. Labels written as people's own questions</h3>
+              <dl>
+                <dt>Decision</dt><dd>Sections are named “Benefits”, “How it works”, “Side effects”, “Tips”, “Feedback” and “FAQs”, and instructions use plain, direct language.</dd>
+                <dt>Why</dt><dd>Insight 2. Framing information around the user's questions, not clinical categories, lowers anxiety.</dd>
+              </dl>
+            </div>
+            <div class="decision reveal">
+              <h3>3. Colour-coded safety signals</h3>
+              <dl>
+                <dt>Decision</dt><dd>Safety advice uses icons with colour tags (Consult doctor, Caution, Unsafe, Safe), and drug interactions are flagged “Life threatening” in red.</dd>
+                <dt>Why</dt><dd>Insight 3. People can read the risk level before reading a word.</dd>
+              </dl>
+            </div>
+            <div class="decision reveal">
+              <h3>4. From understanding to managing, and to cost</h3>
+              <dl>
+                <dt>Decision</dt><dd>Three icons under the strip open info, shopping and profile. Shopping compares prices and delivery across pharmacies and suggests substitutes; the profile holds prescriptions, current doses and reminders.</dd>
+                <dt>Why</dt><dd>Insight 4. Understanding a medicine is one step; managing it daily and affording it are the others. Price sits up front to ease cost anxiety.</dd>
+              </dl>
+            </div>
+            <figure class="cs-fig">
+              <img src="../assets/images/projects/ar-scanner/wireframe-flow.webp" alt="Wireframe flow: the scanned strip leads to an information panel, an info menu (benefits, how it works, side effects, tips, feedback, FAQs), a price comparison across Netmeds, Amazon, Apollo Pharmacy and PharmEasy with substitutes, and a patient profile with prescriptions, current doses, reminders and settings" loading="lazy" />
+              <figcaption>Wireframe flow: panel, info menu, price comparison with substitutes, and patient profile.</figcaption>
+            </figure>
+          </section>
+
+          <section id="built">
+            <h2>What I built</h2>
+            <p>I designed the high-fidelity panels in Photoshop, then built a working AR prototype in Adobe Aero to simulate the flow, test the information hierarchy and check the navigation felt intuitive.</p>
+            <div class="cs-duo">
+              <figure class="cs-fig">
+                <img src="../assets/images/projects/ar-scanner/ar-in-use.webp" alt="Phone view of the AR prototype on a wooden table: the Brufen 200 strip with the information panel beside it, three icons below, and an Info menu" loading="lazy" />
+                <figcaption>The prototype running on a phone.</figcaption>
+              </figure>
+              <div>
+                <p>For Brufen 200, the panel shows:</p>
+                <ul>
+                  <li>Purpose: pain relief, treatment of fever</li>
+                  <li>Dosage: 2 times a day with food, for 3 days, 8 hours apart</li>
+                  <li>Missed dose: don't double up</li>
+                  <li>Safety icons and three flagged drug interactions</li>
+                  <li>Price per strip, and Add to cart</li>
+                </ul>
+                <p>The prototype recognises Brufen 200 only, and runs on iOS, because Adobe Aero had compatibility problems on Android.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="reflection">
+            <h2>Outcome</h2>
+            <p>The research showed that managing medication well isn't only about access to information. It's about clarity, control and making informed decisions. The prototype:</p>
+            <ul>
+              <li><b>Reduces cognitive load</b> by structuring dense medical data into a scannable hierarchy.</li>
+              <li><b>Supports patient agency</b> with price comparison, substitutes and regimen management right where the information is.</li>
+              <li><b>Bridges understanding and action</b> by linking information to reminders and prescription tracking.</li>
+            </ul>
+            <p><a class="link-arrow" href="https://drive.google.com/file/d/1xJdm2I3kKE9k0h24R4RpMG4mgBWJsIMa/view" target="_blank" rel="noopener">Watch the AR experience video<span class="sr-only"> (opens in a new tab)</span></a></p>
+          </section>
+        </article>
+      </div>
+
+      <section class="level-complete reveal" aria-labelledby="lc-title">
+        <img class="pixelated" src="../assets/images/home/about-jump.png" alt="" />
+        <p class="eyebrow">Level 04 complete</p>
+        <h2 id="lc-title" class="h2">Thanks for playing.</h2>
+        <p>Next up: Vow, a wedding planner app for booking venues remotely.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="vow.html">Next level <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a class="btn btn--secondary" href="../projects.html">All work</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <section class="footer__cta" aria-labelledby="cta-title">
+      <p class="eyebrow">Player 2 has entered</p>
+      <h2 id="cta-title" class="h1">Hiring a product designer? Let's talk.</h2>
+      <p>Open to UX and product design roles in Bengaluru or remote.</p>
+      <div class="footer__actions">
+        <a class="btn btn--light" href="https://calendar.app.google/NNZUitaoG9RfVanL6" target="_blank" rel="noopener">Book a call<span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="btn btn--ghost-light" href="mailto:anvitabeohar04@gmail.com">Email me</a>
+        <a class="btn btn--ghost-light" href="https://www.linkedin.com/in/anvitabeohar/" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+    </section>
+    <div class="footer__inner">
+      <div>
+        <a class="footer__logo" href="../index.html"><img src="../assets/icons/logo-mark-white.png" alt="Anvita Beohar, home" width="46" height="26" /></a>
+        <p class="footer__copy">© <span data-year>2026</span> Anvita Beohar. Designed and built by hand.</p>
+        <p class="footer__hint">Press <kbd>?</kbd> for keyboard shortcuts</p>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="../projects.html">Work</a>
+        <a href="../about.html">About</a>
+        <a href="../speedrun.html">Speedrun</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens in a new tab)</span></a>
+      </nav>
+    </div>
+  </footer>
+
+  <dialog class="shortcuts" id="shortcuts" aria-labelledby="shortcuts-title">
+    <h2 id="shortcuts-title">Controls</h2>
+    <dl>
+      <dt><kbd class="kbd">W</kbd></dt><dd>Work</dd>
+      <dt><kbd class="kbd">A</kbd></dt><dd>About</dd>
+      <dt><kbd class="kbd">R</kbd></dt><dd>Resume (PDF)</dd>
+      <dt><kbd class="kbd">S</kbd></dt><dd>Speedrun: the 60-second version</dd>
+      <dt><kbd class="kbd">C</kbd></dt><dd>Contact</dd>
+      <dt><kbd class="kbd">H</kbd></dt><dd>Home</dd>
+      <dt><kbd class="kbd">?</kbd></dt><dd>Show these controls</dd>
+    </dl>
+    <form method="dialog"><button class="btn btn--secondary btn--sm">Close</button></form>
+  </dialog>
+
+  <script src="../js/main.js?v=20261005222528"></script>
+</body>
+</html>

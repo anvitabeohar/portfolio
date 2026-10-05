@@ -754,3 +754,8 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 /* Love After Life */
 .vt-lal { view-transition-name: cover-lal; }
 .prose .cs-credit { margin-top: var(--s5); font-size: 14px; color: var(--muted); }
+
+/* AR medicine scanner */
+.vt-ar { view-transition-name: cover-ar; }
+.prose ul + p, .prose ol + p { margin-top: var(--s4); }
+.cs-duo > div { margin-top: var(--s5); }
