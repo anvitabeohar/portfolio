@@ -771,10 +771,10 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .timeline__link { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--orange); font-weight: 600; color: var(--ink); }
 
 /* About: community */
-.community { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s5); }
+.community { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s5); }
 .community__card { border: var(--pixel-border); border-radius: var(--r-md); overflow: hidden; background: var(--card); display: flex; flex-direction: column; }
 .community__card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-bottom: var(--pixel-border); }
 .community__body { padding: var(--s5); }
 .community__body h3 { font-size: var(--fs-h3); margin-top: var(--s2); }
 .community__body p:last-child { margin-top: var(--s2); color: var(--ink-2); font-size: 16px; }
-@media (max-width: 760px) { .community { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .community { grid-template-columns: 1fr; } }
