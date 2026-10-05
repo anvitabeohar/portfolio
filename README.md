@@ -20,6 +20,11 @@ as a plain HTML/CSS/JS site for GitHub Pages. No build step.
 case-study progress bar and contents, FAQ, slideshow and skills physics.
 `js/vendor/matter.min.js` is [Matter.js](https://brm.io/matter-js/) 0.20.0 (MIT), used for the falling skills.
 
+## Updating styles or scripts
+
+Pages load `css/style.css?v=…` and `js/main.js?v=…`. After changing either file, bump the `v=` number on every page
+(for example, find and replace it across all `.html` files) so browsers fetch the new version instead of a cached one.
+
 ## Accessibility
 
 - Text colours meet WCAG AA contrast. Bright orange (`--orange`) is for fills only; use `--orange-text` for orange text.
