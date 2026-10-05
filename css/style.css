@@ -778,3 +778,12 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .community__body h3 { font-size: var(--fs-h3); margin-top: var(--s2); }
 .community__body p:last-child { margin-top: var(--s2); color: var(--ink-2); font-size: 16px; }
 @media (max-width: 900px) { .community { grid-template-columns: 1fr; } }
+
+/* Custodians: paintings and before/after */
+.paintings { display: grid; grid-template-columns: 1.4fr .7fr 1.4fr; gap: var(--s3); margin-top: var(--s5); align-items: end; }
+.paintings figure { margin: 0; }
+.paintings img { width: 100%; border-radius: var(--r-sm); }
+.paintings figcaption { margin-top: var(--s2); font-size: 13px; color: var(--muted); font-style: italic; }
+.before-after { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); align-items: center; }
+.before-after img { width: 100%; border-radius: var(--r-md); border: 1px solid var(--line); }
+@media (max-width: 520px) { .before-after { grid-template-columns: 1fr; } }

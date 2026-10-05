@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/style.css?v=20261005230414" />
+  <link rel="stylesheet" href="../css/style.css?v=20261005231237" />
   <script>document.documentElement.classList.add("js")</script>
 </head>
 <body data-root="../">
@@ -32,23 +32,23 @@
       <h1 class="display">Custodians of Memory</h1>
       <p class="lead">An immersive VR experience that lets players step inside three iconic paintings.</p>
       <dl class="cs-meta">
-        <div><dt>Role</dt><dd>Project lead &amp; gameplay developer</dd></div>
+        <div><dt>Role</dt><dd>Project manager &amp; gameplay developer</dd></div>
         <div><dt>Team</dt><dd>5, interdisciplinary</dd></div>
-        <div><dt>Platform</dt><dd>Unity (VR)</dd></div>
-        <div><dt>Year</dt><dd>2025</dd></div>
+        <div><dt>Platform</dt><dd>Unity · Meta Quest 3</dd></div>
+        <div><dt>Timeline</dt><dd>Jun – Sep 2025</dd></div>
       </dl>
     </header>
 
     <div class="container">
-      <!-- Add more <img> tags here to turn this into a slideshow -->
       <div class="carousel vt-custodians">
         <img src="../assets/images/projects/vr.webp" alt="A visitor putting on a VR headset at the Custodians of Memory showcase" />
+        <img src="../assets/images/projects/custodians/showcase.webp" alt="A visitor in a Meta Quest headset at the showcase, guided by a team member in a Custodians of Memory t-shirt, with the experience on screens behind" />
+        <img src="../assets/images/projects/custodians/final-unity-scene.webp" alt="The Night Revels of Han Xizai rebuilt as a 3D room in Unity, with figures, screens and banquet tables" />
         <button class="prev" aria-label="Previous image">‹</button>
         <button class="next" aria-label="Next image">›</button>
       </div>
 
-      <!-- TODO: set the Preview link (e.g. a video or build) and remove "hidden" -->
-      <div class="case__preview" hidden><a class="btn btn--secondary" href="#" target="_blank" rel="noopener">Watch the preview</a></div>
+      <div class="case__preview"><a class="btn btn--secondary" href="https://tcdgroupe.wixsite.com/custodians-of-memory" target="_blank" rel="noopener">Visit the project website<span class="sr-only"> (opens in a new tab)</span></a></div>
 
       <section class="tldr reveal" aria-labelledby="tldr-title">
         <p id="tldr-title" class="eyebrow tldr__label">TL;DR · 30-second read</p>
@@ -60,7 +60,7 @@
       <div class="cs-body">
         <nav class="toc" aria-label="On this page">
           <p class="eyebrow">On this page</p>
-          <ol><li><a href="#context">Context</a></li><li><a href="#role">My role</a></li><li><a href="#challenge">The challenge</a></li><li><a href="#decisions">Key decisions</a></li><li><a href="#built">What we built</a></li><li><a href="#impact">Impact</a></li><li><a href="#reflection">Reflection</a></li></ol>
+          <ol><li><a href="#context">Context</a></li><li><a href="#role">My role</a></li><li><a href="#challenge">The challenge</a></li><li><a href="#decisions">Key decisions</a></li><li><a href="#iteration">Testing &amp; iteration</a></li><li><a href="#built">What we built</a></li><li><a href="#impact">Impact</a></li><li><a href="#reflection">Reflection</a></li></ol>
         </nav>
 
         <article class="prose">
@@ -68,12 +68,17 @@
             <h2>Context</h2>
             <p>Museum-goers usually engage with art passively: behind glass, at a distance, with limited context about the story, technique or culture behind the work. That creates a barrier between the artwork and its audience, especially for younger and less traditionally “museum-going” visitors.</p>
             <p><b>The goal:</b> let players step <i>inside</i> iconic paintings, turning static 2D artworks into explorable 3D environments where they discover the stories, techniques and cultural contexts behind the art.</p>
-            <p>We scored candidate paintings on visual richness, narrative depth and feasibility as a 3D environment, and chose three culturally distinct pieces:</p>
+            <p>The key test for each painting was whether its perspective and composition could become an explorable 3D space within our time and resources. Our first choice for the Indian painting failed that test: it would have needed an overly large space, so we swapped it. The final three:</p>
             <ul>
-              <li><i>Damayanti</i> by Raja Ravi Varma (India)</li>
               <li><i>Virginia's Fish</i> by Leonora Carrington (Mexico)</li>
+              <li><i>Damayanti</i> by Raja Ravi Varma (India)</li>
               <li><i>The Night Revels of Han Xizai</i> by Gu Hongzhong (China)</li>
             </ul>
+            <div class="paintings">
+              <figure><img src="../assets/images/projects/custodians/painting-virginias-fish.webp" alt="Virginia's Fish by Leonora Carrington" loading="lazy" /><figcaption>Virginia's Fish</figcaption></figure>
+              <figure><img src="../assets/images/projects/custodians/painting-damayanti.webp" alt="Damayanti by Raja Ravi Varma" loading="lazy" /><figcaption>Damayanti</figcaption></figure>
+              <figure><img src="../assets/images/projects/custodians/painting-han-xizai.webp" alt="Detail of The Night Revels of Han Xizai by Gu Hongzhong" loading="lazy" /><figcaption>The Night Revels of Han Xizai</figcaption></figure>
+            </div>
           </section>
 
           <section id="role">
@@ -82,8 +87,9 @@
               <li><b>Gameplay systems:</b> locomotion, interaction, transitions and optimisation.</li>
               <li><b>Project management</b> across a 5-person interdisciplinary team.</li>
               <li><b>Integration “gatekeeper”</b> for the shared Unity project.</li>
-              <li><b>Branding and showcase logistics.</b></li>
+              <li><b>Branding and showcase logistics:</b> banners, posters, brochures, stickers and t-shirts, from print quotes to delivery.</li>
             </ul>
+            <p>The team: Haiqi Xiong (3D integration and interaction), Yinqi Shu (3D art, environments and audio), Giselle Cruz Martínez (creative direction and narrative research) and Xinyu He (VR UI). We met our supervisor every Monday and as a team every Friday.</p>
           </section>
 
           <section id="challenge">
@@ -99,18 +105,18 @@
           <section id="decisions">
             <h2>Key decisions</h2>
             <div class="decision reveal">
-              <h3>1. Two ways to move, so first-timers stay comfortable</h3>
+              <h3>1. Anchors, not teleport-anywhere</h3>
               <dl>
-                <dt>Decision</dt><dd>An anchor-based teleport system alongside continuous movement.</dd>
-                <dt>Why</dt><dd>First-time VR players need a comfortable default; confident players want freedom. Offering both let each player navigate every scene their way.</dd>
-                <dt>Next time</dt><dd>Showcase feedback asked for freer teleportation, which is planned for the next iteration.</dd>
+                <dt>Decision</dt><dd>Anchor-based teleportation between key spots, with continuous movement within each scene, instead of universal teleportation.</dd>
+                <dt>Why</dt><dd>To encourage deliberate exploration of each painting while keeping players immersed.</dd>
+                <dt>Next time</dt><dd>Showcase feedback asked for freedom to teleport anywhere, so that's the first change for the next iteration.</dd>
               </dl>
             </div>
             <div class="decision reveal">
-              <h3>2. Discovery over tutorials</h3>
+              <h3>2. Subtle cues that respect the art</h3>
               <dl>
-                <dt>Decision</dt><dd>Subtle interaction prompts and haptic cues instead of an instruction screen.</dd>
-                <dt>Why</dt><dd>Instructions break the sense of exploration the experience depends on. Grabbing, scene transitions and haptic feedback were designed to feel intuitive without them.</dd>
+                <dt>Decision</dt><dd>Haptic feedback and trigger lines to show which objects can be grabbed, instead of making them glow.</dd>
+                <dt>Why</dt><dd>A glow would have changed how the paintings look. Feedback also showed that discovering objects was more enjoyable than obvious cues: sometimes restraint creates the wonder.</dd>
               </dl>
             </div>
             <div class="decision reveal">
@@ -122,11 +128,45 @@
             </div>
           </section>
 
+          <section id="iteration">
+            <h2>Testing &amp; iteration</h2>
+            <p>Most of us were new to Unity and VR, so the experience took shape by testing in the headset, finding what broke, and changing it.</p>
+            <div class="decision reveal">
+              <h3>Moving between paintings</h3>
+              <dl>
+                <dt>First try</dt><dd>Players walked straight through a painting into the next scene, like stepping through a screen.</dd>
+                <dt>What broke</dt><dd>Performance dropped in the heavier Indian and Chinese scenes.</dd>
+                <dt>Change</dt><dd>On our supervisor's advice I added a loading scene. A skybox version was too heavy and static, so I rebuilt it as particles on black, which also gave the transition the fairy-tale feel we wanted.</dd>
+              </dl>
+            </div>
+            <div class="decision reveal">
+              <h3>Controllers that stopped responding</h3>
+              <dl>
+                <dt>What broke</dt><dd>After a transition, controllers often stopped responding or reset late, which broke immersion.</dd>
+                <dt>Change</dt><dd>I wrote a C# script to reset the controllers on entering each scene, and kept the XR Origin and XR Interaction Manager persistent across scenes. A small delay remained, a reminder to keep testing.</dd>
+              </dl>
+            </div>
+            <div class="decision reveal">
+              <h3>Lag from heavy assets</h3>
+              <dl>
+                <dt>What broke</dt><dd>Detailed models and textures caused lag that risked breaking presence.</dd>
+                <dt>Change</dt><dd>Baked lighting, unlit textures where they didn't hurt the look, and stripping unnecessary assets, balancing fidelity with frame rate.</dd>
+              </dl>
+            </div>
+            <figure class="cs-fig">
+              <div class="before-after">
+                <img src="../assets/images/projects/custodians/initial-model.webp" alt="Early 3D model of the Han Xizai scene: a few figures and screens on a grey plane" loading="lazy" />
+                <img src="../assets/images/projects/custodians/final-unity-scene.webp" alt="Final Unity scene of the Han Xizai painting with furnished room, banquet tables and figures" loading="lazy" />
+              </div>
+              <figcaption>The Night Revels of Han Xizai: early model (left) and final Unity scene (right).</figcaption>
+            </figure>
+          </section>
+
           <section id="built">
             <h2>What we built</h2>
             <ul>
               <li><b>Scene transitions:</b> particle-based loading screens for smooth movement between paintings.</li>
-              <li><b>Audio design:</b> soundscapes tailored to each painting's cultural context.</li>
+              <li><b>Audio design:</b> a calm, museum-like hub, shimmering transitions, and a soundscape for each painting, generated with AI and matched to its cultural origin.</li>
               <li><b>Performance:</b> baked lighting and unlit textures kept heavy assets performant without compromising visual authenticity.</li>
             </ul>
           </section>
@@ -137,7 +177,6 @@
             <ul>
               <li>A working VR prototype that lets players explore three culturally significant paintings in 3D.</li>
               <li>Visitors asked to see more artworks brought into VR.</li>
-              <li>Positive feedback on the concept's potential for museums and education.</li>
               <li>Feedback shaped concrete next steps: freer teleportation and AI-driven character interactions.</li>
             </ul>
           </section>
@@ -145,7 +184,7 @@
           <section id="reflection">
             <h2>Reflection</h2>
             <p><b>Technical.</b> Deepened my fluency in Unity VR workflows, C# scripting for scene transitions, asset and performance optimisation, and haptic interaction design.</p>
-            <p><b>Leadership.</b> Learned to coordinate an interdisciplinary team through workflow breakdowns, run branding and showcase logistics end to end, and balance leading with hands-on development.</p>
+            <p><b>Leadership.</b> Learned to coordinate an interdisciplinary team through workflow breakdowns, anticipate problems before they escalate, and balance managing with hands-on development. Running the showcase taught me that how a project is presented shapes how it's received.</p>
             <p><b>Creative.</b> Developed a sharper sense for preserving artistic authenticity while layering in interactivity, treating the original artwork as source material to respect, not just a backdrop.</p>
             <h3>Next steps</h3>
             <ul>
@@ -211,6 +250,6 @@
     <form method="dialog"><button class="btn btn--secondary btn--sm">Close</button></form>
   </dialog>
 
-  <script src="../js/main.js?v=20261005230414"></script>
+  <script src="../js/main.js?v=20261005231237"></script>
 </body>
 </html>
