@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love After Life · Anvita Beohar</title>
+  <meta name="description" content="Love After Life: a game design document for a narrative adventure where a soul untangles the red thread of fate across four elemental realms and twelve zodiac spirits." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="../assets/icons/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css?v=20261005222135" />
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav">
+    <a class="nav__logo" href="../index.html"><img src="../assets/icons/logo-mark.png" alt="Anvita Beohar, home" width="38" height="24" /></a>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <a href="../projects.html" aria-current="page">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (PDF, opens in a new tab)</span></a>
+      <a class="btn btn--primary btn--sm" href="../contact.html">Let's talk</a>
+    </nav>
+  </header>
+  <div class="xp" aria-hidden="true"><div class="xp__fill"></div></div>
+  <main id="main">
+    <header class="cs-hero container">
+      <p class="eyebrow">Side quest · Game design</p>
+      <h1 class="display">Love After Life</h1>
+      <p class="lead">A narrative adventure about a soul who died by cosmic mistake, and gets one chance to untangle the red thread of fate and find the love they were meant to meet.</p>
+      <dl class="cs-meta">
+        <div><dt>Team</dt><dd>Anvita Beohar, Xinyu He, Mannat</dd></div>
+        <div><dt>Deliverable</dt><dd>39-page game design document</dd></div>
+        <div><dt>Context</dt><dd>CS7027 Game Design, MSc</dd></div>
+        <div><dt>Year</dt><dd>2025</dd></div>
+      </dl>
+    </header>
+    <!-- slot: Anvita's own role on the team (which sections or systems she led). -->
+
+    <div class="container">
+      <div class="carousel vt-lal">
+        <img src="../assets/images/projects/love-after-life/realms.webp" alt="Four concept paintings of the Fire, Air, Water and Earth realms" />
+        <img src="../assets/images/projects/love-after-life/zephyra-dialogue.webp" alt="Concept of a dialogue scene with Zephyra, a blue-haired spirit, with response choices on screen" />
+        <img src="../assets/images/projects/love-after-life/fire-realm.webp" alt="Watercolour concept of the protagonist in a red coat walking through the ember-filled Fire Realm" />
+        <button class="prev" aria-label="Previous image">‹</button>
+        <button class="next" aria-label="Next image">›</button>
+      </div>
+
+      <section class="tldr reveal" aria-labelledby="tldr-title">
+        <p id="tldr-title" class="eyebrow tldr__label">TL;DR · 30-second read</p>
+        <div><h3>The idea</h3><p>Aster dies too soon through a clerical error in the cosmic ledger. To fix it, they journey through four elemental realms and meet twelve zodiac spirits.</p></div>
+        <div><h3>The design</h3><p>Three core systems feed each other: breathing, solving and dating. Breath is the soul's currency, earned through emotional honesty, and it decides the ending.</p></div>
+        <div><h3>Deliverable</h3><p>A full game design document: story, characters, 36 zodiac puzzles, branching dialogue, adaptive audio, art direction and UI.</p></div>
+      </section>
+
+      <div class="cs-body">
+        <nav class="toc" aria-label="On this page">
+          <p class="eyebrow">On this page</p>
+          <ol><li><a href="#concept">Concept</a></li><li><a href="#systems">Core systems</a></li><li><a href="#realms">Realms &amp; spirits</a></li><li><a href="#puzzles">Puzzle design</a></li><li><a href="#dialogue">Branching dialogue</a></li><li><a href="#music">Music as mechanic</a></li><li><a href="#endings">Endings</a></li><li><a href="#visuals">Visual direction</a></li></ol>
+        </nav>
+
+        <article class="prose">
+          <section id="concept">
+            <h2>Concept</h2>
+            <p>Aster was rushing to meet someone who might have changed everything. Distracted by a swerving car, they slipped on the subway stairs, and died a death that was meant for someone else.</p>
+            <p>They wake in a cosmic limbo, where a celestial scribe confirms the mistake. The red thread of love meant to guide Aster to their destined partner is now tangled through many souls, and Aster gets one chance to unravel it.</p>
+            <p>The game is a 2.5D narrative adventure with dating-sim elements, planned for PC and consoles. Players choose to play Aster as male or female, and the name stays gender-neutral. References included <i>Gris</i>, <i>Unravel</i>, <i>Oxenfree</i>, <i>Limbo</i> and <i>The Sims</i>.</p>
+          </section>
+
+          <section id="systems">
+            <h2>Core systems</h2>
+            <p>Three systems feed each other: breath strengthens puzzle outcomes, solving deepens romance, and dating changes the tone and rhythm of puzzles.</p>
+            <div class="principles principles--compact">
+              <div class="principle"><span class="eyebrow">Breathing</span><h3>Presence as a mechanic</h3><p>Hold a trigger to match breath with a spirit, guided by a pulsing UI ring. Breath is the soul's currency: it unlocks levels and, later, a shared meter with your partner.</p></div>
+              <div class="principle"><span class="eyebrow">Solving</span><h3>Puzzles as feelings</h3><p>Drag, rotate, arrange or time symbolic pieces that mirror a spirit's inner conflict. Solving earns breath and unlocks memories.</p></div>
+              <div class="principle"><span class="eyebrow">Dating</span><h3>Choices with tone</h3><p>Dialogue choices, shared mixtapes and rituals build bonds, unlock scenes and decide which endings are possible.</p></div>
+              <div class="principle"><span class="eyebrow">Red thread</span><h3>Fate you can see</h3><p>A glowing thread knots when your choices clash with a spirit's needs and flows freely when you reconnect: crimson for trust, darkened red for distance.</p></div>
+            </div>
+            <figure class="cs-fig">
+              <img src="../assets/images/projects/love-after-life/breath-currency.webp" alt="Concept card titled Breath as Currency showing inhale, hold and exhale timings" loading="lazy" />
+              <figcaption>Breath as currency. Generated with ChatGPT Plus.</figcaption>
+            </figure>
+          </section>
+
+          <section id="realms">
+            <h2>Realms &amp; spirits</h2>
+            <p>Limbo unfolds into four elemental realms, each home to three zodiac spirits. Every spirit is a possible romance and an emotional archetype with its own challenge. Realms open as you gather breath, and you can travel back between them.</p>
+            <ol class="flow" aria-label="Elemental realms">
+              <li><span class="eyebrow">Fire</span><b>Impulse &amp; performance</b><small>Aries, Leo, Sagittarius · 25 breaths to open Earth</small></li>
+              <li><span class="eyebrow">Earth</span><b>Memory &amp; growth</b><small>Taurus, Virgo, Capricorn · 50 breaths to open Air</small></li>
+              <li><span class="eyebrow">Air</span><b>Thought &amp; duality</b><small>Gemini, Libra, Aquarius · 100 breaths to open Water</small></li>
+              <li><span class="eyebrow">Water</span><b>Grief &amp; longing</b><small>Cancer, Scorpio, Pisces · the final deep dive</small></li>
+            </ol>
+          </section>
+
+          <section id="puzzles">
+            <h2>Puzzle design</h2>
+            <p>Each spirit has three puzzles, 36 in all. They aren't mechanically harder as you go; they ask for more emotional nuance. Leo, the Performer, shows the approach:</p>
+            <div class="decision reveal">
+              <h3>Leo: moving past validation toward authenticity</h3>
+              <dl>
+                <dt>Spotlight Truth</dt><dd>On stage, lights shift between real and performed memories. Choosing the quiet truth over dramatic flair earns intimacy.</dd>
+                <dt>Applause Echo</dt><dd>An audio puzzle: tell real applause from fake by its warmth, not its volume.</dd>
+                <dt>Memory Mask</dt><dd>Reassemble Leo's broken public mask, but leave one piece missing on purpose, to show imperfection is okay.</dd>
+              </dl>
+            </div>
+            <p>Failure isn't punished. A wrong answer brings low reverberations, distorted music and a ripple across the puzzle, so the player feels the disharmony instead of a game-over screen.</p>
+          </section>
+
+          <section id="dialogue">
+            <h2>Branching dialogue</h2>
+            <p>Choices sit on emotional spectrums (sincere vs. defensive, dreamer vs. realist, present vs. avoidant) rather than right and wrong. A sample scene:</p>
+            <p class="quote">“I think we met in the last destiny. A wind from another time still carries your echo.”</p>
+            <ul>
+              <li><b>Realist:</b> “Destiny? Maybe just a coincidence. But I'm here now.” Builds trust with grounded spirits like Taurus. +1 breath.</li>
+              <li><b>Dreamer:</b> “If I was your destiny, I made a lasting impact.” Deepens bonds with nostalgic spirits like Pisces and triggers a memory puzzle. +3 breaths.</li>
+              <li><b>Empath:</b> Stay silent and hold their gaze. Opens guarded spirits like Scorpio and starts a breath-sync moment.</li>
+            </ul>
+          </section>
+
+          <section id="music">
+            <h2>Music as mechanic</h2>
+            <p>Players bring their own playlist. Spirits notice your musical language and comment on it, and as a bond deepens you can make a mixtape for the spirit you're closest to. Later puzzles ask you to recognise a tune a spirit hums from your mixtape, or co-compose a song.</p>
+            <p>Each realm has its own sound: cracked ceramic drums for Fire, kalimba and felt piano for Earth, delayed zither for Air, and glass harmonica for Water. Adaptive audio (FMOD or Wwise) shifts with every breath gained or lost.</p>
+          </section>
+
+          <section id="endings">
+            <h2>Endings</h2>
+            <p>After all twelve encounters, you choose one spirit and return to a first-person, real-world phase with a shared breath meter. Neglect, misunderstanding and care all move it. Conflict isn't failure; you can recover by re-syncing breath or choosing stillness.</p>
+            <ul>
+              <li><b>Harmonic Rebirth:</b> your breaths align, and you return to life together, changed rather than healed.</li>
+              <li><b>Frayed Threads:</b> the thread unravels and Aster stays adrift in a monochrome limbo. Not a punishment, but a melancholic stillness.</li>
+            </ul>
+          </section>
+
+          <section id="visuals">
+            <h2>Visual direction</h2>
+            <p>The world is layered 2D watercolour with 2.5D dialogue scenes, so conversations feel still and intimate. Each realm has its own palette, and the protagonist evolved from a male-identified first prototype into a gender-neutral figure in a flowing red coat that echoes the red thread.</p>
+            <div class="cs-duo">
+              <figure class="cs-fig">
+                <img src="../assets/images/projects/love-after-life/cover.webp" alt="Cover art: Love After Life, The Red Thread, showing the protagonist in a red coat holding a red thread between fire and water" loading="lazy" />
+                <figcaption>Key art. Generated with ChatGPT Plus.</figcaption>
+              </figure>
+              <figure class="cs-fig">
+                <img src="../assets/images/projects/love-after-life/palette.webp" alt="Colour palette swatches for the Fire, Water, Air and Earth realms" loading="lazy" />
+                <figcaption>Realm palette, refined by Xinyu He in Figma.</figcaption>
+                <img style="margin-top:var(--s4)" src="../assets/images/projects/love-after-life/puzzle-states.webp" alt="Concept of puzzle completion as golden constellation lines and failure as a dark rippled pattern" loading="lazy" />
+                <figcaption>Puzzle completion and failure states. Generated with ChatGPT Plus.</figcaption>
+              </figure>
+            </div>
+            <p class="cs-credit">Concept art throughout was generated with ChatGPT Plus as visual direction for the document; the Zephyra dialogue scene was recreated by Xinyu He in Procreate.</p>
+          </section>
+        </article>
+      </div>
+
+      <section class="level-complete reveal" aria-labelledby="lc-title">
+        <img class="pixelated" src="../assets/images/home/about-jump.png" alt="" />
+        <p class="eyebrow">Side quest complete</p>
+        <h2 id="lc-title" class="h2">Thanks for playing.</h2>
+        <p>Next up: The Echo, a psychological thriller in Twine where your memories start to lie.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="the-echo.html">Next side quest <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a class="btn btn--secondary" href="../projects.html">All work</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <section class="footer__cta" aria-labelledby="cta-title">
+      <p class="eyebrow">Player 2 has entered</p>
+      <h2 id="cta-title" class="h1">Hiring a product designer? Let's talk.</h2>
+      <p>Open to UX and product design roles in Bengaluru or remote.</p>
+      <div class="footer__actions">
+        <a class="btn btn--light" href="https://calendar.app.google/NNZUitaoG9RfVanL6" target="_blank" rel="noopener">Book a call<span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="btn btn--ghost-light" href="mailto:anvitabeohar04@gmail.com">Email me</a>
+        <a class="btn btn--ghost-light" href="https://www.linkedin.com/in/anvitabeohar/" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+    </section>
+    <div class="footer__inner">
+      <div>
+        <a class="footer__logo" href="../index.html"><img src="../assets/icons/logo-mark-white.png" alt="Anvita Beohar, home" width="46" height="26" /></a>
+        <p class="footer__copy">© <span data-year>2026</span> Anvita Beohar. Designed and built by hand.</p>
+        <p class="footer__hint">Press <kbd>?</kbd> for keyboard shortcuts</p>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="../projects.html">Work</a>
+        <a href="../about.html">About</a>
+        <a href="../speedrun.html">Speedrun</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../assets/docs/resume.pdf" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens in a new tab)</span></a>
+      </nav>
+    </div>
+  </footer>
+
+  <dialog class="shortcuts" id="shortcuts" aria-labelledby="shortcuts-title">
+    <h2 id="shortcuts-title">Controls</h2>
+    <dl>
+      <dt><kbd class="kbd">W</kbd></dt><dd>Work</dd>
+      <dt><kbd class="kbd">A</kbd></dt><dd>About</dd>
+      <dt><kbd class="kbd">R</kbd></dt><dd>Resume (PDF)</dd>
+      <dt><kbd class="kbd">S</kbd></dt><dd>Speedrun: the 60-second version</dd>
+      <dt><kbd class="kbd">C</kbd></dt><dd>Contact</dd>
+      <dt><kbd class="kbd">H</kbd></dt><dd>Home</dd>
+      <dt><kbd class="kbd">?</kbd></dt><dd>Show these controls</dd>
+    </dl>
+    <form method="dialog"><button class="btn btn--secondary btn--sm">Close</button></form>
+  </dialog>
+
+  <script src="../js/main.js?v=20261005222135"></script>
+</body>
+</html>

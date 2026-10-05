@@ -11,6 +11,8 @@ as a plain HTML/CSS/JS site for GitHub Pages. No build step.
 | `projects.html` | Work: all case studies and the playground |
 | `projects/custodians-of-memory.html` | Case study (the template for new ones) |
 | `projects/vow.html` | Case study: Vow wedding planner app |
+| `projects/ibm-alm.html` | Case study: IBM ALM research (gaps marked `slot:` in comments) |
+| `projects/love-after-life.html` | Side quest: Love After Life game design document |
 | `about.html` | Bio, numbers, how I work, experience, education, skills, toolkit, FAQ |
 | `speedrun.html` | The 60-second version for hiring managers |
 | `contact.html` | Contact details and "Book a call" |

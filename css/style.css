@@ -750,3 +750,7 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 /* Unfilled content: visible on purpose so nothing ships by accident. Find them with: grep 'class="slot"' */
 .prose .slot { margin-top: var(--s4); padding: var(--s4) var(--s5); border: 2px dashed var(--orange-text); border-radius: var(--r-md); background: #fff7ec; font-size: 15px; color: var(--ink-2); }
 .prose .slot::before { content: "To fill: "; font-weight: 700; color: var(--orange-text); }
+
+/* Love After Life */
+.vt-lal { view-transition-name: cover-lal; }
+.prose .cs-credit { margin-top: var(--s5); font-size: 14px; color: var(--muted); }
