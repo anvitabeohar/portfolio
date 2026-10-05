@@ -351,7 +351,7 @@ a.wcard:hover .wcard__go svg { transform: translateX(4px); }
 .c-hello p { font-size: 16px; font-weight: 500; line-height: 1.8; }
 .c-hello img { width: 100px; flex-shrink: 0; }
 .c-info { grid-column: span 2; padding: var(--s6) var(--s8); gap: var(--s6); }
-.c-info__phone { width: 110px; flex-shrink: 0; }
+.c-info__phone { width: 56px; flex-shrink: 0; }
 .c-info__list { display: grid; grid-template-columns: auto auto; gap: var(--s3) var(--s6); font-size: 16px; font-weight: 500; }
 .c-info__list a, .c-info__list span { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
 .c-info__list a:hover { color: var(--orange-text); text-decoration: underline; }
