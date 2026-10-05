@@ -6,8 +6,6 @@ Everything the site displays lives here. File names are lowercase with no spaces
 
 | Upload to | Shown on |
 |---|---|
-| `images/projects/graphic-design.webp` | Projects page, "Graphic design" card |
-| `images/projects/3d-model.webp` | Projects page, "Spongebob 3D model" card |
 | `images/stack/<tool>.png` | About page toolkit tiles. Tool names: `procreate`, `twine`, `blender`, `reaper`, `figma`, `html`, `css`, `js`, `unity`, `illustrator`, `photoshop`, `after-effects` |
 
 Until an image is uploaded, the page shows a striped placeholder (or the tool's name in the toolkit).
