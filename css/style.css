@@ -466,7 +466,7 @@ a.wcard:hover .wcard__go svg { transform: translateX(4px); }
 .carousel button { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(255, 255, 255, .85); color: var(--ink); font-size: 22px; cursor: pointer; box-shadow: var(--e2); }
 .carousel .prev { left: var(--s5); }
 .carousel .next { right: var(--s5); }
-.case__preview { display: flex; justify-content: center; margin-top: var(--s6); }
+.case__preview { display: flex; flex-wrap: wrap; gap: var(--s3); justify-content: center; margin-top: var(--s6); }
 
 .tldr { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s5); margin-top: var(--s7); padding: var(--s6); border-radius: var(--r-lg); background: var(--card); border: var(--pixel-border); }
 .tldr__label { grid-column: 1 / -1; }
