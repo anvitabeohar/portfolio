@@ -771,13 +771,13 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .timeline__link { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--orange); font-weight: 600; color: var(--ink); }
 
 /* About: community */
-.community { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s5); }
+.community { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s5); }
 .community__card { border: var(--pixel-border); border-radius: var(--r-md); overflow: hidden; background: var(--card); display: flex; flex-direction: column; }
 .community__card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-bottom: var(--pixel-border); }
 .community__body { padding: var(--s5); }
 .community__body h3 { font-size: var(--fs-h3); margin-top: var(--s2); }
 .community__body p:last-child { margin-top: var(--s2); color: var(--ink-2); font-size: 16px; }
-@media (max-width: 900px) { .community { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .community { grid-template-columns: 1fr; } }
 
 /* Custodians: paintings and before/after */
 .paintings { display: grid; grid-template-columns: 1.4fr .7fr 1.4fr; gap: var(--s3); margin-top: var(--s5); align-items: end; }
@@ -788,3 +788,10 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .before-after img { width: 100%; border-radius: var(--r-md); border: 1px solid var(--line); }
 @media (max-width: 520px) { .before-after { grid-template-columns: 1fr; } }
 .cs-fig--portrait { max-width: 340px; margin-left: auto; margin-right: auto; }
+.podcast-cover { position: relative; display: grid; place-items: center; aspect-ratio: 4 / 3; border-bottom: var(--pixel-border); color: #fff; overflow: hidden;
+  background: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px) 0 0 / 24px 24px, linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px) 0 0 / 24px 24px, radial-gradient(120% 120% at 80% 0%, #7a2d00 0%, #2a1206 55%, #140903 100%); }
+.podcast-cover__wave { position: absolute; left: 0; right: 0; top: 50%; width: 100%; height: 26%; transform: translateY(-50%); color: var(--orange); opacity: .55; }
+.podcast-cover__play { position: relative; width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: var(--orange); color: var(--ink); border: 3px solid #fff; transition: transform var(--dur-base) var(--ease-standard); }
+.podcast-cover__play svg { width: 26px; height: 26px; margin-left: 3px; }
+.podcast-cover:hover .podcast-cover__play { transform: scale(1.08); }
+.podcast-cover__title { position: absolute; left: 0; right: 0; bottom: var(--s5); text-align: center; font-family: var(--pixel); font-size: 18px; letter-spacing: .08em; text-transform: uppercase; color: #e5d5c8; }
