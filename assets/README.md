@@ -6,7 +6,6 @@ Everything the site displays lives here. File names are lowercase with no spaces
 
 | Upload to | Shown on |
 |---|---|
-| `images/resume/photo.jpg` | About page portrait (your pixel character shows until then) |
 | `images/projects/graphic-design.webp` | Projects page, "Graphic design" card |
 | `images/projects/life-after-love.webp` | Projects page, "Life after love" card |
 | `images/projects/3d-model.webp` | Projects page, "Spongebob 3D model" card |
@@ -20,6 +19,7 @@ If you use a different format (e.g. `.jpg` instead of `.webp`), change the file 
 - `images/home/` — hero background, walking sprites, "Portfolio" title, home card art (`about`, `card-1…4`, `folder`, `contact-phone`, `avatar`)
 - `images/projects/` — `vr.webp` (Custodians of Memory), `vow.avif`, `vow/` (Vow case study images), `cultura.webp`, `ar.avif`, `the-echo.avif`
 - `icons/` — `logo-mark.png` and `logo-mark-white.png` (cropped logos used in the nav and footer), `logo.png` (browser tab icon), `mail.png`, `phone.png`, `linkedin.png`
+- `images/resume/photo.jpg` — About page portrait
 - `docs/resume.pdf` — the resume linked from the nav. Replace this file to update it everywhere.
 
 The screenshots and screen recordings of the Framer site are in `/reference`. They aren't used by the site.
