@@ -762,3 +762,5 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 
 /* Cultura */
 .vt-cultura { view-transition-name: cover-cultura; }
+.principle ul { margin-top: var(--s3); font-size: 16px; line-height: 1.5; }
+.cs-fig a { display: block; }

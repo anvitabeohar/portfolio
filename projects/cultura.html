@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/style.css?v=20261005222655" />
+  <link rel="stylesheet" href="../css/style.css?v=20261005223510" />
   <script>document.documentElement.classList.add("js")</script>
 </head>
 <body data-root="../">
@@ -52,7 +52,7 @@
       <div class="cs-body">
         <nav class="toc" aria-label="On this page">
           <p class="eyebrow">On this page</p>
-          <ol><li><a href="#context">Context</a></li><li><a href="#role">My role</a></li><li><a href="#features">Features</a></li><li><a href="#discover">Personalised discovery</a></li><li><a href="#tech">Technology</a></li><li><a href="#outcome">Outcome</a></li></ol>
+          <ol><li><a href="#context">Context</a></li><li><a href="#role">My role</a></li><li><a href="#process">Design process</a></li><li><a href="#features">Features</a></li><li><a href="#discover">Personalised discovery</a></li><li><a href="#tech">Technology</a></li><li><a href="#outcome">Outcome</a></li></ol>
         </nav>
 
         <article class="prose">
@@ -71,6 +71,49 @@
               <li><b>Identity:</b> chose the name and created the presentation materials.</li>
               <li><b>Front-end:</b> built pages with HTML, CSS and Bootstrap.</li>
             </ul>
+          </section>
+
+          <section id="process">
+            <h2>Design process</h2>
+            <h3>Scoping the features</h3>
+            <p>Before designing, I sorted the ideas into what the platform must have and what would be nice to have.</p>
+            <div class="principles principles--compact">
+              <div class="principle"><span class="eyebrow">Must have</span><ul>
+                <li>A personalised feed of global art based on user preferences</li>
+                <li>Integration with APIs to show art from around the world</li>
+                <li>Filter and search by genre, artist, era, country and more</li>
+                <li>Upload and share your own artwork</li>
+                <li>Community interaction: likes, comments, follows</li>
+                <li>Themed collections by region, time period or culture</li>
+              </ul></div>
+              <div class="principle"><span class="eyebrow">Nice to have</span><ul>
+                <li>Rate and review artwork</li>
+                <li>Multiple languages, for a wider audience</li>
+                <li>Connect art profiles to Instagram or Pinterest</li>
+                <li>An interactive map to explore art by location and culture</li>
+              </ul></div>
+            </div>
+
+            <h3>Information architecture</h3>
+            <p>After logging in or signing up, everything hangs off three areas: <b>Discover</b> (art by category, featured artists and featured works), <b>Profile</b> (your uploads, favourites, friends, messages and account settings) and <b>Upload</b>.</p>
+            <figure class="cs-fig">
+              <a href="../assets/images/projects/cultura/information-architecture.webp" target="_blank" rel="noopener"><img src="../assets/images/projects/cultura/information-architecture.webp" alt="Sitemap: Landing page leads to Log in and Sign up, then Discover (Art by category with Paintings, Sculpture, Photography, Digital Art and Performance Art leading to Artwork details; Featured artists leading to Artist profile; Featured works), Profile (Uploaded artworks, Favourites, Friends, Messages, Account settings) and Upload" loading="lazy" /></a>
+              <figcaption>Sitemap. Tap to open full size.</figcaption>
+            </figure>
+
+            <h3>User flows</h3>
+            <p>I mapped the two core journeys. <b>Post an artwork</b>: upload, add photos, a description and tags, then review, and either publish or save as a draft. <b>Find an artwork</b>: Discover, pick a genre, open a piece, then like or comment.</p>
+            <figure class="cs-fig cs-fig--wide">
+              <a href="../assets/images/projects/cultura/user-flows.webp" target="_blank" rel="noopener"><img src="../assets/images/projects/cultura/user-flows.webp" alt="User flows. Post an artwork: start, landing page, log in, profile dashboard, click upload, add photos, add description, add tags, review post, then a decision: if happy, publish to the profile dashboard; if not, review again or save as draft. Find an artwork: start, landing page, log in, profile dashboard, discover page, click an art genre, modern art, click an art piece, like or comment, end" loading="lazy" /></a>
+              <figcaption>User flows for posting and finding an artwork. Tap to open full size.</figcaption>
+            </figure>
+
+            <h3>Style guide</h3>
+            <p>Sora for the logo and headings, Onest for body text, and a warm orange flower as the logo mark. The palette pairs neutrals with orange, pink, blue and deep burgundy. The guide also defines primary and secondary buttons in four states (default, hover, clicked, inactive), artist and genre cards, and form fields with an error state.</p>
+            <figure class="cs-fig">
+              <a href="../assets/images/projects/cultura/style-guide.webp" target="_blank" rel="noopener"><img src="../assets/images/projects/cultura/style-guide.webp" alt="Cultura style guide: Sora and Onest typefaces with a type scale, the Cultura logo and flower icon, a ten-colour palette, an icon set, primary and secondary buttons in default, hover, clicked and inactive states, artist and genre cards, and input fields" loading="lazy" /></a>
+              <figcaption>Cultura style guide. Tap to open full size.</figcaption>
+            </figure>
           </section>
 
           <section id="features">
@@ -166,6 +209,6 @@
     <form method="dialog"><button class="btn btn--secondary btn--sm">Close</button></form>
   </dialog>
 
-  <script src="../js/main.js?v=20261005222655"></script>
+  <script src="../js/main.js?v=20261005223510"></script>
 </body>
 </html>
