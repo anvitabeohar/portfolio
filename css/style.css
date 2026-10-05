@@ -764,3 +764,7 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .vt-cultura { view-transition-name: cover-cultura; }
 .principle ul { margin-top: var(--s3); font-size: 16px; line-height: 1.5; }
 .cs-fig a { display: block; }
+
+/* Speedrun: AI section */
+.speed-card__lead { margin-top: var(--s3); color: var(--ink-2); }
+.speed-card__note { margin-top: var(--s5); font-size: 15px; color: var(--muted); }
