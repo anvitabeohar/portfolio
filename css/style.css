@@ -580,8 +580,7 @@ a.wcard:hover .wcard__go svg { transform: translateX(4px); }
   .nav.is-open .nav__toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   .hero { min-height: 760px; padding-top: calc(64px + var(--s6)); padding-left: var(--s4); padding-right: var(--s4); }
-  .hero__panel { padding: var(--s6) var(--s5); border-radius: var(--r-lg); }
-  .hero__cta { flex-direction: column; }
+  .hero__panel { max-width: 620px; padding: var(--s6) var(--s5); border-radius: var(--r-lg); }
   .walker { width: 96px; height: 96px; bottom: 7%; }
 
   .section { padding-top: var(--s8); }
@@ -803,3 +802,5 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .testimonial p { margin-top: 0; font-size: 16px; line-height: 1.6; color: var(--ink); font-style: italic; }
 .testimonial footer { display: block; margin-top: var(--s3); font-size: 14px; color: var(--muted); font-style: normal; font-weight: 500; }
 @media (max-width: 760px) { .testimonials { grid-template-columns: 1fr; } }
+
+@media (max-width: 520px) { .hero__cta { flex-direction: column; } }
