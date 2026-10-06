@@ -796,3 +796,10 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .community__card--wide .community__body { align-self: center; padding: var(--s6); }
 @media (max-width: 760px) { .community__card--wide { grid-template-columns: 1fr; } .community__card--wide img { border-right: 0; border-bottom: var(--pixel-border); height: auto; } }
 .chip .lock { width: 13px; height: 13px; margin-right: 6px; vertical-align: -2px; }
+
+/* About: working with me testimonials */
+.testimonials { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s5); }
+.testimonial { margin: 0; padding: var(--s5); background: var(--card); border: var(--pixel-border); border-radius: var(--r-md); }
+.testimonial p { margin-top: 0; font-size: 16px; line-height: 1.6; color: var(--ink); font-style: italic; }
+.testimonial footer { display: block; margin-top: var(--s3); font-size: 14px; color: var(--muted); font-style: normal; font-weight: 500; }
+@media (max-width: 760px) { .testimonials { grid-template-columns: 1fr; } }
