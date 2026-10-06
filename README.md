@@ -11,7 +11,6 @@ as a plain HTML/CSS/JS site for GitHub Pages. No build step.
 | `projects.html` | Work: all case studies and the playground |
 | `projects/custodians-of-memory.html` | Case study (the template for new ones) |
 | `projects/vow.html` | Case study: Vow wedding planner app |
-| `projects/alm-f8ebc58720.html` | IBM ALM case study. Unlisted: no links point to it and it asks search engines not to index it. Share this URL only on request. Gaps are marked `slot:` in comments |
 | `projects/ar-medicine-scanner.html` | Case study: AR medicine scanner |
 | `projects/cultura.html` | Side quest: Cultura art platform |
 | `projects/love-after-life.html` | Side quest: Love After Life game design document |
@@ -23,6 +22,10 @@ as a plain HTML/CSS/JS site for GitHub Pages. No build step.
 `js/main.js` holds the menu, scroll reveals, hover light, keyboard shortcuts (press `?`), count-ups,
 case-study progress bar and contents, FAQ, slideshow and skills physics.
 `js/vendor/matter.min.js` is [Matter.js](https://brm.io/matter-js/) 0.20.0 (MIT), used for the falling skills.
+
+## IBM ALM case study
+
+Not on the site. It's confidential, so the cards link to a walkthrough request, and the case study is shared as a PDF on request.
 
 ## Updating styles or scripts
 
