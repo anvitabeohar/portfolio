@@ -795,3 +795,4 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .community__card--wide img { aspect-ratio: auto; height: 100%; border-bottom: 0; border-right: var(--pixel-border); }
 .community__card--wide .community__body { align-self: center; padding: var(--s6); }
 @media (max-width: 760px) { .community__card--wide { grid-template-columns: 1fr; } .community__card--wide img { border-right: 0; border-bottom: var(--pixel-border); height: auto; } }
+.chip .lock { width: 13px; height: 13px; margin-right: 6px; vertical-align: -2px; }
