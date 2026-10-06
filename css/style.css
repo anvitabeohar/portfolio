@@ -441,7 +441,7 @@ a.wcard:hover .wcard__go svg { transform: translateX(4px); }
 .faq__item.is-open .faq__q i { background: var(--orange); border-color: var(--ink); color: var(--ink); }
 .faq__a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur-slow) var(--ease-standard); }
 .faq__a > div { overflow: hidden; }
-.faq__item.is-open .faq__a { grid-template-rows: 1fr; }
+.faq__item.is-open .faq__a, html:not(.js) .faq__a { grid-template-rows: 1fr; }
 .faq__a p { margin: 10px 0 4px auto; max-width: 520px; padding: var(--s4) 20px; background: var(--blue); border: var(--pixel-border); border-radius: var(--r-sm); font-size: 15px; font-weight: 500; }
 
 /* =========================================================
