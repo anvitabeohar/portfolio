@@ -791,3 +791,7 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .podcast-cover { display: grid; place-items: center; aspect-ratio: 4 / 3; background: #242424; border-bottom: var(--pixel-border); }
 .community__card .podcast-cover img { aspect-ratio: auto; object-fit: contain; border-bottom: 0; transition: transform var(--dur-base) var(--ease-standard); }
 .podcast-cover:hover img { transform: scale(1.02); }
+.community__card--wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1.1fr 1fr; }
+.community__card--wide img { aspect-ratio: auto; height: 100%; border-bottom: 0; border-right: var(--pixel-border); }
+.community__card--wide .community__body { align-self: center; padding: var(--s6); }
+@media (max-width: 760px) { .community__card--wide { grid-template-columns: 1fr; } .community__card--wide img { border-right: 0; border-bottom: var(--pixel-border); height: auto; } }
