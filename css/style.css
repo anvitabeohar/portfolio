@@ -866,11 +866,12 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
    ========================================================= */
 .pov-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s3); margin-top: var(--s6); }
 .pov-tab {
-  position: relative; display: grid; grid-template-columns: 48px 1fr; grid-template-rows: auto auto; column-gap: var(--s3); align-items: center;
+  position: relative; display: grid; grid-template-columns: 64px 1fr; grid-template-rows: auto auto; column-gap: var(--s3); align-items: center;
   padding: var(--s4); text-align: left; cursor: pointer; background: var(--card); border: var(--pixel-border); border-radius: var(--r-sm);
   transition: border-color var(--dur-base), transform var(--dur-fast) var(--ease-standard), box-shadow var(--dur-base);
 }
-.pov-tab img { grid-row: 1 / span 2; width: 48px; height: 48px; object-fit: contain; }
+.pov-tab img { grid-row: 1 / span 2; width: 64px; height: 64px; object-fit: contain; image-rendering: pixelated; transition: transform var(--dur-base) var(--ease-standard); }
+.pov-tab:hover img, .pov-tab[aria-selected="true"] img { transform: translateY(-3px) scale(1.06); }
 .pov-tab b { font-family: var(--pixel); font-size: 18px; line-height: 1.2; }
 .pov-tab > span:not(.pov-tab__p) { font-size: 14px; color: var(--ink-2); }
 .pov-tab__p { position: absolute; top: -11px; right: var(--s3); padding: 0 8px; font-family: var(--pixel); font-size: 12px; font-weight: 700; background: #fff; border: 2px solid var(--ink); border-radius: 4px; }
