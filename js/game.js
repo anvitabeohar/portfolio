@@ -19,6 +19,8 @@
     wrench: A + "game/wrench.webp", screwdriver: A + "game/screwdriver.webp", hammer: A + "game/hammer.webp",
     clover: A + "game/clover.webp", hudScore: A + "game/hud-score.webp", hudDigits: A + "game/hud-digits.webp",
     hudHearts: A + "game/hud-hearts.webp", heartEmpty: A + "game/hud-heart-empty.webp",
+    door: A + "game/door.webp",
+    p2: A + "home/pov-recruiter.webp", p3: A + "home/pov-hiring-manager.webp", p4: A + "home/pov-designer.webp",
   };
   const POINTS = { clover: 10, tool: 50, bug: 100 };
   // visible part of each character sprite (the walk frames have padding)
@@ -47,8 +49,8 @@
     [60, "2020 · Qubag"], [860, "2020 · Ittisa"], [1660, "2021 · Freelance"],
     [2560, "2023 · Blum"], [3460, "2024 · Trinity"], [4380, "2026 · IBM"],
   ];
-  const GROUND_SEGS = [[0, 700], [810, 1500], [1610, 2400], [2510, 3300], [3420, 4220], [4330, 5500]];
-  const WORLD = 5500, FLAG_X = 5280;
+  const GROUND_SEGS = [[0, 700], [810, 1500], [1610, 2400], [2510, 3300], [3420, 4220], [4330, 5800]];
+  const WORLD = 5800, FLAG_X = 5280, DOOR_X = 5390, SIGN_X = 5060;
   // [x, fact, clovers that pop out]; bigger milestones give more clovers
   const FACTS = [
     [1080, "Ittisa: 50+ banners and brand assets", 2],
@@ -218,7 +220,7 @@
     L.clovers += n;
   };
 
-  const afterMove = (dt) => {
+  const updatePops = (dt, life = 0.8) => {
     for (const c of L.pops) {
       if ((c.delay -= dt) > 0) continue;
       c.t += dt;
@@ -226,7 +228,42 @@
       c.x += c.vx * dt;
       c.y += c.vy * dt;
     }
-    L.pops = L.pops.filter((c) => c.t < 0.8);
+    L.pops = L.pops.filter((c) => c.t < (c.life || life));
+  };
+
+  // Finale: controls lock, she hops twice, clovers burst from the door, and the team appears
+  let cel = 0;
+  const startCelebration = () => {
+    if (state !== "play") return;
+    state = "celebrate";
+    cel = 0;
+    P.inv = 0; // stop any damage blink so she's visible for the finale
+    P.vx = 0;
+    P.vy = -620;
+    P.climb = false;
+    hideToast();
+    for (let i = 0; i < 18; i++) {
+      L.pops.push({ x: DOOR_X + 52, y: GROUND - 90, vx: (Math.random() - 0.5) * 560, vy: -420 - Math.random() * 420, t: 0, delay: 0.15 + i * 0.035, life: 1.1 });
+    }
+  };
+  const celebrate = (dt) => {
+    cel += dt;
+    // camera glides to centre the door so the whole party is in view
+    const target = Math.min(WORLD - W, DOOR_X + 52 - W / 2);
+    cam += (target - cam) * Math.min(1, dt * 4);
+    P.vy += GRAV * dt;
+    P.y += P.vy * dt;
+    if (P.y + P.h >= GROUND) {
+      P.y = GROUND - P.h;
+      P.vy = cel < 0.9 ? -520 : 0;
+      P.ground = true;
+    } else P.ground = false;
+    updatePops(dt);
+    if (cel > 2.4) finish("win");
+  };
+
+  const afterMove = (dt) => {
+    updatePops(dt);
     // tools
     for (const t of L.tools) {
       if (!t.taken && overlap(P, { x: t.x - 18, y: t.y - 18, w: 36, h: 36 })) t.taken = true;
@@ -256,8 +293,8 @@
       loseLife();
       if (state === "play") spawn();
     }
-    // flag
-    if (P.x + P.w > FLAG_X + 10) finish("win");
+    // flag: start the finale
+    if (P.x + P.w > FLAG_X + 10) startCelebration();
     // camera
     const want = Math.max(0, Math.min(WORLD - W, P.x - W * 0.4));
     cam += (want - cam) * Math.min(1, dt * 8);
@@ -360,11 +397,8 @@
     // tools (gentle bob)
     const t = performance.now() / 1000;
     for (const tool of L.tools) if (!tool.taken) ctx.drawImage(img[tool.kind], tool.x - 17, tool.y - 17 + Math.sin(t * 3 + tool.x) * 3, 34, 34);
-    // flag
-    ctx.drawImage(img.flag, FLAG_X, GROUND - 120, 75, 120);
-    ctx.font = font(15);
-    ctx.fillStyle = "#1d1d1f";
-    ctx.fillText("Next level: your team", FLAG_X - 40, GROUND - 140);
+    // finale: sign, flag, and the glowing next-level door
+    drawFinale(t);
     // popping clovers
     for (const c of L.pops) {
       if (c.delay > 0) continue;
@@ -398,6 +432,68 @@
     drawHud(score());
   };
 
+  const easeBack = (x) => 1 + 2.2 * Math.pow(x - 1, 3) + 1.2 * Math.pow(x - 1, 2);
+  const drawFinale = (t) => {
+    // wooden sign on two posts (blank plank from the HUD art)
+    const sk = 0.38, sw = 463 * sk, sh = 216 * sk, sy = GROUND - 190;
+    ctx.fillStyle = "#6b4426";
+    ctx.fillRect(SIGN_X + sw * 0.25, sy + sh - 6, 8, GROUND - sy - sh + 6);
+    ctx.fillRect(SIGN_X + sw * 0.7, sy + sh - 6, 8, GROUND - sy - sh + 6);
+    ctx.drawImage(img.hudScore, SIGN_X, sy, sw, sh);
+    ctx.fillStyle = "#3b2414";
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "center";
+    ctx.font = font(13);
+    ctx.fillText("NEXT LEVEL", SIGN_X + 292 * sk, sy + sh * 0.4);
+    ctx.font = font(17);
+    ctx.fillText("YOUR TEAM →", SIGN_X + 292 * sk, sy + sh * 0.62);
+    ctx.textAlign = "start";
+    // flag
+    ctx.drawImage(img.flag, FLAG_X, GROUND - 120, 75, 120);
+    // door glow pulses, and flares during the finale
+    const ending = state === "celebrate" || state === "win";
+    const glow = 0.32 + 0.12 * Math.sin(t * 3) + (ending ? 0.4 : 0);
+    const gx = DOOR_X + 52, gy = GROUND - 58;
+    const grad = ctx.createRadialGradient(gx, gy, 8, gx, gy, ending ? 170 : 120);
+    grad.addColorStop(0, `rgba(255, 210, 110, ${glow})`);
+    grad.addColorStop(1, "rgba(255, 210, 110, 0)");
+    ctx.fillStyle = grad;
+    ctx.fillRect(gx - 180, gy - 180, 360, 360);
+    ctx.drawImage(img.door, DOOR_X, GROUND - 113, 104, 113);
+    // the team appears above the door, one by one
+    if (!ending) return;
+    const team = [img.p2, img.p3, img.p4];
+    team.forEach((pic, i) => {
+      const k = Math.min(1, Math.max(0, (cel - 0.55 - i * 0.22) / 0.28));
+      if (!k || !pic.naturalWidth) return;
+      const s = easeBack(k), r = 28 * s;
+      const x = gx + (i - 1) * 66, y = GROUND - 190 + Math.sin(t * 3 + i) * 4;
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = "#fff";
+      ctx.fill();
+      ctx.clip();
+      ctx.drawImage(pic, x - r * 0.95, y - r * 0.95, r * 1.9, r * 1.9);
+      ctx.restore();
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = "#1d1d1f";
+      ctx.stroke();
+    });
+    if (cel > 1.35) {
+      ctx.font = font(18);
+      ctx.textAlign = "center";
+      ctx.lineWidth = 5;
+      ctx.strokeStyle = "#fdf6ea";
+      ctx.strokeText("Join the party?", gx, GROUND - 245);
+      ctx.fillStyle = "#1d1d1f";
+      ctx.fillText("Join the party?", gx, GROUND - 245);
+      ctx.textAlign = "start";
+    }
+  };
+
   const HEARTS_X = [78, 180, 282]; // left edge of each heart inside the hearts plank (source pixels)
   const drawHud = (s) => {
     const hk = 56 / 202; // hearts plank: 452x202 source -> 56px tall
@@ -423,7 +519,7 @@
         acc -= 1 / 120;
         if (state !== "play") break;
       }
-    }
+    } else if (state === "celebrate") celebrate(dt);
     draw();
   };
 
@@ -454,6 +550,7 @@
       <div class="game__actions"><button class="btn btn--primary" data-act="start">Start</button></div>`);
   };
   const start = () => {
+    cel = 0;
     reset();
     panel.hidden = true;
     hideToast();
@@ -471,17 +568,25 @@
     last = performance.now();
     canvas.focus();
   };
+  const PARTY = [["recruiter", "p2", "P2 · Recruiter"], ["hiring-manager", "p3", "P3 · Hiring manager"], ["designer", "p4", "P4 · Designer"]];
   const finish = (how) => {
-    if (state !== "play") return;
+    if (state !== "play" && state !== "celebrate") return;
     state = how;
     hideToast();
     const s = score();
-    const stats = `<p class="game__score"><img src="${A}game/hud-star.webp" alt="" /> <b>${s.points}</b> points</p>
-      <ul class="game__stats"><li><b>${s.clovers}/${s.cloversTotal}</b> clovers</li><li><b>${s.tools}/${s.toolsTotal}</b> tools</li><li><b>${s.bugs}/${s.bugsTotal}</b> bugs squashed</li></ul>`;
+    // badge, score and stats share one compact row; sizes are set in the HTML so the badge can't blow up
+    const stats = `<div class="game__result">
+        <img class="game__badge" src="${A}game/hud-star.webp" width="52" height="47" alt="" />
+        <p class="game__points"><b>${s.points}</b><span>points</span></p>
+        <ul class="game__stats"><li><b>${s.clovers}/${s.cloversTotal}</b> clovers</li><li><b>${s.tools}/${s.toolsTotal}</b> tools</li><li><b>${s.bugs}/${s.bugsTotal}</b> bugs</li></ul>
+      </div>`;
     if (how === "win") {
-      showPanel(`<p class="eyebrow">Level complete</p><h2>Next level: your team.</h2>${stats}
+      const party = PARTY.map(([id, pic, label]) => `<li><a href="${ROOT}speedrun.html#${id}"><img src="${img[pic].src}" width="44" height="44" alt="" /><span>${label}</span></a></li>`).join("");
+      showPanel(`<p class="eyebrow">Level complete</p><h2>Ready for co-op mode?</h2>${stats}
         <p>That's my journey so far. The next level is one we build together.</p>
-        <div class="game__actions"><a class="btn btn--primary" href="${ROOT}contact.html">Let's talk</a><button class="btn btn--secondary" data-act="restart">Play again</button></div>`, "a");
+        <div class="game__actions"><a class="btn btn--primary" href="${ROOT}contact.html">Let's talk</a><button class="btn btn--secondary" data-act="restart">Play again</button></div>
+        <p class="game__party-label">Or pick your player for the 60-second version</p>
+        <ul class="game__party">${party}</ul>`, "a");
     } else {
       showPanel(`<p class="eyebrow">Game over</p><h2>Continue?</h2>${stats}
         <div class="game__actions"><button class="btn btn--primary" data-act="restart">Try again</button><button class="btn btn--secondary" data-act="close">Exit</button></div>`);
