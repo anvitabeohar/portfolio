@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=20261028224143" />
+  <link rel="stylesheet" href="css/style.css?v=20261028224823" />
   <script>document.documentElement.classList.add("js")</script>
 </head>
 <body data-root="">
@@ -168,9 +168,11 @@
     </section>
 
     <section class="section container" aria-labelledby="char-title">
-      <h2 id="char-title" class="pixel-title">CHARACTER UNLOCKED</h2>
-      <div class="bento" data-stagger>
+      <h2 id="char-title" class="pixel-title">SELECT PLAYER</h2>
+      <p class="players-intro">I'm Player 1. Pick who you are to learn my journey in 60 seconds.</p>
+      <div class="bento bento--players" data-stagger>
         <a class="box box--link b-about reveal" href="about.html" data-tip="About">
+          <span class="player-tag player-tag--me">P1 · Anvita</span>
           <div class="b-about__img">
             <img class="pixelated" src="assets/images/home/about.png" alt="" />
             <img class="pixelated" src="assets/images/home/about-jump.png" alt="" />
@@ -181,27 +183,22 @@
           </div>
           <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
         </a>
-        <a class="box box--link b-projects reveal" href="projects.html" data-tip="Work">
-          <h3>PROJECTS</h3>
-          <div class="deck" aria-hidden="true"><img class="pixelated" src="assets/images/home/card-4.png" alt="" /><img class="pixelated" src="assets/images/home/card-3.png" alt="" /><img class="pixelated" src="assets/images/home/card-2.png" alt="" /><img class="pixelated" src="assets/images/home/card-1.png" alt="" /></div>
+        <a class="box box--link b-player reveal" href="speedrun.html#recruiter">
+          <span class="player-tag">P2</span>
+          <img class="b-player__img" src="assets/images/home/pov-recruiter.webp" width="96" height="96" alt="" />
+          <div class="b-player__text"><h3>Recruiter / HR</h3><p>Fit and logistics</p></div>
           <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
         </a>
-        <a class="box box--link b-contact reveal" href="contact.html" data-tip="Contact">
-          <h3>CONTACT</h3>
-          <img class="pixelated" src="assets/images/home/contact-phone.png" alt="" />
+        <a class="box box--link b-player reveal" href="speedrun.html#hiring-manager">
+          <span class="player-tag">P3</span>
+          <img class="b-player__img" src="assets/images/home/pov-hiring-manager.webp" width="96" height="96" alt="" />
+          <div class="b-player__text"><h3>Hiring manager</h3><p>Impact and how I work</p></div>
           <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
         </a>
-        <a class="box box--link b-faq reveal" href="about.html#faq" data-tip="FAQs">
-          <h3>FAQS</h3>
-          <div class="folder" aria-hidden="true">
-            <img class="pixelated" src="assets/images/home/folder.png" alt="" />
-            <img class="pixelated" src="assets/images/home/folder-hover.png" alt="" />
-          </div>
-          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-        </a>
-        <a class="box box--link b-stack reveal" href="about.html#toolkit" data-tip="Toolkit">
-          <h3>STACK</h3>
-          <div class="chips" aria-hidden="true"><span>FIGMA</span><span>UNITY</span><span>ADOBE SUITE</span></div>
+        <a class="box box--link b-player reveal" href="speedrun.html#designer">
+          <span class="player-tag">P4</span>
+          <img class="b-player__img" src="assets/images/home/pov-designer.webp" width="96" height="96" alt="" />
+          <div class="b-player__text"><h3>Designer</h3><p>Craft and process</p></div>
           <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
         </a>
       </div>
@@ -249,6 +246,6 @@
     <form method="dialog"><button class="btn btn--secondary btn--sm">Close</button></form>
   </dialog>
 
-  <script src="js/main.js?v=20261028224143"></script>
+  <script src="js/main.js?v=20261028224823"></script>
 </body>
 </html>
