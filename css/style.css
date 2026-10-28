@@ -1095,3 +1095,30 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .bento--players .b-about__img { width: 96px; }
 @media (max-width: 760px) { .bento--players .b-about__img { width: 40px; } }
 .bento--players .b-about__img img { height: auto; }
+
+/* =========================================================
+   Type scale for running text (keeps sizes from jumping between paragraphs)
+   - 18px (--fs-prose): everything inside a case study's main text, including
+     the decision, principle and persona cards embedded in it
+   - 17px (--fs-body): all other paragraphs: summaries, cards, FAQ answers,
+     testimonials, contact, Speedrun
+   - 14-15px: labels only (captions, stat labels, tags, meta lines)
+   ========================================================= */
+.prose .decision dl,
+.prose .principles--compact .principle p,
+.prose .principles--compact .principle li,
+.prose .principle p,
+.prose .principle li,
+.prose .persona p,
+.prose .cs-duo p,
+.prose .cs-duo li { font-size: var(--fs-prose); line-height: 1.65; }
+.tldr p,
+.testimonial p,
+.faq__a p,
+.c-hello p,
+.community__body p:last-child,
+.outcome p:not(.eyebrow),
+.b-about__text,
+.who,
+.level-complete p { font-size: var(--fs-body); }
+.paintings figcaption { font-size: 14px; }
