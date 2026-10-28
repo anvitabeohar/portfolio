@@ -945,7 +945,7 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 }
 .descent__ladder { position: absolute; inset: 0; background: url("../assets/images/game/ladder-tile.webp") repeat-y 2px 0 / 39px 17.5px; }
 /* Floor = Anvita's ladder-through-platform piece, at the same scale as the ladder tile so the rails line up */
-.descent__floor { position: absolute; left: -26px; width: 95px; height: 125px; background: url("../assets/images/game/ladder-entry.webp") 0 0 / 100% 100%; }
+.descent__floor { position: absolute; z-index: 1; left: -26px; width: 95px; height: 125px; background: url("../assets/images/game/ladder-entry.webp") 0 0 / 100% 100%; }
 .descent__block { position: absolute; left: 0; top: -27px; width: 28px; height: 29px; background: url("../assets/images/game/bulb-block.webp") 0 0 / 100% 100%; }
 .descent__block.is-bumped { animation: block-bump .35s var(--ease-standard); }
 @keyframes block-bump { 40% { transform: translateY(-10px); } }
@@ -959,7 +959,7 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .descent__door { position: absolute; left: -48px; bottom: 0; width: 45px; height: 49px; padding: 0; border: 0; cursor: pointer; pointer-events: auto; background: url("../assets/images/game/door.webp") 0 0 / 100% 100%; }
 .descent__door .descent__bubble { left: -4px; top: -34px; }
 /* All poses come from the same sheet at one scale (0.62), so she stays the same size in every pose */
-.descent__char { position: absolute; left: -15px; top: 0; width: 72px; height: 112px; will-change: transform; }
+.descent__char { position: absolute; left: -15px; top: 0; z-index: 3; width: 72px; height: 112px; will-change: transform; }
 .descent__char img { position: absolute; left: 50%; bottom: 0; height: auto; transform: translateX(-50%); display: none; }
 .descent__char img.is-on { display: block; }
 
