@@ -12,6 +12,22 @@ if (reducedMotion) {
   });
 }
 
+// Collapsible highlights: clips load and play only while the panel is open
+document.querySelectorAll("details.exp-more").forEach((panel) => {
+  const clips = [...panel.querySelectorAll("video")];
+  panel.addEventListener("toggle", () => {
+    clips.forEach((v) => {
+      if (!panel.open) return v.pause();
+      if (reducedMotion) {
+        v.controls = true;
+        v.preload = "metadata";
+      } else {
+        v.play().catch(() => (v.controls = true));
+      }
+    });
+  });
+});
+
 // Footer year
 document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
 
