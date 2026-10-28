@@ -977,7 +977,9 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 /* Softened like the original hero art (drawn at 70% over pale blue): less saturation plus a light haze */
 /* The sky colour is painted inside the filtered scene so it matches the sky layer (no visible band) */
 .scene { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; background: #96bcd6; filter: saturate(.72) brightness(1.04); }
-.scene::after { content: ""; position: absolute; inset: 0; background: rgba(207, 219, 230, .28); }
+/* Haze softens only the distant layers; the ground sits above it so it matches the ladder and platforms */
+.scene::after { content: ""; position: absolute; inset: 0; z-index: 1; background: rgba(207, 219, 230, .28); }
+.scene > .scene__ground { z-index: 2; }
 .descent__ladder, .descent__floor, .descent__ground, .descent__shaft { filter: saturate(.72) brightness(1.04); }
 .scene > div { position: absolute; left: 0; right: 0; background-repeat: repeat-x; background-position: center bottom; will-change: transform; }
 .scene > .scene__sky { top: 0; bottom: 250px; background-image: url("../assets/images/game/bg-sky.webp"); background-size: auto 260px; animation: cloud-drift 260s linear infinite; }
