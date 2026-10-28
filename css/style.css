@@ -819,9 +819,19 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
   padding: 3px 10px; border-radius: 999px; background: rgba(255, 255, 255, .92); box-shadow: var(--e1);
   font-size: 12px; font-weight: 600; line-height: 1.35; color: var(--ink);
 }
+.exp-media__label { margin-top: var(--s5); }
+.exp-media__label + .exp-media { margin-top: var(--s3); }
+.exp-media--work { grid-template-columns: 1fr 1.5fr; grid-template-rows: auto 1fr 1fr; }
+.exp-media__full { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+.exp-media--work .exp-media__tall { aspect-ratio: 4 / 5; }
+.exp-media--three { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; max-width: 600px; }
+.exp-media--three .exp-media__tall { grid-row: auto; }
 @media (max-width: 760px) {
   .exp-media { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
   .exp-media__tall { grid-row: auto; }
   .exp-media__wide { grid-column: 1 / -1; }
   .exp-media__wide img { position: static; height: auto; }
+  .exp-media--work .exp-media__tall { grid-column: 1 / -1; }
+  .exp-media--three { grid-template-columns: repeat(3, 1fr); gap: var(--s2); }
+  .exp-media--three figcaption { font-size: 10.5px; padding: 2px 7px; left: 4px; bottom: 4px; }
 }
