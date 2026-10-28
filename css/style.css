@@ -1043,6 +1043,7 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 /* =========================================================
    Home: Select player (P1 Anvita + P2-P4 visitors -> Speedrun views)
    ========================================================= */
+.b-about__sub { display: none; }
 .players-intro { margin: calc(-1 * var(--s4)) auto var(--s6); text-align: center; color: var(--ink-2); font-size: 18px; }
 .bento--players .b-about { grid-column: 1 / -1; min-height: 280px; }
 .player-tag { position: absolute; top: -13px; left: var(--s5); padding: 2px 10px; font-family: var(--pixel); font-size: 13px; font-weight: 700; background: #fff; border: 2px solid var(--ink); border-radius: 4px; }
@@ -1055,12 +1056,42 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .b-player p { color: var(--ink-2); font-size: 15px; }
 @media (max-width: 760px) {
   .players-intro { font-size: 16px; }
-  .bento--players { grid-template-columns: 1fr; }
-  .bento--players .b-about { grid-column: 1; flex-direction: row !important; min-height: 0 !important; padding: var(--s6) var(--s4) var(--s4) !important; gap: var(--s4); }
-  .bento--players .b-about__img { width: 72px; }
-  .bento--players .b-about__text h3 { font-size: 18px; }
+  /* gap leaves room for each card's P-tag above its top border */
+  .bento--players { grid-template-columns: 1fr; gap: var(--s6); }
+  /* P1 matches the P2-P4 rows: sprite left, text left, nothing centred */
+  .bento--players .b-about { grid-column: 1; flex-direction: row !important; justify-content: flex-start; min-height: 0 !important; padding: var(--s5) 64px var(--s4) var(--s4) !important; gap: var(--s4); text-align: left; }
+  .bento--players .b-about__img { width: 64px; }
+  .bento--players .b-about__text h3 { font-size: 16px; margin: 0; }
+  .b-player { padding-right: 64px !important; }
   .b-player { flex-direction: row !important; justify-content: flex-start; min-height: 0 !important; padding: var(--s5) var(--s4) var(--s4) !important; text-align: left; }
   .b-player__img { width: 64px; height: 64px; }
   .b-player h3 { font-size: 16px !important; }
   .bento--players .arrow { display: grid !important; right: var(--s4); bottom: 50%; transform: translateY(50%); }
+  .b-about__sub { display: block; margin-top: 4px; font-size: 15px; color: var(--ink-2); }
 }
+
+/* Game panels on small screens: compact type so the card fits without scrolling */
+.game__rotate { display: none; }
+@media (max-width: 760px), (max-height: 520px) {
+  .game__panel { padding: var(--s5) var(--s4); }
+  .game__panel h2 { font-size: 22px; line-height: 1.2; margin: var(--s2) 0; }
+  .game__panel p { font-size: 15px; line-height: 1.5; }
+  .game__keys { font-size: 13px; line-height: 1.6; margin-top: var(--s2); }
+  .game__actions { margin-top: var(--s4); }
+  .game__result { gap: var(--s2) var(--s4); padding: var(--s2) var(--s3); margin: var(--s3) auto; }
+  .game__party-label { margin-top: var(--s4); }
+}
+@media (orientation: portrait) and (pointer: coarse) {
+  .game__rotate { display: block; margin-top: var(--s3); font-family: var(--pixel); font-size: 13px; color: var(--orange-text) !important; }
+}
+/* Select player, desktop: room for the P-tags, a balanced P1 card, and arrows clear of the text */
+@media (min-width: 761px) {
+  .bento--players { row-gap: var(--s6); }
+  .bento--players .b-about { justify-content: center; min-height: 240px; gap: var(--s7); padding: var(--s6) var(--s8) !important; }
+  .bento--players .b-about__text { max-width: 460px; }
+  .b-player { padding-bottom: 72px !important; }
+}
+/* P1 sprite: higher-definition art shown at (or below) its natural size, so it stays crisp */
+.bento--players .b-about__img { width: 96px; }
+@media (max-width: 760px) { .bento--players .b-about__img { width: 40px; } }
+.bento--players .b-about__img img { height: auto; }

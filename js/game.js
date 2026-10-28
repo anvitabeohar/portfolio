@@ -8,8 +8,8 @@
 
   // ---------------------------------------------------------------- assets
   const SRC = {
-    run1: A + "home/walk1.png", run2: A + "home/walk2.png",
-    stand: A + "game/land.webp", jump: A + "game/jump.webp",
+    run1: A + "game/side-stand.webp", run2: A + "game/side-step.webp",
+    stand: A + "game/side-stand.webp", jump: A + "game/side-jump.webp",
     climb1: A + "game/climb-1.webp", climb2: A + "game/climb-2.webp", climb3: A + "game/climb-3.webp", climb4: A + "game/climb-4.webp",
     sky: A + "game/bg-sky.webp", mountains: A + "game/bg-mountains.webp", bushes: A + "game/bg-bushes.webp",
     grass: A + "game/bg-grass.webp", dirt: A + "game/bg-dirt.webp",
@@ -25,7 +25,7 @@
   const POINTS = { clover: 10, tool: 50, bug: 100 };
   // visible part of each character sprite (the walk frames have padding)
   const CROP = {
-    run1: [44, 15, 80, 138], run2: [36, 14, 86, 140], stand: [0, 0, 112, 152], jump: [0, 0, 128, 168],
+    run1: [0, 0, 131, 226], run2: [0, 0, 133, 230], stand: [0, 0, 131, 226], jump: [0, 0, 141, 222],
     climb1: [0, 1, 110, 177], climb2: [0, 0, 110, 176], climb3: [0, 0, 114, 177], climb4: [0, 4, 112, 180],
   };
   const img = {};
@@ -422,9 +422,9 @@
     if (!(P.inv && Math.floor(P.inv * 12) % 2)) {
       const cx = P.x + P.w / 2, foot = P.y + P.h;
       if (P.climb) sprite("climb" + (1 + (Math.floor(P.anim * 8) % 4)), cx, foot, 86);
-      else if (!P.ground) sprite("jump", cx, foot, 84, P.face < 0);
-      else if (Math.abs(P.vx) > 20) sprite(Math.floor(P.anim * 8) % 2 ? "run2" : "run1", cx, foot + 2, 82, P.face < 0);
-      else sprite("stand", cx, foot, 78);
+      else if (!P.ground) sprite("jump", cx, foot, 82, P.face < 0);
+      else if (Math.abs(P.vx) > 20) sprite(Math.floor(P.anim * 8) % 2 ? "run2" : "run1", cx, foot + 1, 84, P.face < 0);
+      else sprite("stand", cx, foot + 1, 84, P.face < 0);
     }
     ctx.restore();
 
@@ -547,6 +547,7 @@
     showPanel(`<p class="eyebrow">Bonus level</p><h2>Anvita's career run</h2>
       <p>Run from 2020 to today. Collect tools, jump on bugs to squash them, and bump the lightbulb blocks for clovers and facts from the journey.</p>
       <p class="game__keys">${controlsHelp}</p>
+      <p class="game__rotate">Tip: turn your phone sideways for a bigger view</p>
       <div class="game__actions"><button class="btn btn--primary" data-act="start">Start</button></div>`);
   };
   const start = () => {
