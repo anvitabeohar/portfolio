@@ -1091,3 +1091,7 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
   .bento--players .b-about__text { max-width: 460px; }
   .b-player { padding-bottom: 72px !important; }
 }
+/* P1 sprite: higher-definition art shown at (or below) its natural size, so it stays crisp */
+.bento--players .b-about__img { width: 96px; }
+@media (max-width: 760px) { .bento--players .b-about__img { width: 40px; } }
+.bento--players .b-about__img img { height: auto; }
