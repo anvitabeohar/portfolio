@@ -17,7 +17,10 @@
     ladder: A + "game/ladder-tile.webp", flag: A + "game/flag.webp",
     ladybug: A + "game/ladybug.webp", caterpillar: A + "game/caterpillar.webp",
     wrench: A + "game/wrench.webp", screwdriver: A + "game/screwdriver.webp", hammer: A + "game/hammer.webp",
+    clover: A + "game/clover.webp", hudScore: A + "game/hud-score.webp", hudDigits: A + "game/hud-digits.webp",
+    hudHearts: A + "game/hud-hearts.webp", heartEmpty: A + "game/hud-heart-empty.webp",
   };
+  const POINTS = { clover: 10, tool: 50, bug: 100 };
   // visible part of each character sprite (the walk frames have padding)
   const CROP = {
     run1: [44, 15, 80, 138], run2: [36, 14, 86, 140], stand: [0, 0, 112, 152], jump: [0, 0, 128, 168],
@@ -46,13 +49,14 @@
   ];
   const GROUND_SEGS = [[0, 700], [810, 1500], [1610, 2400], [2510, 3300], [3420, 4220], [4330, 5500]];
   const WORLD = 5500, FLAG_X = 5280;
+  // [x, fact, clovers that pop out]; bigger milestones give more clovers
   const FACTS = [
-    [1080, "Ittisa: 50+ banners and brand assets"],
-    [1900, "Freelance: grew Fruik to 1,000+ followers in ~5 months"],
-    [2760, "Blum: named Best Debut Performer"],
-    [3080, "Blum: 140+ assets, 20% faster store launches"],
-    [3900, "Trinity: MSc, awarded with Distinction"],
-    [4560, "IBM: UX designer for enterprise AI tools"],
+    [1080, "Ittisa: 50+ banners and brand assets", 2],
+    [1900, "Freelance: grew Fruik to 1,000+ followers in ~5 months", 3],
+    [2760, "Blum: named Best Debut Performer", 5],
+    [3080, "Blum: 140+ assets, 20% faster store launches", 4],
+    [3900, "Trinity: MSc, awarded with Distinction", 6],
+    [4560, "IBM: UX designer for enterprise AI tools", 4],
   ];
   const level = () => {
     const solids = GROUND_SEGS.map(([a, b]) => ({ x: a, y: GROUND, w: b - a, h: H - GROUND + 200, kind: "ground" }));
@@ -63,7 +67,7 @@
     ];
     const blocks = [{ x: 2900, y: GROUND - 44, w: 48, h: 44 }, { x: 4960, y: GROUND - 44, w: 48, h: 44 }, { x: 4960, y: GROUND - 88, w: 48, h: 44 }];
     blocks.forEach((b) => solids.push({ ...b, kind: "block" }));
-    const bulbs = FACTS.map(([x, fact]) => ({ x, y: GROUND - 175, w: 44, h: 44, fact, hit: false, bump: 0 }));
+    const bulbs = FACTS.map(([x, fact, clovers]) => ({ x, y: GROUND - 175, w: 44, h: 44, fact, clovers, hit: false, bump: 0 }));
     bulbs.forEach((b) => solids.push({ x: b.x, y: b.y, w: b.w, h: b.h, kind: "bulb", ref: b }));
     const ladders = [{ x: 3700, y: GROUND - 270, w: 40, h: 270 }];
     const tools = [
@@ -79,7 +83,7 @@
       const [w, h] = kind === "ladybug" ? [42, 36] : [48, 38];
       return { x, y: GROUND - h, w, h, a, b: b - w, vx: kind === "ladybug" ? -70 : -50, kind, dead: 0 };
     });
-    return { solids, oneway, bulbs, ladders, tools, enemies };
+    return { solids, oneway, bulbs, ladders, tools, enemies, pops: [], clovers: 0 };
   };
 
   // ------------------------------------------------------------------ state
@@ -98,11 +102,16 @@
     P = { x: checkpoint, y: GROUND - 72, w: 34, h: 72, vx: 0, vy: 0, ground: false, coyote: 0, climb: false, face: 1, inv: 1.2, anim: 0 };
     cam = Math.max(0, P.x - W * 0.4);
   };
-  const score = () => ({
-    tools: L.tools.filter((t) => t.taken).length, toolsTotal: L.tools.length,
-    bugs: L.enemies.filter((e) => e.dead).length, bugsTotal: L.enemies.length,
-    facts: L.bulbs.filter((b) => b.hit).length, factsTotal: L.bulbs.length,
-  });
+  const score = () => {
+    const s = {
+      tools: L.tools.filter((t) => t.taken).length, toolsTotal: L.tools.length,
+      bugs: L.enemies.filter((e) => e.dead).length, bugsTotal: L.enemies.length,
+      facts: L.bulbs.filter((b) => b.hit).length, factsTotal: L.bulbs.length,
+      clovers: L.clovers, cloversTotal: L.bulbs.reduce((n, b) => n + b.clovers, 0),
+    };
+    s.points = s.clovers * POINTS.clover + s.tools * POINTS.tool + s.bugs * POINTS.bug;
+    return s;
+  };
 
   // ---------------------------------------------------------------- physics
   const overlap = (a, b) => a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
@@ -184,6 +193,7 @@
           s.ref.hit = true;
           s.ref.bump = 0.25;
           showToast(s.ref.fact);
+          popClovers(s.ref);
         }
       }
       P.vy = 0;
@@ -198,7 +208,25 @@
     afterMove(dt);
   };
 
+  // clovers fan out of the top of a bumped block, then count toward the score
+  const popClovers = (b) => {
+    const n = b.clovers;
+    for (let i = 0; i < n; i++) {
+      const spread = n > 1 ? i / (n - 1) - 0.5 : 0;
+      L.pops.push({ x: b.x + b.w / 2, y: b.y, vx: spread * 260, vy: -560 - Math.random() * 90, t: 0, delay: i * 0.06 });
+    }
+    L.clovers += n;
+  };
+
   const afterMove = (dt) => {
+    for (const c of L.pops) {
+      if ((c.delay -= dt) > 0) continue;
+      c.t += dt;
+      c.vy += 1500 * dt;
+      c.x += c.vx * dt;
+      c.y += c.vy * dt;
+    }
+    L.pops = L.pops.filter((c) => c.t < 0.8);
     // tools
     for (const t of L.tools) {
       if (!t.taken && overlap(P, { x: t.x - 18, y: t.y - 18, w: 36, h: 36 })) t.taken = true;
@@ -337,6 +365,14 @@
     ctx.font = font(15);
     ctx.fillStyle = "#1d1d1f";
     ctx.fillText("Next level: your team", FLAG_X - 40, GROUND - 140);
+    // popping clovers
+    for (const c of L.pops) {
+      if (c.delay > 0) continue;
+      ctx.globalAlpha = c.t > 0.55 ? Math.max(0, 1 - (c.t - 0.55) / 0.25) : 1;
+      const s = 30 + Math.min(1, c.t * 6) * 4;
+      ctx.drawImage(img.clover, c.x - s / 2, c.y - s, s, s * 1.15);
+      ctx.globalAlpha = 1;
+    }
     // enemies (sprites face left)
     for (const e of L.enemies) {
       if (e.dead > 0.35) continue;
@@ -358,17 +394,21 @@
     }
     ctx.restore();
 
-    // HUD
-    const s = score();
-    ctx.font = font(18);
-    ctx.textBaseline = "top";
-    ctx.fillStyle = "rgba(253, 246, 234, .92)";
-    ctx.fillRect(12, 12, 520, 36);
-    ctx.strokeStyle = "#1d1d1f";
-    ctx.lineWidth = 3;
-    ctx.strokeRect(12, 12, 520, 36);
-    ctx.fillStyle = "#1d1d1f";
-    ctx.fillText(`Lives ${"♥".repeat(Math.max(0, lives))}   Tools ${s.tools}/${s.toolsTotal}   Bugs squashed ${s.bugs}/${s.bugsTotal}`, 24, 21);
+    // HUD: hearts plank (lives) and star plank (score in Anvita's pixel digits)
+    drawHud(score());
+  };
+
+  const HEARTS_X = [78, 180, 282]; // left edge of each heart inside the hearts plank (source pixels)
+  const drawHud = (s) => {
+    const hk = 56 / 202; // hearts plank: 452x202 source -> 56px tall
+    ctx.drawImage(img.hudHearts, 12, 10, 452 * hk, 56);
+    for (let i = Math.max(0, lives); i < 3; i++) ctx.drawImage(img.heartEmpty, 12 + HEARTS_X[i] * hk, 10 + 74 * hk, 82 * hk, 78 * hk);
+    const sk = 60 / 216; // score plank: 463x216 source -> 60px tall
+    const px = 12 + 452 * hk + 10;
+    ctx.drawImage(img.hudScore, px, 8, 463 * sk, 60);
+    const digits = String(Math.min(9999, s.points)).padStart(4, "0");
+    const cw = 47, ch = img.hudDigits.naturalHeight || 67;
+    [...digits].forEach((d, i) => ctx.drawImage(img.hudDigits, +d * cw, 0, cw, ch, px + (178 + i * cw) * sk, 8 + 76 * sk, cw * sk, ch * sk));
   };
 
   // ------------------------------------------------------------- game loop
@@ -409,7 +449,7 @@
   const title = () => {
     state = "title";
     showPanel(`<p class="eyebrow">Bonus level</p><h2>Anvita's career run</h2>
-      <p>Run from 2020 to today. Collect the tools, jump on bugs to squash them, and hit the lightbulb blocks for facts from the journey.</p>
+      <p>Run from 2020 to today. Collect tools, jump on bugs to squash them, and bump the lightbulb blocks for clovers and facts from the journey.</p>
       <p class="game__keys">${controlsHelp}</p>
       <div class="game__actions"><button class="btn btn--primary" data-act="start">Start</button></div>`);
   };
@@ -436,10 +476,11 @@
     state = how;
     hideToast();
     const s = score();
-    const stats = `<ul class="game__stats"><li><b>${s.tools}/${s.toolsTotal}</b> tools</li><li><b>${s.bugs}/${s.bugsTotal}</b> bugs squashed</li><li><b>${s.facts}/${s.factsTotal}</b> facts found</li></ul>`;
+    const stats = `<p class="game__score"><img src="${A}game/hud-star.webp" alt="" /> <b>${s.points}</b> points</p>
+      <ul class="game__stats"><li><b>${s.clovers}/${s.cloversTotal}</b> clovers</li><li><b>${s.tools}/${s.toolsTotal}</b> tools</li><li><b>${s.bugs}/${s.bugsTotal}</b> bugs squashed</li></ul>`;
     if (how === "win") {
       showPanel(`<p class="eyebrow">Level complete</p><h2>Next level: your team.</h2>${stats}
-        <p>Thanks for playing. If you're hiring a product designer, let's talk.</p>
+        <p>That's my journey so far. The next level is one we build together.</p>
         <div class="game__actions"><a class="btn btn--primary" href="${ROOT}contact.html">Let's talk</a><button class="btn btn--secondary" data-act="restart">Play again</button></div>`, "a");
     } else {
       showPanel(`<p class="eyebrow">Game over</p><h2>Continue?</h2>${stats}

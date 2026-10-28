@@ -1022,3 +1022,8 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .bonus .h2 { margin-top: var(--s2); }
 .bonus p:not(.eyebrow) { margin: var(--s3) auto var(--s5); max-width: 46ch; color: var(--ink-2); }
 .bonus__door { width: 60px; margin: 0 auto var(--s4); }
+.game__score { display: flex; align-items: center; justify-content: center; gap: var(--s2); font-family: var(--pixel); font-size: 18px; color: var(--ink) !important; }
+.game__score img { width: 40px; height: auto; }
+.game__score b { font-size: 30px; }
+/* Pixelify's 5 reads like an S or 8; numbers on the result screen use the regular font */
+.game__stats b, .game__score b { font-family: var(--font); font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
