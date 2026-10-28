@@ -975,7 +975,8 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 /* Layered parallax scenery for the hero (play mode) */
 .play-mode .hero { background: #95bcd6; }
 /* Softened like the original hero art (drawn at 70% over pale blue): less saturation plus a light haze */
-.scene { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; filter: saturate(.72) brightness(1.04); }
+/* The sky colour is painted inside the filtered scene so it matches the sky layer (no visible band) */
+.scene { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; background: #96bcd6; filter: saturate(.72) brightness(1.04); }
 .scene::after { content: ""; position: absolute; inset: 0; background: rgba(207, 219, 230, .28); }
 .descent__ladder, .descent__floor, .descent__ground, .descent__shaft { filter: saturate(.72) brightness(1.04); }
 .scene > div { position: absolute; left: 0; right: 0; background-repeat: repeat-x; background-position: center bottom; will-change: transform; }
