@@ -507,6 +507,7 @@ if (povTabs) {
   const labelFor = (s) => {
     const n = s.querySelectorAll(".wcard, .pcard").length;
     if (s.id === "work" && n) return `${n} levels`;
+    if (s.querySelector(".b-player")) return "4 players";
     if (n) return `${n} side quests`;
     return "Player 1 found";
   };

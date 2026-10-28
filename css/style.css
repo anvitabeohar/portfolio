@@ -1039,3 +1039,28 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .game__party a:hover { background: #fff; }
 .game__party img { width: 44px; height: 44px; image-rendering: pixelated; }
 .game__party span { font-family: var(--pixel); font-size: 12px; color: var(--ink); }
+
+/* =========================================================
+   Home: Select player (P1 Anvita + P2-P4 visitors -> Speedrun views)
+   ========================================================= */
+.players-intro { margin: calc(-1 * var(--s4)) auto var(--s6); text-align: center; color: var(--ink-2); font-size: 18px; }
+.bento--players .b-about { grid-column: 1 / -1; min-height: 280px; }
+.player-tag { position: absolute; top: -13px; left: var(--s5); padding: 2px 10px; font-family: var(--pixel); font-size: 13px; font-weight: 700; background: #fff; border: 2px solid var(--ink); border-radius: 4px; }
+.player-tag--me { background: var(--orange); }
+.b-player { min-height: 260px !important; justify-content: center; gap: var(--s3); text-align: center; }
+.b-player__img { width: 96px; height: 96px; object-fit: contain; image-rendering: pixelated; transition: transform var(--dur-base) var(--ease-standard); }
+.b-player:hover .b-player__img { transform: translateY(-6px) scale(1.06); }
+.b-player:hover .player-tag { background: var(--orange); }
+.b-player h3 { font-size: 20px !important; }
+.b-player p { color: var(--ink-2); font-size: 15px; }
+@media (max-width: 760px) {
+  .players-intro { font-size: 16px; }
+  .bento--players { grid-template-columns: 1fr; }
+  .bento--players .b-about { grid-column: 1; flex-direction: row !important; min-height: 0 !important; padding: var(--s6) var(--s4) var(--s4) !important; gap: var(--s4); }
+  .bento--players .b-about__img { width: 72px; }
+  .bento--players .b-about__text h3 { font-size: 18px; }
+  .b-player { flex-direction: row !important; justify-content: flex-start; min-height: 0 !important; padding: var(--s5) var(--s4) var(--s4) !important; text-align: left; }
+  .b-player__img { width: 64px; height: 64px; }
+  .b-player h3 { font-size: 16px !important; }
+  .bento--players .arrow { display: grid !important; right: var(--s4); bottom: 50%; transform: translateY(50%); }
+}
