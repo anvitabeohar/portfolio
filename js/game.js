@@ -586,7 +586,7 @@
       showPanel(`<p class="eyebrow">Level complete</p><h2>Ready for co-op mode?</h2>${stats}
         <p>That's my journey so far. The next level is one we build together.</p>
         <div class="game__actions"><a class="btn btn--primary" href="${ROOT}contact.html">Let's talk</a><button class="btn btn--secondary" data-act="restart">Play again</button></div>
-        <p class="game__party-label">Learn my journey in 60 seconds</p>
+        <p class="game__party-label">Pick your role for the 60-second recap</p>
         <ul class="game__party">${party}</ul>`, "a");
     } else {
       showPanel(`<p class="eyebrow">Game over</p><h2>Continue?</h2>${stats}
