@@ -496,14 +496,6 @@ if (povTabs) {
     return { s, floor, block, bubble, y: 0, passed: false };
   });
 
-  // Narrow screens: mini climber on a rail
-  const rail = el("div", "descent-rail");
-  rail.setAttribute("aria-hidden", "true");
-  const mini = el("img");
-  mini.alt = "";
-  mini.src = frames[0];
-  rail.append(mini);
-  document.body.append(rail);
 
   let top = 0, height = 0, charY = null, state = "", landTimer;
   const CH = 112;
@@ -527,12 +519,6 @@ if (povTabs) {
 
   const update = () => {
     const y = window.scrollY;
-    // narrow-screen rail
-    const max = document.documentElement.scrollHeight - innerHeight;
-    const p = max > 0 ? Math.min(1, y / max) : 0;
-    mini.style.transform = `translateY(${p * (rail.clientHeight - 36)}px)`;
-    mini.src = frames[Math.floor(y / 40) % 4];
-
     if (!reducedMotion && y < hero.offsetHeight) {
       layers.forEach(({ layer, k }) => (layer.style.transform = k ? `translateY(${y * k}px)` : ""));
     }

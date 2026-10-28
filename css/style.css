@@ -963,16 +963,10 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .descent__char img { position: absolute; left: 50%; bottom: 0; height: auto; transform: translateX(-50%); display: none; }
 .descent__char img.is-on { display: block; }
 
-/* Narrow windows: a slim rail with a mini climber at the right edge */
-.descent-rail { position: fixed; right: 4px; top: 18vh; height: 64vh; width: 22px; z-index: 40; pointer-events: none; display: none; }
-.descent-rail::before { content: ""; position: absolute; left: 10px; top: 0; bottom: 0; border-left: 2px dashed rgba(29, 29, 31, .25); }
-.descent-rail img { position: absolute; left: 0; top: 0; width: 22px; height: auto; will-change: transform; }
+/* Narrower windows and phones: no ladder or climber (no margin to put it in).
+   The pixel scenery in the hero stays; the bonus game will be offered with touch controls. */
 @media (max-width: 1359px) {
   .descent { display: none; }
-  .descent-rail { display: block; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .descent-rail { display: none; }
 }
 
 /* Shaft: the ladder goes down into the hero's ground */
