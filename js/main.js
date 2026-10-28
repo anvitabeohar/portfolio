@@ -3,6 +3,31 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matc
 const canHover = window.matchMedia("(hover: hover)").matches;
 const root = document.body.dataset.root || "";
 
+// Looping clips: with "reduce motion" on, don't autoplay; show the poster and play controls instead
+if (reducedMotion) {
+  document.querySelectorAll("video[autoplay]").forEach((v) => {
+    v.removeAttribute("autoplay");
+    v.pause();
+    v.controls = true;
+  });
+}
+
+// Collapsible highlights: clips load and play only while the panel is open
+document.querySelectorAll("details.exp-more").forEach((panel) => {
+  const clips = [...panel.querySelectorAll("video")];
+  panel.addEventListener("toggle", () => {
+    clips.forEach((v) => {
+      if (!panel.open) return v.pause();
+      if (reducedMotion) {
+        v.controls = true;
+        v.preload = "metadata";
+      } else {
+        v.play().catch(() => (v.controls = true));
+      }
+    });
+  });
+});
+
 // Footer year
 document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
 

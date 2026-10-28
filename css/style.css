@@ -804,3 +804,59 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 @media (max-width: 760px) { .testimonials { grid-template-columns: 1fr; } }
 
 @media (max-width: 520px) { .hero__cta { flex-direction: column; } }
+
+/* =========================================================
+   Experience highlights (photo and clip collage inside the timeline)
+   Column ratios are chosen so the wide images keep most of their frame.
+   ========================================================= */
+.exp-media { display: grid; grid-template-columns: 1fr 1fr 1.5fr; grid-template-rows: 1fr 1fr; gap: var(--s3); max-width: 780px; margin-top: var(--s5); }
+.exp-media figure { position: relative; margin: 0; min-width: 0; overflow: hidden; border-radius: var(--r-md); border: 1px solid var(--line); background: var(--surface); }
+.exp-media__tall { grid-row: span 2; aspect-ratio: 3 / 4; }
+.exp-media img, .exp-media video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.exp-media__wide img { position: absolute; inset: 0; }
+.exp-media figcaption {
+  position: absolute; left: var(--s2); right: var(--s2); bottom: var(--s2); width: fit-content; max-width: calc(100% - var(--s4));
+  padding: 3px 10px; border-radius: 999px; background: rgba(255, 255, 255, .92); box-shadow: var(--e1);
+  font-size: 12px; font-weight: 600; line-height: 1.35; color: var(--ink);
+}
+.exp-media__label { margin-top: var(--s5); }
+.exp-media__label + .exp-media { margin-top: var(--s3); }
+/* Work: video and banner stacked left, tall invite right. 1 : 0.8 columns make the invite's 4:5 frame match the stack's height. */
+.exp-media--work { grid-template-columns: 1fr .8fr; grid-template-rows: auto auto; }
+.exp-media--work .exp-media__full { grid-column: 1; aspect-ratio: 16 / 9; }
+.exp-media--work .exp-media__wide { grid-column: 1; aspect-ratio: 840 / 360; }
+.exp-media--work .exp-media__tall { grid-column: 2; grid-row: 1 / span 2; aspect-ratio: auto; }
+.exp-media--three { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; max-width: 600px; }
+.exp-media--three .exp-media__tall { grid-row: auto; }
+@media (max-width: 760px) {
+  .exp-media { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .exp-media__tall { grid-row: auto; }
+  .exp-media__wide { grid-column: 1 / -1; }
+  .exp-media__wide img { position: static; height: auto; }
+  .exp-media--work { grid-template-columns: 1fr; }
+  .exp-media--work .exp-media__full, .exp-media--work .exp-media__wide, .exp-media--work .exp-media__tall { grid-column: 1; grid-row: auto; }
+  .exp-media--work .exp-media__tall { aspect-ratio: 4 / 5; }
+  .exp-media--three { grid-template-columns: repeat(3, 1fr); gap: var(--s2); }
+  .exp-media--three figcaption { font-size: 10.5px; padding: 2px 7px; left: 4px; bottom: 4px; }
+}
+
+/* Collapsible experience highlights */
+.exp-more { margin-top: var(--s4); }
+.exp-more__toggle {
+  display: inline-flex; align-items: center; gap: var(--s2); min-height: 40px; padding: 0 var(--s3) 0 var(--s4);
+  border: 1px solid #c7c7cc; border-radius: 999px; background: #fff; cursor: pointer; list-style: none;
+  font-size: 15px; font-weight: 600; color: var(--ink);
+  transition: border-color var(--dur-base), box-shadow var(--dur-base), transform var(--dur-fast) var(--ease-standard);
+}
+.exp-more__toggle::-webkit-details-marker { display: none; }
+.exp-more__toggle:hover { border-color: var(--ink); box-shadow: var(--e1); }
+.exp-more__toggle:active { transform: scale(.97); }
+.exp-more__count { min-width: 22px; height: 22px; padding: 0 6px; display: inline-grid; place-items: center; border-radius: 999px; background: var(--orange); border: 2px solid var(--ink); font-size: 12px; line-height: 1; }
+.exp-more__chev { width: 16px; height: 16px; transition: transform var(--dur-base) var(--ease-standard); }
+.exp-more__hide { display: none; }
+.exp-more[open] .exp-more__show { display: none; }
+.exp-more[open] .exp-more__hide { display: inline; }
+.exp-more[open] .exp-more__chev { transform: rotate(180deg); }
+.exp-more__body > .exp-media__label:first-child { margin-top: var(--s4); }
+.exp-more[open] .exp-more__body { animation: exp-open var(--dur-slow) var(--ease-enter); }
+@keyframes exp-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
