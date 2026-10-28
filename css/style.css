@@ -958,20 +958,15 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .descent__ground { position: absolute; left: -46px; right: 0; bottom: -43px; height: 43px; background: url("../assets/images/game/ground.webp") 0 0 / 85px 43px repeat-x; }
 .descent__door { position: absolute; left: -48px; bottom: 0; width: 45px; height: 49px; padding: 0; border: 0; cursor: pointer; pointer-events: auto; background: url("../assets/images/game/door.webp") 0 0 / 100% 100%; }
 .descent__door .descent__bubble { left: -4px; top: -34px; }
-.descent__char { position: absolute; left: -7px; top: 0; width: 56px; height: 90px; will-change: transform; }
-.descent__char img { position: absolute; left: 0; bottom: 0; width: 56px; height: auto; display: none; }
+/* All poses come from the same sheet at one scale (0.62), so she stays the same size in every pose */
+.descent__char { position: absolute; left: -15px; top: 0; width: 72px; height: 112px; will-change: transform; }
+.descent__char img { position: absolute; left: 50%; bottom: 0; height: auto; transform: translateX(-50%); display: none; }
 .descent__char img.is-on { display: block; }
 
-/* Narrow windows: a slim rail with a mini climber at the right edge */
-.descent-rail { position: fixed; right: 4px; top: 18vh; height: 64vh; width: 22px; z-index: 40; pointer-events: none; display: none; }
-.descent-rail::before { content: ""; position: absolute; left: 10px; top: 0; bottom: 0; border-left: 2px dashed rgba(29, 29, 31, .25); }
-.descent-rail img { position: absolute; left: 0; top: 0; width: 22px; height: auto; will-change: transform; }
+/* Narrower windows and phones: no ladder or climber (no margin to put it in).
+   The pixel scenery in the hero stays; the bonus game will be offered with touch controls. */
 @media (max-width: 1359px) {
   .descent { display: none; }
-  .descent-rail { display: block; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .descent-rail { display: none; }
 }
 
 /* Shaft: the ladder goes down into the hero's ground */
@@ -979,7 +974,10 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 
 /* Layered parallax scenery for the hero (play mode) */
 .play-mode .hero { background: #95bcd6; }
-.scene { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+/* Softened like the original hero art (drawn at 70% over pale blue): less saturation plus a light haze */
+.scene { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; filter: saturate(.72) brightness(1.04); }
+.scene::after { content: ""; position: absolute; inset: 0; background: rgba(207, 219, 230, .28); }
+.descent__ladder, .descent__floor, .descent__ground, .descent__shaft { filter: saturate(.72) brightness(1.04); }
 .scene > div { position: absolute; left: 0; right: 0; background-repeat: repeat-x; background-position: center bottom; will-change: transform; }
 .scene > .scene__sky { top: 0; bottom: 250px; background-image: url("../assets/images/game/bg-sky.webp"); background-size: auto 260px; animation: cloud-drift 260s linear infinite; }
 @keyframes cloud-drift { to { background-position: -2242px bottom; } }
