@@ -433,7 +433,8 @@ if (povTabs) {
 
   const G = root + "assets/images/game/";
   const frames = ["climb-1", "climb-2", "climb-3", "climb-4"].map((n) => G + n + ".webp");
-  const poses = { idle: root + "assets/images/home/about.png", land: G + "land.webp", jump: G + "jump.webp" };
+  // Standing uses the game sheet's standing pose so every pose shares one pixel scale
+  const poses = { idle: G + "land.webp", land: G + "land.webp", jump: G + "jump.webp" };
   const el = (tag, cls, html) => {
     const n = document.createElement(tag);
     if (cls) n.className = cls;
@@ -461,6 +462,7 @@ if (povTabs) {
     const img = el("img");
     img.src = src;
     img.alt = "";
+    img.addEventListener("load", () => (img.style.width = Math.round(img.naturalWidth * 0.62) + "px"));
     imgs[k] = img;
     char.append(img);
   });
@@ -504,7 +506,7 @@ if (povTabs) {
   document.body.append(rail);
 
   let top = 0, height = 0, charY = null, state = "", landTimer;
-  const CH = 90;
+  const CH = 112;
   const docTop = (n) => n.getBoundingClientRect().top + window.scrollY;
   const layout = () => {
     // the ladder starts at the grass line, 94px above the bottom of the hero
