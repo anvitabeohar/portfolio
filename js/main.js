@@ -442,9 +442,19 @@ if (povTabs) {
   };
 
   // Wide screens: ladder in the left margin
+  // Layered scenery in the hero; each layer drifts at its own speed (parallax)
+  const scene = el("div", "scene");
+  scene.setAttribute("aria-hidden", "true");
+  const layers = [["sky", 0.5], ["mountains", 0.32], ["bushes", 0.16], ["ground", 0]].map(([n, k]) => {
+    const layer = el("div", "scene__" + n);
+    scene.append(layer);
+    return { layer, k };
+  });
+  hero.prepend(scene);
+
   const descent = el("div", "descent");
   descent.setAttribute("aria-hidden", "true");
-  descent.append(el("div", "descent__ladder"));
+  descent.append(el("div", "descent__shaft"), el("div", "descent__ladder"));
   const char = el("div", "descent__char");
   const imgs = {};
   [...frames.map((src, i) => ["climb" + i, src]), ...Object.entries(poses)].forEach(([k, src]) => {
@@ -497,13 +507,14 @@ if (povTabs) {
   const CH = 90;
   const docTop = (n) => n.getBoundingClientRect().top + window.scrollY;
   const layout = () => {
-    top = docTop(hero) + hero.offsetHeight - docTop(main);
+    // the ladder starts at the grass line, 94px above the bottom of the hero
+    top = docTop(hero) + hero.offsetHeight - docTop(main) - 94;
     height = main.offsetHeight - top;
     descent.style.top = top + "px";
     descent.style.height = height + "px";
     floors.forEach((f) => {
       f.y = docTop(f.s) - docTop(main) - top + 24;
-      f.floor.style.top = f.y + "px";
+      f.floor.style.top = f.y - 2 + "px";
     });
     update();
   };
@@ -517,6 +528,9 @@ if (povTabs) {
     mini.style.transform = `translateY(${p * (rail.clientHeight - 36)}px)`;
     mini.src = frames[Math.floor(y / 40) % 4];
 
+    if (!reducedMotion && y < hero.offsetHeight) {
+      layers.forEach(({ layer, k }) => (layer.style.transform = k ? `translateY(${y * k}px)` : ""));
+    }
     if (reducedMotion) {
       char.style.transform = `translateY(${-CH}px)`;
       return show("idle");

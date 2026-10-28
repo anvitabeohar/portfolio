@@ -944,19 +944,20 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
   left: calc((100% - var(--max)) / 2 - 54px);
 }
 .descent__ladder { position: absolute; inset: 0; background: url("../assets/images/game/ladder-tile.webp") repeat-y 0 0 / 42px 29px; }
-.descent__floor { position: absolute; right: 0; width: 85px; height: 43px; background: url("../assets/images/game/ground.webp") 0 0 / 100% 100%; }
-.descent__block { position: absolute; left: 4px; bottom: 43px; width: 34px; height: 35px; background: url("../assets/images/game/bulb-block.webp") 0 0 / 100% 100%; }
+/* Floor = Anvita's ladder-through-platform piece, at the same scale as the ladder tile so the rails line up */
+.descent__floor { position: absolute; left: -26px; width: 95px; height: 150px; background: url("../assets/images/game/ladder-entry.webp") 0 0 / 100% 100%; }
+.descent__block { position: absolute; left: 0; top: -27px; width: 28px; height: 29px; background: url("../assets/images/game/bulb-block.webp") 0 0 / 100% 100%; }
 .descent__block.is-bumped { animation: block-bump .35s var(--ease-standard); }
 @keyframes block-bump { 40% { transform: translateY(-10px); } }
 .descent__bubble {
-  position: absolute; left: -2px; bottom: 86px; padding: 3px 8px; white-space: nowrap;
+  position: absolute; left: -4px; top: -62px; padding: 3px 8px; white-space: nowrap;
   font-family: var(--pixel); font-size: 12px; font-weight: 700; background: #fff; border: 2px solid var(--ink); border-radius: 4px;
   opacity: 0; transform: translateY(6px); transition: opacity var(--dur-base), transform var(--dur-base) var(--ease-enter);
 }
 .descent__bubble.is-on { opacity: 1; transform: none; }
 .descent__ground { position: absolute; left: -46px; right: 0; bottom: -43px; height: 43px; background: url("../assets/images/game/ground.webp") 0 0 / 85px 43px repeat-x; }
 .descent__door { position: absolute; left: -48px; bottom: 0; width: 45px; height: 49px; padding: 0; border: 0; cursor: pointer; pointer-events: auto; background: url("../assets/images/game/door.webp") 0 0 / 100% 100%; }
-.descent__door .descent__bubble { left: -4px; bottom: 56px; }
+.descent__door .descent__bubble { left: -4px; top: -34px; }
 .descent__char { position: absolute; left: -7px; top: 0; width: 56px; height: 90px; will-change: transform; }
 .descent__char img { position: absolute; left: 0; bottom: 0; width: 56px; height: auto; display: none; }
 .descent__char img.is-on { display: block; }
@@ -972,3 +973,17 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 @media (prefers-reduced-motion: reduce) {
   .descent-rail { display: none; }
 }
+
+/* Shaft: the ladder goes down into the hero's ground */
+.descent__shaft { position: absolute; left: 3px; width: 36px; top: 10px; height: 90px; background: linear-gradient(#2b160b, rgba(43, 22, 11, .55)); border-radius: 2px; }
+
+/* Layered parallax scenery for the hero (play mode) */
+.play-mode .hero { background: #95bcd6; }
+.scene { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.scene > div { position: absolute; left: 0; right: 0; background-repeat: repeat-x; background-position: center bottom; will-change: transform; }
+.scene > .scene__sky { top: 0; bottom: 250px; background-image: url("../assets/images/game/bg-sky.webp"); background-size: auto 260px; animation: cloud-drift 260s linear infinite; }
+@keyframes cloud-drift { to { background-position: -2242px bottom; } }
+.scene > .scene__mountains { bottom: 130px; height: 230px; background-image: url("../assets/images/game/bg-mountains.webp"); background-size: auto 230px; }
+.scene > .scene__bushes { bottom: 88px; height: 80px; background-image: url("../assets/images/game/bg-bushes.webp"); background-size: auto 80px; }
+.scene > .scene__ground { bottom: 0; height: 100px; background-image: url("../assets/images/game/bg-grass.webp"), url("../assets/images/game/bg-dirt.webp"); background-size: auto 40px, auto 67px; background-position: center top, center 33px; background-repeat: repeat-x, repeat; }
+@media (prefers-reduced-motion: reduce) { .scene__sky { animation: none; } }
