@@ -547,6 +547,7 @@
     showPanel(`<p class="eyebrow">Bonus level</p><h2>Anvita's career run</h2>
       <p>Run from 2020 to today. Collect tools, jump on bugs to squash them, and bump the lightbulb blocks for clovers and facts from the journey.</p>
       <p class="game__keys">${controlsHelp}</p>
+      <p class="game__rotate">Tip: turn your phone sideways for a bigger view</p>
       <div class="game__actions"><button class="btn btn--primary" data-act="start">Start</button></div>`);
   };
   const start = () => {
