@@ -378,3 +378,43 @@ if (skillsBox) {
     }
   }
 }
+
+// ---------------------------------------------------------------------------
+// Speedrun: choose a point of view (accessible tabs, linkable with #recruiter,
+// #hiring-manager or #designer). Without JS all three views simply stack.
+// ---------------------------------------------------------------------------
+const povTabs = document.querySelector(".pov-tabs");
+if (povTabs) {
+  const tabs = [...povTabs.querySelectorAll('[role="tab"]')];
+  const panels = tabs.map((t) => document.getElementById(t.getAttribute("aria-controls")));
+  const select = (i, { focus = false, updateUrl = true } = {}) => {
+    tabs.forEach((t, k) => {
+      const on = k === i;
+      t.setAttribute("aria-selected", String(on));
+      t.tabIndex = on ? 0 : -1;
+      panels[k].hidden = !on;
+      if (on) panels[k].querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+    });
+    if (focus) tabs[i].focus();
+    if (updateUrl) history.replaceState(null, "", "#" + panels[i].dataset.pov);
+  };
+  const fromHash = () => {
+    const i = panels.findIndex((p) => "#" + p.dataset.pov === location.hash);
+    return i < 0 ? 0 : i;
+  };
+  povTabs.hidden = false;
+  // Links like speedrun.html#designer pick a view. Panel ids are prefixed ("pov-designer"),
+  // so the browser doesn't jump past the picker to the panel.
+  select(fromHash(), { updateUrl: false });
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => select(i));
+    t.addEventListener("keydown", (e) => {
+      const keys = { ArrowRight: i + 1, ArrowDown: i + 1, ArrowLeft: i - 1, ArrowUp: i - 1, Home: 0, End: tabs.length - 1 };
+      if (!(e.key in keys)) return;
+      e.preventDefault();
+      e.stopPropagation();
+      select((keys[e.key] + tabs.length) % tabs.length, { focus: true });
+    });
+  });
+  window.addEventListener("hashchange", () => select(fromHash(), { updateUrl: false }));
+}
