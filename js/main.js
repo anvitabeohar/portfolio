@@ -467,20 +467,43 @@ if (povTabs) {
     char.append(img);
   });
   const ground = el("div", "descent__ground");
+  // The game script loads only when someone asks to play
+  let gameLoading = null;
+  const playGame = () => {
+    if (window.BonusLevel) return window.BonusLevel.open();
+    if (!gameLoading) {
+      const v = (document.querySelector('script[src*="main.js"]')?.src.split("v=")[1]) || "";
+      gameLoading = new Promise((res, rej) => {
+        const s = document.createElement("script");
+        s.src = root + "js/game.js" + (v ? "?v=" + v : "");
+        s.onload = res;
+        s.onerror = rej;
+        document.body.append(s);
+      });
+    }
+    gameLoading.then(() => window.BonusLevel.open()).catch(() => (gameLoading = null));
+  };
+
   const door = el("button", "descent__door");
   door.tabIndex = -1;
-  const doorBubble = el("span", "descent__bubble", "Bonus level · coming soon");
-  door.append(doorBubble);
-  door.addEventListener("click", () => {
-    doorBubble.classList.add("is-on");
-    setTimeout(() => doorBubble.classList.remove("is-on"), 2200);
-  });
+  door.append(el("span", "descent__bubble", "Bonus level"));
+  door.addEventListener("click", playGame);
+
+  // Accessible entry point at the end of the page, on every screen size
+  const bonus = el("section", "bonus container", `
+    <img class="bonus__door" src="${G}door.webp" alt="" />
+    <p class="eyebrow">Bonus level</p>
+    <h2 class="h2">Play the career run</h2>
+    <p>A short platformer from 2020 to today. Collect tools, squash bugs and find facts along the way.</p>
+    <button class="btn btn--primary" type="button">Play bonus level</button>`);
+  bonus.querySelector("button").addEventListener("click", playGame);
+  main.append(bonus);
   descent.append(ground, door, char);
   main.append(descent);
 
   // A floor at the top of each section after the hero, with a block that
   // shows a count taken from the page itself (so it never goes stale)
-  const sections = [...main.querySelectorAll(":scope > section")].filter((s) => s !== hero);
+  const sections = [...main.querySelectorAll(":scope > section")].filter((s) => s !== hero && s !== bonus);
   const labelFor = (s) => {
     const n = s.querySelectorAll(".wcard, .pcard").length;
     if (s.id === "work" && n) return `${n} levels`;
