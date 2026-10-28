@@ -3,6 +3,15 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matc
 const canHover = window.matchMedia("(hover: hover)").matches;
 const root = document.body.dataset.root || "";
 
+// Looping clips: with "reduce motion" on, don't autoplay; show the poster and play controls instead
+if (reducedMotion) {
+  document.querySelectorAll("video[autoplay]").forEach((v) => {
+    v.removeAttribute("autoplay");
+    v.pause();
+    v.controls = true;
+  });
+}
+
 // Footer year
 document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
 
