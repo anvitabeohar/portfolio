@@ -821,9 +821,11 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 }
 .exp-media__label { margin-top: var(--s5); }
 .exp-media__label + .exp-media { margin-top: var(--s3); }
-.exp-media--work { grid-template-columns: 1fr 1.5fr; grid-template-rows: auto 1fr 1fr; }
-.exp-media__full { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
-.exp-media--work .exp-media__tall { aspect-ratio: 4 / 5; }
+/* Work: video and banner stacked left, tall invite right. 1 : 0.8 columns make the invite's 4:5 frame match the stack's height. */
+.exp-media--work { grid-template-columns: 1fr .8fr; grid-template-rows: auto auto; }
+.exp-media--work .exp-media__full { grid-column: 1; aspect-ratio: 16 / 9; }
+.exp-media--work .exp-media__wide { grid-column: 1; aspect-ratio: 840 / 360; }
+.exp-media--work .exp-media__tall { grid-column: 2; grid-row: 1 / span 2; aspect-ratio: auto; }
 .exp-media--three { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; max-width: 600px; }
 .exp-media--three .exp-media__tall { grid-row: auto; }
 @media (max-width: 760px) {
@@ -831,7 +833,9 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
   .exp-media__tall { grid-row: auto; }
   .exp-media__wide { grid-column: 1 / -1; }
   .exp-media__wide img { position: static; height: auto; }
-  .exp-media--work .exp-media__tall { grid-column: 1 / -1; }
+  .exp-media--work { grid-template-columns: 1fr; }
+  .exp-media--work .exp-media__full, .exp-media--work .exp-media__wide, .exp-media--work .exp-media__tall { grid-column: 1; grid-row: auto; }
+  .exp-media--work .exp-media__tall { aspect-ratio: 4 / 5; }
   .exp-media--three { grid-template-columns: repeat(3, 1fr); gap: var(--s2); }
   .exp-media--three figcaption { font-size: 10.5px; padding: 2px 7px; left: 4px; bottom: 4px; }
 }
