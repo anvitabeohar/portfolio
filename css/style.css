@@ -931,3 +931,44 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 @media (max-width: 760px) {
   .pov .principles--compact { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   Platformer prototype: ladder descent on Home (opt-in with ?play)
+   The ladder scrolls with the page; the character stays mid-screen,
+   so scrolling down makes her climb down. Decorative (aria-hidden).
+   ========================================================= */
+.play-mode main { position: relative; }
+.play-mode .walker { display: none; }
+.descent {
+  position: absolute; top: 0; z-index: 4; width: 42px; pointer-events: none;
+  left: calc((100% - var(--max)) / 2 - 54px);
+}
+.descent__ladder { position: absolute; inset: 0; background: url("../assets/images/game/ladder-tile.webp") repeat-y 0 0 / 42px 29px; }
+.descent__floor { position: absolute; right: 0; width: 85px; height: 43px; background: url("../assets/images/game/ground.webp") 0 0 / 100% 100%; }
+.descent__block { position: absolute; left: 4px; bottom: 43px; width: 34px; height: 35px; background: url("../assets/images/game/bulb-block.webp") 0 0 / 100% 100%; }
+.descent__block.is-bumped { animation: block-bump .35s var(--ease-standard); }
+@keyframes block-bump { 40% { transform: translateY(-10px); } }
+.descent__bubble {
+  position: absolute; left: -2px; bottom: 86px; padding: 3px 8px; white-space: nowrap;
+  font-family: var(--pixel); font-size: 12px; font-weight: 700; background: #fff; border: 2px solid var(--ink); border-radius: 4px;
+  opacity: 0; transform: translateY(6px); transition: opacity var(--dur-base), transform var(--dur-base) var(--ease-enter);
+}
+.descent__bubble.is-on { opacity: 1; transform: none; }
+.descent__ground { position: absolute; left: -46px; right: 0; bottom: -43px; height: 43px; background: url("../assets/images/game/ground.webp") 0 0 / 85px 43px repeat-x; }
+.descent__door { position: absolute; left: -48px; bottom: 0; width: 45px; height: 49px; padding: 0; border: 0; cursor: pointer; pointer-events: auto; background: url("../assets/images/game/door.webp") 0 0 / 100% 100%; }
+.descent__door .descent__bubble { left: -4px; bottom: 56px; }
+.descent__char { position: absolute; left: -7px; top: 0; width: 56px; height: 90px; will-change: transform; }
+.descent__char img { position: absolute; left: 0; bottom: 0; width: 56px; height: auto; display: none; }
+.descent__char img.is-on { display: block; }
+
+/* Narrow windows: a slim rail with a mini climber at the right edge */
+.descent-rail { position: fixed; right: 4px; top: 18vh; height: 64vh; width: 22px; z-index: 40; pointer-events: none; display: none; }
+.descent-rail::before { content: ""; position: absolute; left: 10px; top: 0; bottom: 0; border-left: 2px dashed rgba(29, 29, 31, .25); }
+.descent-rail img { position: absolute; left: 0; top: 0; width: 22px; height: auto; will-change: transform; }
+@media (max-width: 1359px) {
+  .descent { display: none; }
+  .descent-rail { display: block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .descent-rail { display: none; }
+}

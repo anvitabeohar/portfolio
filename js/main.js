@@ -418,3 +418,161 @@ if (povTabs) {
   });
   window.addEventListener("hashchange", () => select(fromHash(), { updateUrl: false }));
 }
+
+// ---------------------------------------------------------------------------
+// Platformer prototype (Home only, opt-in with ?play): the character climbs
+// down a ladder as the page scrolls. The page scrolls normally; the ladder
+// moves with it while the character stays mid-screen, so she "climbs".
+// ---------------------------------------------------------------------------
+(() => {
+  const hero = document.querySelector(".hero");
+  const main = document.getElementById("main");
+  const on = new URLSearchParams(location.search).has("play");
+  if (!hero || !main || !on) return;
+  document.body.classList.add("play-mode");
+
+  const G = root + "assets/images/game/";
+  const frames = ["climb-1", "climb-2", "climb-3", "climb-4"].map((n) => G + n + ".webp");
+  const poses = { idle: root + "assets/images/home/about.png", land: G + "land.webp", jump: G + "jump.webp" };
+  const el = (tag, cls, html) => {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (html) n.innerHTML = html;
+    return n;
+  };
+
+  // Wide screens: ladder in the left margin
+  const descent = el("div", "descent");
+  descent.setAttribute("aria-hidden", "true");
+  descent.append(el("div", "descent__ladder"));
+  const char = el("div", "descent__char");
+  const imgs = {};
+  [...frames.map((src, i) => ["climb" + i, src]), ...Object.entries(poses)].forEach(([k, src]) => {
+    const img = el("img");
+    img.src = src;
+    img.alt = "";
+    imgs[k] = img;
+    char.append(img);
+  });
+  const ground = el("div", "descent__ground");
+  const door = el("button", "descent__door");
+  door.tabIndex = -1;
+  const doorBubble = el("span", "descent__bubble", "Bonus level · coming soon");
+  door.append(doorBubble);
+  door.addEventListener("click", () => {
+    doorBubble.classList.add("is-on");
+    setTimeout(() => doorBubble.classList.remove("is-on"), 2200);
+  });
+  descent.append(ground, door, char);
+  main.append(descent);
+
+  // A floor at the top of each section after the hero, with a block that
+  // shows a count taken from the page itself (so it never goes stale)
+  const sections = [...main.querySelectorAll(":scope > section")].filter((s) => s !== hero);
+  const labelFor = (s) => {
+    const n = s.querySelectorAll(".wcard, .pcard").length;
+    if (s.id === "work" && n) return `${n} levels`;
+    if (n) return `${n} side quests`;
+    return "Player 1 found";
+  };
+  const floors = sections.map((s) => {
+    const floor = el("div", "descent__floor");
+    const block = el("div", "descent__block");
+    const bubble = el("span", "descent__bubble", labelFor(s));
+    floor.append(block, bubble);
+    descent.append(floor);
+    return { s, floor, block, bubble, y: 0, passed: false };
+  });
+
+  // Narrow screens: mini climber on a rail
+  const rail = el("div", "descent-rail");
+  rail.setAttribute("aria-hidden", "true");
+  const mini = el("img");
+  mini.alt = "";
+  mini.src = frames[0];
+  rail.append(mini);
+  document.body.append(rail);
+
+  let top = 0, height = 0, charY = null, state = "", landTimer;
+  const CH = 90;
+  const docTop = (n) => n.getBoundingClientRect().top + window.scrollY;
+  const layout = () => {
+    top = docTop(hero) + hero.offsetHeight - docTop(main);
+    height = main.offsetHeight - top;
+    descent.style.top = top + "px";
+    descent.style.height = height + "px";
+    floors.forEach((f) => {
+      f.y = docTop(f.s) - docTop(main) - top + 24;
+      f.floor.style.top = f.y + "px";
+    });
+    update();
+  };
+  const show = (k) => Object.entries(imgs).forEach(([key, img]) => img.classList.toggle("is-on", key === k));
+
+  const update = () => {
+    const y = window.scrollY;
+    // narrow-screen rail
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const p = max > 0 ? Math.min(1, y / max) : 0;
+    mini.style.transform = `translateY(${p * (rail.clientHeight - 36)}px)`;
+    mini.src = frames[Math.floor(y / 40) % 4];
+
+    if (reducedMotion) {
+      char.style.transform = `translateY(${-CH}px)`;
+      return show("idle");
+    }
+    // where the character's feet would be, relative to the top of the ladder
+    const raw = y - docTop(main) + innerHeight * 0.55 - top;
+    const clamped = Math.max(-CH, Math.min(height - CH, raw - CH / 2));
+    const prev = charY;
+    charY = clamped;
+    char.style.transform = `translateY(${clamped}px)`;
+
+    if (clamped <= -CH) {
+      state = "top";
+      show("idle");
+    } else if (clamped >= height - CH) {
+      if (state !== "bottom") {
+        state = "bottom";
+        show("land");
+        clearTimeout(landTimer);
+        landTimer = setTimeout(() => state === "bottom" && show("idle"), 450);
+      }
+    } else {
+      state = "climb";
+      show("climb" + (Math.floor(Math.abs(clamped) / 22) % 4));
+    }
+    // passing a floor bumps its block and shows its count
+    if (prev !== null) {
+      const feet = clamped + CH;
+      floors.forEach((f) => {
+        const before = prev + CH < f.y, after = feet >= f.y;
+        if ((before && after) || (!before && !after && prev + CH >= f.y && feet < f.y)) {
+          f.block.classList.remove("is-bumped");
+          void f.block.offsetWidth;
+          f.block.classList.add("is-bumped");
+          if (!f.passed) {
+            f.passed = true;
+            f.bubble.classList.add("is-on");
+            setTimeout(() => f.bubble.classList.remove("is-on"), 2200);
+          }
+        }
+      });
+    }
+  };
+
+  let queued = false;
+  window.addEventListener("scroll", () => {
+    if (!queued) {
+      queued = true;
+      requestAnimationFrame(() => {
+        queued = false;
+        update();
+      });
+    }
+  }, { passive: true });
+  window.addEventListener("resize", layout);
+  window.addEventListener("load", layout);
+  if ("ResizeObserver" in window) new ResizeObserver(layout).observe(main);
+  layout();
+})();
