@@ -514,7 +514,10 @@ if (povTabs) {
     descent.style.height = height + "px";
     floors.forEach((f) => {
       f.y = docTop(f.s) - docTop(main) - top + 24;
-      f.floor.style.top = f.y - 2 + "px";
+      // snap so the platform's ladder ends exactly on a rung of the main ladder (17.5px rhythm)
+      const pieceTop = Math.round((f.y - 2 + 125) / 17.5) * 17.5 - 125;
+      f.floor.style.top = pieceTop + "px";
+      f.y = pieceTop + 2;
     });
     update();
   };
