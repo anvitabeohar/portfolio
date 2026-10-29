@@ -942,9 +942,6 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .descent__ladder { position: absolute; inset: 0; background: url("../assets/images/game/ladder-tile.webp") repeat-y 2px 0 / 39px 17.5px; }
 /* Floor = Anvita's ladder-through-platform piece, at the same scale as the ladder tile so the rails line up */
 .descent__floor { position: absolute; z-index: 1; left: -26px; width: 95px; height: 125px; background: url("../assets/images/game/ladder-entry.webp") 0 0 / 100% 100%; }
-.descent__block { position: absolute; left: 0; top: -27px; width: 28px; height: 29px; background: url("../assets/images/game/bulb-block.webp") 0 0 / 100% 100%; }
-.descent__block.is-bumped { animation: block-bump .35s var(--ease-standard); }
-@keyframes block-bump { 40% { transform: translateY(-10px); } }
 .descent__bubble {
   position: absolute; left: -4px; top: -62px; padding: 3px 8px; white-space: nowrap;
   font-family: var(--pixel); font-size: 12px; font-weight: 700; background: #fff; border: 2px solid var(--ink); border-radius: 4px;
@@ -1136,10 +1133,6 @@ a.pcard:hover .pcard__media img { transform: scale(1.03); }
   .walker { width: 84px; height: 84px; }
 }
 
-/* Descent toned down: the ladder, shaft and platforms read as background, so the project cards stay the focus.
-   The platform art sits on a pseudo-element so it fades with the ladder while the lightbulb block stays bright. */
-.descent__ladder { opacity: .5; }
-.descent__shaft { opacity: .45; }
-/* a page-coloured strip hides the main ladder behind each platform, so the two faded ladders don't stack */
-.descent__floor { background: linear-gradient(var(--bg), var(--bg)) no-repeat 28px 16px / 39px calc(100% - 16px); }
-.descent__floor::before { content: ""; position: absolute; inset: 0; background: url("../assets/images/game/ladder-entry.webp") 0 0 / 100% 100%; opacity: .5; }
+/* Descent: ladder, shaft and platforms at full strength (dark), on the right-hand side */
+.descent__floor::before { content: ""; position: absolute; inset: 0; background: url("../assets/images/game/ladder-entry.webp") 0 0 / 100% 100%; }
+.descent__floor { background: none; }
