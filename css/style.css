@@ -1125,3 +1125,13 @@ a.wcard:active, a.pcard:active { transform: translateY(-2px) scale(.99); }
 .pcard { position: relative; }
 .pcard__media img { transition: transform var(--dur-slow) var(--ease-standard); }
 a.pcard:hover .pcard__media img { transform: scale(1.03); }
+
+/* Character art from the player sheet (assets/images/player): shown at or below natural size so it stays crisp */
+.bento--players .b-about__img { width: 96px; }
+.bento--players .b-about__img img { height: auto; }
+.walker { width: 110px; height: 110px; }
+.walker img { object-fit: contain; object-position: center bottom; }
+@media (max-width: 760px) {
+  .bento--players .b-about__img { width: 40px; }
+  .walker { width: 84px; height: 84px; }
+}
