@@ -464,8 +464,8 @@ if (povTabs) {
     const img = el("img");
     img.src = src;
     img.alt = "";
-    // climbing frames draw her body shorter (head-to-feet 179 vs 193 px standing), so they're scaled up to match
-    img.addEventListener("load", () => (img.style.width = Math.round(img.naturalWidth * (k.startsWith("climb") ? 0.6 : 0.55)) + "px"));
+    // climbing frames draw her body a little taller (head-to-feet ~205 vs 193 px standing), so they're scaled down to match
+    img.addEventListener("load", () => (img.style.width = Math.round(img.naturalWidth * (k.startsWith("climb") ? 0.52 : 0.55)) + "px"));
     imgs[k] = img;
     char.append(img);
   });
@@ -504,19 +504,16 @@ if (povTabs) {
   descent.append(ground, door, char);
   main.append(descent);
 
-  // A floor at the top of each section after the hero, with a block that
-  // shows a count taken from the page itself (so it never goes stale)
+  // A landing platform at the top of each section after the hero (plain: no blocks or labels)
   const sections = [...main.querySelectorAll(":scope > section")].filter((s) => s !== hero && s !== bonus);
   const floors = sections.map((s) => {
     const floor = el("div", "descent__floor");
-    const block = el("div", "descent__block");
-    floor.append(block); // no text labels: the block bump is enough, and keeps attention on the projects
     descent.append(floor);
-    return { s, floor, block, y: 0 };
+    return { s, floor, y: 0 };
   });
 
 
-  let top = 0, height = 0, charY = null, state = "", landTimer;
+  let top = 0, height = 0, state = "", landTimer;
   const CH = 112;
   const docTop = (n) => n.getBoundingClientRect().top + window.scrollY;
   const layout = () => {
@@ -548,8 +545,6 @@ if (povTabs) {
     // where the character's feet would be, relative to the top of the ladder
     const raw = y - docTop(main) + innerHeight * 0.55 - top;
     const clamped = Math.max(-CH, Math.min(height - CH, raw - CH / 2));
-    const prev = charY;
-    charY = clamped;
     char.style.transform = `translateY(${clamped}px)`;
 
     if (clamped <= -CH) {
@@ -565,18 +560,6 @@ if (povTabs) {
     } else {
       state = "climb";
       show("climb" + (Math.floor(Math.abs(clamped) / 22) % 3));
-    }
-    // passing a floor bumps its block and shows its count
-    if (prev !== null) {
-      const feet = clamped + CH;
-      floors.forEach((f) => {
-        const before = prev + CH < f.y, after = feet >= f.y;
-        if ((before && after) || (!before && !after && prev + CH >= f.y && feet < f.y)) {
-          f.block.classList.remove("is-bumped");
-          void f.block.offsetWidth;
-          f.block.classList.add("is-bumped");
-        }
-      });
     }
   };
 

@@ -422,8 +422,8 @@
     // player
     if (!(P.inv && Math.floor(P.inv * 12) % 2)) {
       const cx = P.x + P.w / 2, foot = P.y + P.h;
-      // same pixel scale for every pose; climbing frames get +9% so her body height matches standing (179 vs 193 px)
-      const ph = (k) => (img[k].naturalHeight || 190) * PSCALE * (k.startsWith("climb") ? 1.09 : 1);
+      // same pixel scale for every pose; climbing frames get -5% so her body height matches standing (~205 vs 193 px)
+      const ph = (k) => (img[k].naturalHeight || 190) * PSCALE * (k.startsWith("climb") ? 0.95 : 1);
       const k = P.climb ? "climb" + (1 + (Math.floor(P.anim * 6) % 3))
         : !P.ground ? "jump"
         : Math.abs(P.vx) > 20 ? "run" + (1 + (Math.floor(P.anim * 10) % 5))
