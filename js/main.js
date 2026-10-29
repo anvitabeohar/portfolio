@@ -432,9 +432,11 @@ if (povTabs) {
   document.body.classList.add("play-mode");
 
   const G = root + "assets/images/game/";
-  const frames = ["climb-1", "climb-2", "climb-3", "climb-4"].map((n) => G + n + ".webp");
+  // Every pose comes from one sprite sheet (assets/images/player) at one scale, so she never changes size or colour
+  const PL = root + "assets/images/player/";
+  const frames = ["climb-1", "climb-2", "climb-3"].map((n) => PL + n + ".webp");
   // Standing uses the game sheet's standing pose so every pose shares one pixel scale
-  const poses = { idle: G + "land.webp", land: G + "land.webp", jump: G + "jump.webp" };
+  const poses = { idle: PL + "front-1.webp", land: PL + "front-1.webp", jump: PL + "jump.webp" };
   const el = (tag, cls, html) => {
     const n = document.createElement(tag);
     if (cls) n.className = cls;
@@ -462,7 +464,7 @@ if (povTabs) {
     const img = el("img");
     img.src = src;
     img.alt = "";
-    img.addEventListener("load", () => (img.style.width = Math.round(img.naturalWidth * 0.62) + "px"));
+    img.addEventListener("load", () => (img.style.width = Math.round(img.naturalWidth * 0.55) + "px"));
     imgs[k] = img;
     char.append(img);
   });
@@ -569,7 +571,7 @@ if (povTabs) {
       }
     } else {
       state = "climb";
-      show("climb" + (Math.floor(Math.abs(clamped) / 22) % 4));
+      show("climb" + (Math.floor(Math.abs(clamped) / 22) % 3));
     }
     // passing a floor bumps its block and shows its count
     if (prev !== null) {

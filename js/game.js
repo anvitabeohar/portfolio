@@ -8,9 +8,10 @@
 
   // ---------------------------------------------------------------- assets
   const SRC = {
-    run1: A + "home/walk1.png", run2: A + "home/walk2.png",
-    stand: A + "game/land.webp", jump: A + "game/jump.webp",
-    climb1: A + "game/climb-1.webp", climb2: A + "game/climb-2.webp", climb3: A + "game/climb-3.webp", climb4: A + "game/climb-4.webp",
+    // Anvita's character: one sheet, one scale (see PSCALE)
+    run1: A + "player/run-1.webp", run2: A + "player/run-2.webp", run3: A + "player/run-3.webp", run4: A + "player/run-4.webp", run5: A + "player/run-5.webp",
+    stand: A + "player/front-1.webp", jump: A + "player/jump.webp",
+    climb1: A + "player/climb-1.webp", climb2: A + "player/climb-2.webp", climb3: A + "player/climb-3.webp",
     sky: A + "game/bg-sky.webp", mountains: A + "game/bg-mountains.webp", bushes: A + "game/bg-bushes.webp",
     grass: A + "game/bg-grass.webp", dirt: A + "game/bg-dirt.webp",
     platform: A + "game/platform-1.webp", block: A + "game/block.webp", bulb: A + "game/bulb-block.webp",
@@ -24,9 +25,9 @@
   };
   const POINTS = { clover: 10, tool: 50, bug: 100 };
   // visible part of each character sprite (the walk frames have padding)
+  const PSCALE = 0.44; // player sheet pixels -> game pixels (run frames ≈ 84px tall)
   const CROP = {
-    run1: [44, 15, 80, 138], run2: [36, 14, 86, 140], stand: [0, 0, 112, 152], jump: [0, 0, 128, 168],
-    climb1: [0, 1, 110, 177], climb2: [0, 0, 110, 176], climb3: [0, 0, 114, 177], climb4: [0, 4, 112, 180],
+    // player frames are already trimmed, so they use the whole image
   };
   const img = {};
   let loading = null;
@@ -335,7 +336,7 @@
   const sprite = (key, cx, foot, h, flip) => {
     const im = img[key];
     if (!im || !im.naturalWidth) return;
-    const [sx, sy, sw, sh] = CROP[key];
+    const [sx, sy, sw, sh] = CROP[key] || [0, 0, im.naturalWidth, im.naturalHeight];
     const w = (sw * h) / sh;
     ctx.save();
     if (flip) {
@@ -421,10 +422,12 @@
     // player
     if (!(P.inv && Math.floor(P.inv * 12) % 2)) {
       const cx = P.x + P.w / 2, foot = P.y + P.h;
-      if (P.climb) sprite("climb" + (1 + (Math.floor(P.anim * 8) % 4)), cx, foot, 86);
-      else if (!P.ground) sprite("jump", cx, foot, 84, P.face < 0);
-      else if (Math.abs(P.vx) > 20) sprite(Math.floor(P.anim * 8) % 2 ? "run2" : "run1", cx, foot + 2, 82, P.face < 0);
-      else sprite("stand", cx, foot, 78);
+      const ph = (k) => (img[k].naturalHeight || 190) * PSCALE; // same pixel scale for every pose
+      const k = P.climb ? "climb" + (1 + (Math.floor(P.anim * 6) % 3))
+        : !P.ground ? "jump"
+        : Math.abs(P.vx) > 20 ? "run" + (1 + (Math.floor(P.anim * 10) % 5))
+        : "stand";
+      sprite(k, cx, foot + 1, ph(k), !P.climb && k !== "stand" && P.face < 0);
     }
     ctx.restore();
 
