@@ -464,8 +464,8 @@ if (povTabs) {
     const img = el("img");
     img.src = src;
     img.alt = "";
-    // climbing frames draw her body shorter (head-to-feet 179 vs 193 px standing), so they're scaled up to match
-    img.addEventListener("load", () => (img.style.width = Math.round(img.naturalWidth * (k.startsWith("climb") ? 0.6 : 0.55)) + "px"));
+    // climbing frames draw her body a little taller (head-to-feet ~205 vs 193 px standing), so they're scaled down to match
+    img.addEventListener("load", () => (img.style.width = Math.round(img.naturalWidth * (k.startsWith("climb") ? 0.52 : 0.55)) + "px"));
     imgs[k] = img;
     char.append(img);
   });
