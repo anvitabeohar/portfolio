@@ -434,8 +434,7 @@ if (povTabs) {
   const G = root + "assets/images/game/";
   const frames = ["climb-1", "climb-2", "climb-3", "climb-4"].map((n) => G + n + ".webp");
   // Standing uses the game sheet's standing pose so every pose shares one pixel scale
-  // idle: the higher-definition front-facing pose, scaled to match the climbing frames' height
-  const poses = { idle: G + "front-1.webp", land: G + "land.webp", jump: G + "jump.webp" };
+  const poses = { idle: G + "land.webp", land: G + "land.webp", jump: G + "jump.webp" };
   const el = (tag, cls, html) => {
     const n = document.createElement(tag);
     if (cls) n.className = cls;
@@ -463,7 +462,7 @@ if (povTabs) {
     const img = el("img");
     img.src = src;
     img.alt = "";
-    img.addEventListener("load", () => (img.style.width = Math.round(img.naturalWidth * (k === "idle" ? 0.45 : 0.62)) + "px"));
+    img.addEventListener("load", () => (img.style.width = Math.round(img.naturalWidth * 0.62) + "px"));
     imgs[k] = img;
     char.append(img);
   });
