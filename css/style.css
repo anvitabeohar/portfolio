@@ -231,8 +231,6 @@ b, strong { font-weight: 600; }
   background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--e1);
   transition: transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard), border-color var(--dur-base);
 }
-a.wcard:hover { transform: translateY(-4px); box-shadow: var(--e3); border-color: #d2d2d7; }
-a.wcard:active { transform: translateY(-2px) scale(.99); }
 .wcard--lead { grid-column: 1 / -1; flex-direction: row; }
 .wcard--lead .wcard__media { flex: 1.35; aspect-ratio: auto; min-height: 380px; }
 .wcard--lead .wcard__body { flex: 1; justify-content: center; padding: var(--s7); }
@@ -678,8 +676,6 @@ a.wcard:hover .wcard__go svg { transform: translateX(4px); }
 /* =========================================================
    Side quests: linked playground cards, branch diagram
    ========================================================= */
-a.pcard { transition: border-color var(--dur-base), transform var(--dur-base) var(--ease-standard); }
-a.pcard:hover { border-color: var(--orange); transform: translateY(-3px); }
 .pcard__go { display: inline-flex; align-items: center; gap: 6px; margin-top: var(--s3); font-size: 15px; font-weight: 600; }
 .pcard__go svg { width: 16px; height: 16px; transition: transform var(--dur-base) var(--ease-standard); }
 a.pcard:hover .pcard__go svg { transform: translateX(4px); }
@@ -1118,3 +1114,14 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 .who,
 .level-complete p { font-size: var(--fs-body); }
 .paintings figcaption { font-size: 14px; }
+
+/* =========================================================
+   One hover for every clickable work card (case studies and side quests):
+   lift, shadow, orange accent border, image zoom, arrow nudge, press
+   ========================================================= */
+a.wcard, a.pcard { transition: transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard), border-color var(--dur-base); }
+a.wcard:hover, a.pcard:hover { transform: translateY(-4px); box-shadow: var(--e3); border-color: var(--orange); }
+a.wcard:active, a.pcard:active { transform: translateY(-2px) scale(.99); }
+.pcard { position: relative; }
+.pcard__media img { transition: transform var(--dur-slow) var(--ease-standard); }
+a.pcard:hover .pcard__media img { transform: scale(1.03); }
