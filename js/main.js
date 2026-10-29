@@ -464,7 +464,8 @@ if (povTabs) {
     const img = el("img");
     img.src = src;
     img.alt = "";
-    img.addEventListener("load", () => (img.style.width = Math.round(img.naturalWidth * 0.55) + "px"));
+    // climbing frames draw her body shorter (head-to-feet 179 vs 193 px standing), so they're scaled up to match
+    img.addEventListener("load", () => (img.style.width = Math.round(img.naturalWidth * (k.startsWith("climb") ? 0.6 : 0.55)) + "px"));
     imgs[k] = img;
     char.append(img);
   });
@@ -506,20 +507,12 @@ if (povTabs) {
   // A floor at the top of each section after the hero, with a block that
   // shows a count taken from the page itself (so it never goes stale)
   const sections = [...main.querySelectorAll(":scope > section")].filter((s) => s !== hero && s !== bonus);
-  const labelFor = (s) => {
-    const n = s.querySelectorAll(".wcard, .pcard").length;
-    if (s.id === "work" && n) return `${n} levels`;
-    if (s.querySelector(".b-player")) return "4 players";
-    if (n) return `${n} side quests`;
-    return "Player 1 found";
-  };
   const floors = sections.map((s) => {
     const floor = el("div", "descent__floor");
     const block = el("div", "descent__block");
-    const bubble = el("span", "descent__bubble", labelFor(s));
-    floor.append(block, bubble);
+    floor.append(block); // no text labels: the block bump is enough, and keeps attention on the projects
     descent.append(floor);
-    return { s, floor, block, bubble, y: 0, passed: false };
+    return { s, floor, block, y: 0 };
   });
 
 
@@ -582,11 +575,6 @@ if (povTabs) {
           f.block.classList.remove("is-bumped");
           void f.block.offsetWidth;
           f.block.classList.add("is-bumped");
-          if (!f.passed) {
-            f.passed = true;
-            f.bubble.classList.add("is-on");
-            setTimeout(() => f.bubble.classList.remove("is-on"), 2200);
-          }
         }
       });
     }
