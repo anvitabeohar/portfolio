@@ -420,15 +420,14 @@ if (povTabs) {
 }
 
 // ---------------------------------------------------------------------------
-// Platformer prototype (Home only, opt-in with ?play): the character climbs
+// Platformer home page: the character climbs
 // down a ladder as the page scrolls. The page scrolls normally; the ladder
 // moves with it while the character stays mid-screen, so she "climbs".
 // ---------------------------------------------------------------------------
 (() => {
   const hero = document.querySelector(".hero");
   const main = document.getElementById("main");
-  const on = new URLSearchParams(location.search).has("play");
-  if (!hero || !main || !on) return;
+  if (!hero || !main) return;
   document.body.classList.add("play-mode");
 
   const G = root + "assets/images/game/";
