@@ -3,7 +3,9 @@
 (() => {
   const ROOT = document.body.dataset.root || "";
   const A = ROOT + "assets/images/";
-  const W = 960, H = 540, GROUND = 460;
+  // H is fixed; the visible width W adapts to the screen (narrower on portrait phones, so she's drawn bigger)
+  let W = 960;
+  const H = 540, GROUND = 460;
   const coarse = window.matchMedia("(pointer: coarse)").matches;
 
   // ---------------------------------------------------------------- assets
@@ -363,7 +365,7 @@
     // zone signs
     ctx.textBaseline = "middle";
     for (const [x, label] of ZONES) {
-      ctx.font = font(15);
+      ctx.font = '600 15px "Inter", system-ui, sans-serif'; // regular font: the pixel font's 2 reads like an 8
       const tw = ctx.measureText(label).width + 20;
       ctx.fillStyle = "#6b4426";
       ctx.fillRect(x + tw / 2 - 4, GROUND - 70, 8, 70);
@@ -551,7 +553,6 @@
     showPanel(`<p class="eyebrow">Bonus level</p><h2>Anvita's career run</h2>
       <p>Run from 2020 to today. Collect tools, jump on bugs to squash them, and bump the lightbulb blocks for clovers and facts from the journey.</p>
       <p class="game__keys">${controlsHelp}</p>
-      <p class="game__rotate">Tip: turn your phone sideways for a bigger view</p>
       <div class="game__actions"><button class="btn btn--primary" data-act="start">Start</button></div>`);
   };
   const start = () => {
@@ -618,6 +619,7 @@
     canvas = dlg.querySelector("canvas");
     ctx = canvas.getContext("2d");
     ctx.imageSmoothingQuality = "high";
+    window.addEventListener("resize", () => dlg.open && fit());
     panel = dlg.querySelector(".game__panel");
     toastEl = dlg.querySelector(".game__toast");
 
@@ -670,6 +672,23 @@
   document.addEventListener("visibilitychange", () => document.hidden && pause());
   window.addEventListener("blur", pause);
 
+  // Fit the game to the space available: keep the height, widen or narrow the view to match the
+  // screen's shape (360-1280 game pixels), then scale the canvas to fill the stage
+  const fit = () => {
+    const stage = canvas.parentElement;
+    const sw = stage.clientWidth, sh = stage.clientHeight;
+    if (!sw || !sh) return;
+    const w = Math.round(Math.max(360, Math.min(1280, (H * sw) / sh)));
+    if (canvas.width !== w) {
+      W = w;
+      canvas.width = W;
+      ctx.imageSmoothingQuality = "high";
+    }
+    const k = Math.min(sw / W, sh / H);
+    canvas.style.width = Math.floor(W * k) + "px";
+    canvas.style.height = Math.floor(H * k) + "px";
+  };
+
   const stop = () => {
     cancelAnimationFrame(raf);
     Object.keys(keys).forEach((k) => (keys[k] = false));
@@ -687,6 +706,7 @@
       reset();
       dlg.showModal();
       document.documentElement.style.overflow = "hidden";
+      fit();
       title();
       last = performance.now();
       cancelAnimationFrame(raf);

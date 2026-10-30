@@ -1064,7 +1064,6 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
 }
 
 /* Game panels on small screens: compact type so the card fits without scrolling */
-.game__rotate { display: none; }
 @media (max-width: 760px), (max-height: 520px) {
   .game__panel { padding: var(--s5) var(--s4); }
   .game__panel h2 { font-size: 22px; line-height: 1.2; margin: var(--s2) 0; }
@@ -1073,9 +1072,6 @@ a.pcard:hover .pcard__go svg { transform: translateX(4px); }
   .game__actions { margin-top: var(--s4); }
   .game__result { gap: var(--s2) var(--s4); padding: var(--s2) var(--s3); margin: var(--s3) auto; }
   .game__party-label { margin-top: var(--s4); }
-}
-@media (orientation: portrait) and (pointer: coarse) {
-  .game__rotate { display: block; margin-top: var(--s3); font-family: var(--pixel); font-size: 13px; color: var(--orange-text) !important; }
 }
 /* Select player, desktop: room for the P-tags, a balanced P1 card, and arrows clear of the text */
 @media (min-width: 761px) {
@@ -1136,3 +1132,16 @@ a.pcard:hover .pcard__media img { transform: scale(1.03); }
 /* Descent: ladder, shaft and platforms at full strength (dark), on the right-hand side */
 .descent__floor::before { content: ""; position: absolute; inset: 0; background: url("../assets/images/game/ladder-entry.webp") 0 0 / 100% 100%; }
 .descent__floor { background: none; }
+
+/* Bonus level on phones: the canvas is sized by js/game.js (fit) to fill the stage */
+.game__stage { overflow: hidden; }
+.game__stage canvas { aspect-ratio: auto; }
+@media (pointer: coarse) {
+  .game { padding: var(--s2); gap: var(--s2); }
+  .game__pad button { width: 72px; height: 72px; font-size: 24px; }
+}
+/* Landscape phones: the touch buttons float over the bottom corners, so the game gets the full height */
+@media (orientation: landscape) and (max-height: 520px) {
+  .game__pad { position: absolute; left: var(--s3); right: var(--s3); bottom: var(--s3); padding: 0; pointer-events: none; }
+  .game__pad button { pointer-events: auto; width: 60px; height: 60px; background: rgba(20, 17, 15, .35); }
+}
